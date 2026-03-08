@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Schedule & Pricing | Red Crown MMA</title><meta name="description" content="Red Crown MMA Academy — Noida premier MMA. BJJ, Muay Thai, Boxing, Wrestling, Kids."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"><style>
+.tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:52px}
+.tier{background:var(--v2);border:1px solid var(--bw);display:flex;flex-direction:column;cursor:none;position:relative;overflow:hidden;transition:border-color .3s}
+.tier:hover,.tier.feat{border-color:rgba(251,54,64,.4)}
+.tier.feat{background:rgba(251,54,64,.04)}
+.tier::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--blood);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.tier:hover::before,.tier.feat::before{transform:scaleX(1)}
+.tier-head{padding:32px 26px 22px;border-bottom:1px solid var(--bw)}
+.tier-best{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--void);background:var(--blood);padding:4px 10px;display:inline-block;margin-bottom:12px}
+.tier-dur{font-family:var(--fm);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--fog);margin-bottom:10px}
+.tier-price{font-family:var(--fd);font-size:clamp(34px,5vw,58px);font-weight:700;color:var(--white);line-height:1}
+.tier-price sub{font-size:.35em;color:var(--blood);vertical-align:super;margin-right:2px}
+.tier-period{font-family:var(--fb);font-size:10px;font-weight:300;color:var(--fog);margin-top:4px}
+.tier-save{font-family:var(--fb);font-size:11px;font-weight:300;color:var(--blood);margin-top:6px}
+.tier-body{padding:22px 26px 26px;flex:1;display:flex;flex-direction:column}
+.tier-list{flex:1;margin-bottom:18px}
+.tier-list li{font-family:var(--fb);font-size:12px;font-weight:300;color:var(--mist);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:10px;align-items:flex-start}
+.tier-list li::before{content:'';min-width:10px;height:1px;background:var(--blood);margin-top:9px;flex-shrink:0}
+.tier-btn{width:100%;padding:13px;cursor:none;font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--void);background:var(--blood);border:none;transition:background .3s}
+.tier-btn:hover{background:var(--white)}
+@media(max-width:900px){.tier-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.tier-grid{grid-template-columns:1fr}}
+</style></head><body><div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div><div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div><div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div><nav id="nav"><div class="n-logo"><div class="lw" id="logo-btn" role="button" tabindex="0"><div class="or1"></div><div class="or2"></div><div class="lsvg"><<img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/><rect x="20" y="44" width="60" height="6" fill="#FB3640"/><ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/><path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/><ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/><ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/><path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/><rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/><circle cx="50" cy="30" r="3" fill="#D4A843"/><circle cx="35" cy="35" r="2" fill="#D4A843"/><circle cx="65" cy="35" r="2" fill="#D4A843"/></svg></div><span class="ltip">◈ RESTRICTED ACCESS</span></div><div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div></div><div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a>
+    <a class="n-lnk" href="programs.html" data-link>Programs</a>
+    <a class="n-lnk" href="coaches.html" data-link>Coaches</a>
+    <a class="n-lnk active" href="schedule.html" data-link>Schedule</a>
+    <a class="n-lnk" href="gallery.html" data-link>Gallery</a>
+    <a class="n-lnk" href="contact.html" data-link>Contact</a>
+    <a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a></div><button class="n-burg" id="burg"><span></span><span></span><span></span></button></nav><div id="mm"><a class="mlnk" href="index.html" data-link>Home</a>
+  <a class="mlnk" href="programs.html" data-link>Programs</a>
+  <a class="mlnk" href="coaches.html" data-link>Coaches</a>
+  <a class="mlnk" href="schedule.html" data-link>Schedule</a>
+  <a class="mlnk" href="gallery.html" data-link>Gallery</a>
+  <a class="mlnk" href="contact.html" data-link>Contact</a>
+  <div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div></div><a id="wa" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wai">💬</span><span class="wal">WhatsApp Us</span></a>
+<main>
+  <div class="pgh">
+    <div class="pghi">
+      <div class="pghtag">Schedule &amp; Pricing</div>
+      <h1 class="pghh">Train When<br>You Hunt.</h1>
+      <p class="pghsub">Six days a week, morning through evening. Every discipline, every level — coached with the same relentless standard.</p>
+    </div>
+    <div class="pggnt">SCHEDULE</div>
+  </div>
+  <div class="pgb">
+    <div class="slbl rv">Weekly Timetable</div>
+    <h2 class="stit rv" style="transition-delay:.08s;font-size:clamp(36px,5vw,62px);margin-bottom:8px">Class <span class="r">Schedule</span></h2>
+    <p class="rv" style="font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--fog);margin-bottom:24px;transition-delay:.12s">*Placeholder — confirm current times directly with the academy</p>
+    <div class="schw rv" style="transition-delay:.16s">
+      <div class="schg">
+        <div class="sgh"></div>
+        <div class="sgh">MON</div><div class="sgh">TUE</div><div class="sgh">WED</div>
+        <div class="sgh">THU</div><div class="sgh">FRI</div><div class="sgh">SAT</div>
+        <!-- 06:00 -->
+        <div class="sgt">06:00</div>
+        <div class="sc bjj"><div class="scn">BJJ</div><div class="scs">Fundamentals</div></div><div class="sc "><div class="scn"></div><div class="scs"></div></div><div class="sc bjj"><div class="scn">BJJ</div><div class="scs">Fundamentals</div></div><div class="sc "><div class="scn"></div><div class="scs"></div></div><div class="sc bjj"><div class="scn">BJJ</div><div class="scs">Open Mat</div></div><div class="sc mt"><div class="scn">Muay Thai</div><div class="scs">All Levels</div></div>
+        <!-- 07:30 -->
+        <div class="sgt">07:30</div>
+        <div class="sc bx"><div class="scn">Boxing</div><div class="scs">Technique</div></div><div class="sc mt"><div class="scn">Muay Thai</div><div class="scs">Beginners</div></div><div class="sc bx"><div class="scn">Boxing</div><div class="scs">Technique</div></div><div class="sc mt"><div class="scn">Muay Thai</div><div class="scs">Beginners</div></div><div class="sc bx"><div class="scn">Boxing</div><div class="scs">Sparring</div></div><div class="sc wr"><div class="scn">Wrestling</div><div class="scs">All Levels</div></div>
+        <!-- 09:00 -->
+        <div class="sgt">09:00</div>
+        <div class="sge"></div><div class="sge"></div><div class="sge"></div><div class="sge"></div><div class="sge"></div>
+        <div class="sc kid"><div class="scn">Kids BJJ</div><div class="scs">Age 7–12</div></div>
+        <!-- 17:00 -->
+        <div class="sgt">17:00</div>
+        <div class="sc kid"><div class="scn">Kids MMA</div><div class="scs">Age 6–14</div></div><div class="sc wr"><div class="scn">Wrestling</div><div class="scs">Technique</div></div><div class="sc kid"><div class="scn">Kids Muay Thai</div><div class="scs">Age 8–14</div></div><div class="sc wr"><div class="scn">Wrestling</div><div class="scs">Technique</div></div><div class="sc kid"><div class="scn">Kids BJJ</div><div class="scs">Age 6–12</div></div><div class="sge"></div>
+        <!-- 18:30 -->
+        <div class="sgt">18:30</div>
+        <div class="sc mt"><div class="scn">Muay Thai</div><div class="scs">Intermediate</div></div><div class="sc bjj"><div class="scn">BJJ</div><div class="scs">Intermediate</div></div><div class="sc mt"><div class="scn">Muay Thai</div><div class="scs">Intermediate</div></div><div class="sc bjj"><div class="scn">BJJ</div><div class="scs">Intermediate</div></div><div class="sc mt"><div class="scn">Muay Thai</div><div class="scs">Advanced</div></div><div class="sge"></div>
+        <!-- 19:30 -->
+        <div class="sgt">19:30</div>
+        <div class="sc sc2"><div class="scn">S&C</div><div class="scs">Combat Fit</div></div><div class="sc sc2"><div class="scn">S&C</div><div class="scs">Combat Fit</div></div><div class="sc sc2"><div class="scn">S&C</div><div class="scs">Combat Fit</div></div><div class="sc sc2"><div class="scn">S&C</div><div class="scs">Combat Fit</div></div><div class="sge"></div><div class="sge"></div>
+        <!-- 20:30 -->
+        <div class="sgt">20:30</div>
+        <div class="sc mma"><div class="scn">MMA</div><div class="scs">Advanced</div></div><div class="sc bx"><div class="scn">Boxing</div><div class="scs">Advanced</div></div><div class="sc mma"><div class="scn">MMA</div><div class="scs">Sparring</div></div><div class="sc bx"><div class="scn">Boxing</div><div class="scs">Advanced</div></div><div class="sc mma"><div class="scn">MMA</div><div class="scs">Fight Team</div></div><div class="sge"></div>
+      </div>
+      <div class="sleg">
+        <div class="lg"><div class="lgd" style="background:#3B82F6"></div><span class="lgl">BJJ</span></div>
+        <div class="lg"><div class="lgd" style="background:#FB3640"></div><span class="lgl">Muay Thai</span></div>
+        <div class="lg"><div class="lgd" style="background:#D4A843"></div><span class="lgl">Boxing</span></div>
+        <div class="lg"><div class="lgd" style="background:#00B478"></div><span class="lgl">Wrestling</span></div>
+        <div class="lg"><div class="lgd" style="background:#A000DC"></div><span class="lgl">MMA</span></div>
+        <div class="lg"><div class="lgd" style="background:#FF8C00"></div><span class="lgl">S&amp;C</span></div>
+        <div class="lg"><div class="lgd" style="background:#EC4899"></div><span class="lgl">Kids</span></div>
+      </div>
+    </div>
+    <!-- PRICING -->
+    <div style="margin-top:80px;padding-top:60px;border-top:1px solid var(--bw)">
+      <div class="slbl rv">Membership</div>
+      <h2 class="stit rv" style="font-size:clamp(36px,5vw,62px);transition-delay:.08s">Choose Your <span class="r">Commitment.</span></h2>
+      <p class="rv" style="font-family:var(--fb);font-size:15px;font-weight:300;color:var(--mist);max-width:500px;line-height:1.85;margin-top:10px;transition-delay:.14s">All memberships include access to all classes for your level. No hidden fees. First session always free. Pause up to 30 days/year.</p>
+      <div class="tier-grid">
+        <article class="tier rv" style="transition-delay:.1s">
+          <div class="tier-head"><div style="height:22px"></div><div class="tier-dur">Monthly</div><div class="tier-price"><sub>₹</sub>4,500</div><div class="tier-period">billed monthly</div></div>
+          <div class="tier-body"><ul class="tier-list"><li>All discipline classes</li><li>Free RedCrown student shirt</li><li>30-day pause option</li><li>Academy app access</li></ul><button class="tier-btn" onclick="location.href='contact.html'">Join Now</button></div>
+        </article>
+        <article class="tier rv" style="transition-delay:.18s">
+          <div class="tier-head"><div style="height:22px"></div><div class="tier-dur">Quarterly</div><div class="tier-price"><sub>₹</sub>X,XXX</div><div class="tier-period">per month · billed quarterly</div><div class="tier-save">Save X% vs monthly</div></div>
+          <div class="tier-body"><ul class="tier-list"><li>All discipline classes</li><li>Locker room access</li><li>30-day pause option</li><li>Priority class booking</li><li>Academy app access</li></ul><button class="tier-btn" onclick="location.href='contact.html'">Join Now</button></div>
+        </article>
+        <article class="tier feat rv" style="transition-delay:.26s">
+          <div class="tier-head"><div class="tier-best">Best Value</div><div class="tier-dur">Half-Yearly</div><div class="tier-price"><sub>₹</sub>X,XXX</div><div class="tier-period">per month · billed 6-monthly</div><div class="tier-save">Save X% vs monthly</div></div>
+          <div class="tier-body"><ul class="tier-list"><li>All discipline classes</li><li>Locker room access</li><li>30-day pause option</li><li>Priority class booking</li><li>1 nutrition consultation</li><li>Academy app access</li></ul><button class="tier-btn" onclick="location.href='contact.html'">Join Now</button></div>
+        </article>
+        <article class="tier rv" style="transition-delay:.34s">
+          <div class="tier-head"><div style="height:22px"></div><div class="tier-dur">Annual</div><div class="tier-price"><sub>₹</sub>X,XXX</div><div class="tier-period">per month · billed yearly</div><div class="tier-save">Save X% vs monthly</div></div>
+          <div class="tier-body"><ul class="tier-list"><li>All discipline classes</li><li>Locker room access</li><li>30-day pause option</li><li>Priority class booking</li><li>Nutrition consultations</li><li>Red Crown gear pack</li><li>Fight team pathway</li></ul><button class="tier-btn" onclick="location.href='contact.html'">Join Now</button></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</main><footer><div class="fi"><div class="fb"><div class="fls"><<img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><rect x="20" y="44" width="60" height="6" fill="#FB3640"/><ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/><path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/><ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/><ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/><path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/><rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/><circle cx="50" cy="30" r="3" fill="#D4A843"/><circle cx="35" cy="35" r="2" fill="#D4A843"/><circle cx="65" cy="35" r="2" fill="#D4A843"/></svg></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div><div class="flinks"><a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="contact.html" data-link>Contact</a></div><div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, UP · redcrownmma.in</div></div></footer><script src="js/main.js"></script></body></html>

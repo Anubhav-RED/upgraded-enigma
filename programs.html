@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Training Programs | Red Crown MMA</title>
+<meta name="description" content="Red Crown MMA Academy — Noida premier MMA. BJJ, Muay Thai, Boxing, Wrestling, Kids. Free trial.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.pcards{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:52px}
+.pcard{background:var(--v2);border:1px solid var(--bw);overflow:hidden;cursor:none;transition:border-color .3s;position:relative}
+.pcard:hover{border-color:var(--border)}
+.pcard-bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--blood);transform:scaleX(0);transform-origin:left;transition:transform .45s;z-index:2}
+.pcard:hover .pcard-bar{transform:scaleX(1)}
+.pphoto{aspect-ratio:16/7;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.pphoto::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(251,54,64,.05),transparent 55%)}
+.pphoto-ov{position:absolute;inset:0;background:rgba(251,54,64,.88);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .35s;z-index:2}
+.pphoto-ov span{font-family:var(--fd);font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--void)}
+.pcard:hover .pphoto-ov{opacity:1}
+.pbody{padding:36px 40px 40px}
+.ptag{font-family:var(--fm);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--blood);margin-bottom:10px}
+.pname{font-family:var(--fd);font-size:clamp(28px,4vw,46px);font-weight:700;color:var(--white);margin-bottom:12px;line-height:.95;transition:color .3s}
+.pcard:hover .pname{color:var(--blood)}
+.pdesc{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.85;margin-bottom:20px}
+.pfeats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.pfeat{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mist);border:1px solid rgba(143,170,160,.2);padding:4px 12px}
+.pideal{font-family:var(--fb);font-size:12px;font-weight:300;font-style:italic;color:var(--fog);border-left:2px solid var(--blood);padding-left:14px;margin-bottom:20px}
+.pcard.wide{grid-column:span 2}
+.pcard.wide .pphoto{aspect-ratio:32/7}
+.sc-row{display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:900px){.pcards{grid-template-columns:1fr}.pcard.wide{grid-column:span 1}.pcard.wide .pphoto{aspect-ratio:16/7}.sc-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="cr" aria-hidden="true">
+  <svg viewBox="0 0 36 36" fill="none">
+    <circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/>
+    <line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/>
+    <line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/>
+    <line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/>
+    <line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/>
+    <circle cx="18" cy="18" r="2" fill="#FB3640"/>
+  </svg>
+</div>
+<div id="cd" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
+<div id="scanline" aria-hidden="true"></div>
+<div id="wipe" aria-hidden="true"></div>
+<div id="fts">
+  <div class="fts-sl"></div>
+  <div class="fts-box">
+    <div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div>
+    <div id="fts-t"><span class="ftc"></span></div>
+    <div class="fts-bw"><div class="fts-b" id="fts-b"></div></div>
+    <div class="fts-s" id="fts-s">INITIATING...</div>
+  </div>
+</div>
+<nav id="nav">
+  <div class="n-logo">
+    <div class="lw" id="logo-btn" role="button" tabindex="0">
+      <div class="or1"></div><div class="or2"></div>
+      <div class="lsvg"><<img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
+  <path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/>
+  <rect x="20" y="44" width="60" height="6" fill="#FB3640"/>
+  <ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/>
+  <path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/>
+  <ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/>
+  <ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/>
+  <path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/>
+  <rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <circle cx="50" cy="30" r="3" fill="#D4A843"/>
+  <circle cx="35" cy="35" r="2" fill="#D4A843"/>
+  <circle cx="65" cy="35" r="2" fill="#D4A843"/>
+</svg></div>
+      <span class="ltip">◈ RESTRICTED ACCESS</span>
+    </div>
+    <div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div>
+  </div>
+  <div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a>
+    <a class="n-lnk active" href="programs.html" data-link>Programs</a>
+    <a class="n-lnk" href="coaches.html" data-link>Coaches</a>
+    <a class="n-lnk" href="schedule.html" data-link>Schedule</a>
+    <a class="n-lnk" href="gallery.html" data-link>Gallery</a>
+    <a class="n-lnk" href="contact.html" data-link>Contact</a>
+    <a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a></div>
+  <button class="n-burg" id="burg"><span></span><span></span><span></span></button>
+</nav>
+<div id="mm"><a class="mlnk" href="index.html" data-link>Home</a>
+  <a class="mlnk" href="programs.html" data-link>Programs</a>
+  <a class="mlnk" href="coaches.html" data-link>Coaches</a>
+  <a class="mlnk" href="schedule.html" data-link>Schedule</a>
+  <a class="mlnk" href="gallery.html" data-link>Gallery</a>
+  <a class="mlnk" href="contact.html" data-link>Contact</a>
+  <div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div></div>
+<a id="wa" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <span class="wai">💬</span><span class="wal">WhatsApp Us</span>
+</a>
+
+<main>
+  <div class="pgh">
+    <div class="pghi">
+      <div class="pghtag">Training Programs</div>
+      <h1 class="pghh">Five Disciplines.<br>One Roof.</h1>
+      <p class="pghsub">Elite instruction across every major combat art — from first session to first competition. No shortcuts.</p>
+    </div>
+    <div class="pggnt">FORGE</div>
+  </div>
+  <div class="pgb">
+    <div class="pcards">
+      <article class="pcard  rv" style="transition-delay:0.1s">
+  <div class="pcard-bar"></div>
+  <div class="pphoto phb">
+    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
+    <p class="phl">BJJ Rolling Session · Mat-level angle · Submission attempt</p>
+    <div class="pphoto-ov"><span>Brazilian Jiu-Jitsu</span></div>
+  </div>
+  <div class="pbody">
+    <div class="ptag">Grappling · Ground Control · Submissions</div>
+    <h2 class="pname">Brazilian Jiu-Jitsu</h2>
+    <p class="pdesc">The intellectual backbone of modern MMA. BJJ teaches positional dominance, leverage, and the art of submitting opponents through technique alone — regardless of size or strength.</p>
+    <div class="pfeats"><span class="pfeat">Guard Passing</span><span class="pfeat">Submissions</span><span class="pfeat">Positional Control</span><span class="pfeat">Belt Progression</span><span class="pfeat">Competition</span></div>
+    <p class="pideal">Ideal for: complete beginners, self-defence, BJJ competition, and MMA integration at all levels.</p>
+    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+  </div>
+</article>
+      <article class="pcard  rv" style="transition-delay:0.16s">
+  <div class="pcard-bar"></div>
+  <div class="pphoto phb">
+    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
+    <p class="phl">Muay Thai Pad Work · Knee strike · High intensity</p>
+    <div class="pphoto-ov"><span>Muay Thai</span></div>
+  </div>
+  <div class="pbody">
+    <div class="ptag">Eight Limbs · Clinch · Power</div>
+    <h2 class="pname">Muay Thai</h2>
+    <p class="pdesc">The art of eight limbs — punches, elbows, knees, kicks and devastating clinch control. The world's most complete stand-up striking system and cornerstone of professional MMA.</p>
+    <div class="pfeats"><span class="pfeat">Punching</span><span class="pfeat">Elbows</span><span class="pfeat">Knees</span><span class="pfeat">Kicks</span><span class="pfeat">Clinch</span><span class="pfeat">Pad Work</span></div>
+    <p class="pideal">Ideal for: all levels — from fitness-focused beginners to serious competitors preparing for sanctioned bouts.</p>
+    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+  </div>
+</article>
+      <article class="pcard  rv" style="transition-delay:0.22s">
+  <div class="pcard-bar"></div>
+  <div class="pphoto phb">
+    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
+    <p class="phl">Boxing Bag Work · Impact shot · Dramatic rim lighting</p>
+    <div class="pphoto-ov"><span>Boxing</span></div>
+  </div>
+  <div class="pbody">
+    <div class="ptag">Precision · Footwork · Defence</div>
+    <h2 class="pname">Boxing</h2>
+    <p class="pdesc">The sweet science. Refined combination punching, elite footwork, and defensive head movement. Boxing sharpens every striking discipline and builds the precision that wins fights.</p>
+    <div class="pfeats"><span class="pfeat">Combinations</span><span class="pfeat">Footwork</span><span class="pfeat">Head Movement</span><span class="pfeat">Sparring</span><span class="pfeat">Bag Work</span></div>
+    <p class="pideal">Ideal for: fitness, self-defence, competition boxing, and as the foundation for the MMA striking program.</p>
+    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+  </div>
+</article>
+      <article class="pcard  rv" style="transition-delay:0.28s">
+  <div class="pcard-bar"></div>
+  <div class="pphoto phb">
+    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
+    <p class="phl">Wrestling Takedown · Low angle · Explosive action</p>
+    <div class="pphoto-ov"><span>Wrestling & Grappling</span></div>
+  </div>
+  <div class="pbody">
+    <div class="ptag">Takedowns · Clinch · Mat Control</div>
+    <h2 class="pname">Wrestling & Grappling</h2>
+    <p class="pdesc">Control who stands and who hits the ground. Freestyle takedowns, Greco clinch, and mat pressure — wrestling is the single most decisive skillset in modern MMA.</p>
+    <div class="pfeats"><span class="pfeat">Freestyle</span><span class="pfeat">Greco-Roman</span><span class="pfeat">Takedowns</span><span class="pfeat">Cage Work</span><span class="pfeat">Mat Control</span></div>
+    <p class="pideal">Ideal for: serious MMA athletes and anyone wanting to control where the fight takes place.</p>
+    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+  </div>
+</article>
+      <article class="pcard wide rv" style="transition-delay:0.34s">
+  <div class="pcard-bar"></div>
+  <div class="pphoto phb">
+    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
+    <p class="phl">Kids Program · Safe structured environment · Fun class</p>
+    <div class="pphoto-ov"><span>Kids & Juniors</span></div>
+  </div>
+  <div class="pbody">
+    <div class="ptag">Ages 6–14 · BJJ · Muay Thai · MMA Fundamentals</div>
+    <h2 class="pname">Kids & Juniors</h2>
+    <p class="pdesc">Safe, structured, and character-building. Red Crown's kids program develops discipline, coordination, confidence and respect — all in a controlled, coach-supervised environment.</p>
+    <div class="pfeats"><span class="pfeat">Ages 6–14</span><span class="pfeat">BJJ Basics</span><span class="pfeat">Muay Thai Basics</span><span class="pfeat">Anti-Bullying</span><span class="pfeat">Belt Progression</span><span class="pfeat">Zero contact until ready</span></div>
+    <p class="pideal">Zero contact sparring until age-appropriate readiness is confirmed by coaches and parents together.</p>
+    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+  </div>
+</article>
+    </div>
+    <!-- S&C -->
+    <div class="rv" style="transition-delay:.4s;margin-top:3px">
+      <article class="pcard">
+        <div class="pcard-bar"></div>
+        <div class="sc-row">
+          <div class="pphoto phb" style="min-height:280px"><svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">S&amp;C Session · Combat Athlete</p><div class="pphoto-ov"><span>S&amp;C Training</span></div></div>
+          <div class="pbody">
+            <div class="ptag">Combat Athlete Development</div>
+            <h2 class="pname">Strength &amp;<br>Conditioning</h2>
+            <p class="pdesc">Purpose-built for combat sports. Periodised programming that develops explosive power, maximal strength, endurance, and injury resilience — designed specifically for MMA training and competition.</p>
+            <div class="pfeats"><span class="pfeat">Periodised Programming</span><span class="pfeat">Explosive Power</span><span class="pfeat">Combat Conditioning</span><span class="pfeat">Injury Prevention</span></div>
+            <a class="bo" href="contact.html" data-link>Enquire →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="fi">
+    <div class="fb"><div class="fls"><<img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
+  <path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/>
+  <rect x="20" y="44" width="60" height="6" fill="#FB3640"/>
+  <ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/>
+  <path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/>
+  <ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/>
+  <ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/>
+  <path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/>
+  <rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <circle cx="50" cy="30" r="3" fill="#D4A843"/>
+  <circle cx="35" cy="35" r="2" fill="#D4A843"/>
+  <circle cx="65" cy="35" r="2" fill="#D4A843"/>
+</svg></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div>
+    <div class="flinks">
+      <a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="contact.html" data-link>Contact</a>
+    </div>
+    <div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
