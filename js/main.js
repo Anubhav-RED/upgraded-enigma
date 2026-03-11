@@ -189,7 +189,7 @@ if(FORM){
             We'll confirm your free trial within <strong style="color:var(--white)">24 hours</strong>.<br>
             For faster response, message us directly on WhatsApp.
           </p>
-          <a href="https://wa.me/919910604536" target="_blank" rel="noopener"
+          <a href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener"
             style="display:inline-flex;align-items:center;gap:10px;background:#25D366;padding:13px 28px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#064E3B;text-decoration:none">
             💬 <span>WhatsApp Us Now</span>
           </a>
@@ -205,7 +205,7 @@ if(FORM){
           <p style="font-family:var(--fd);font-size:15px;font-weight:700;color:var(--white);margin-bottom:3px">Submission failed — please try again.</p>
           <p style="font-family:var(--fb);font-size:12px;font-weight:300;color:var(--mist)">Check your connection, or reach us directly on WhatsApp.</p>
         </div>
-        <a href="https://wa.me/919910604536" target="_blank" rel="noopener"
+        <a href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener"
           style="flex-shrink:0;display:inline-flex;align-items:center;gap:8px;background:#25D366;padding:10px 18px;font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#064E3B;text-decoration:none">
           💬 WhatsApp
         </a>`;
