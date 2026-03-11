@@ -133,14 +133,93 @@ if(LB){
 }
 
 /* ── FORM DEMO ── */
-const FORM=document.getElementById('trial-form');
+const FORM = document.getElementById('trial-form');
 if(FORM){
-  FORM.addEventListener('submit',e=>{
+  FORM.addEventListener('submit', async e => {
     e.preventDefault();
-    const btn=FORM.querySelector('.fsub');
-    btn.textContent='◆ SUBMITTED — WE\'LL BE IN TOUCH';
-    btn.style.background='#16a34a';
-    setTimeout(()=>{btn.textContent='BOOK FREE TRIAL →';btn.style.background='';FORM.reset();},4200);
+    const btn = FORM.querySelector('.fsub');
+    const original = btn.textContent;
+
+    // Show sending state
+    btn.textContent = '◆ SENDING...';
+    btn.style.opacity = '.7';
+    btn.disabled = true;
+
+    const data = {
+      name:    FORM.querySelector('#cf-name').value,
+      phone:   FORM.querySelector('#cf-phone').value,
+      email:   FORM.querySelector('#cf-email').value,
+      program: FORM.querySelector('#cf-prog').value,
+      level:   FORM.querySelector('#cf-lvl').value,
+      message: FORM.querySelector('#cf-msg').value
+    };
+
+    // Set a timeout — if fetch hangs over 8s, treat as failed
+    const timeout = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('timeout')), 8000)
+    );
+
+    try {
+      await Promise.race([
+        fetch('https://script.google.com/macros/s/AKfycbwo-ZIlRgaGTZkaAFgLYCaVZUBtXixZMmDI7RwhKYS_4r_4EhFBvoc7Hac2-duvzg7A/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }),
+        timeout
+      ]);
+
+      // Fetch resolved = request reached Google's servers
+      showSuccess();
+      FORM.reset();
+
+    } catch(err) {
+      // Network failure or timeout
+      showError();
+    }
+
+    function showSuccess() {
+      // Replace form with a confirmation card
+      FORM.innerHTML = `
+        <div style="text-align:center;padding:48px 24px;border:1px solid rgba(22,163,74,.25);background:rgba(22,163,74,.06)">
+          <div style="font-family:var(--fm);font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#16a34a;margin-bottom:16px">◆ Request Received</div>
+          <p style="font-family:var(--fd);font-size:32px;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1">You're on the list.</p>
+          <p style="font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.8;margin-bottom:28px">
+            We'll confirm your free trial within <strong style="color:var(--white)">24 hours</strong>.<br>
+            For faster response, message us directly on WhatsApp.
+          </p>
+          <a href="https://wa.me/919910604536" target="_blank" rel="noopener"
+            style="display:inline-flex;align-items:center;gap:10px;background:#25D366;padding:13px 28px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#064E3B;text-decoration:none">
+            💬 <span>WhatsApp Us Now</span>
+          </a>
+        </div>`;
+    }
+
+    function showError() {
+      // Keep form intact, show error banner above it
+      const banner = document.createElement('div');
+      banner.style.cssText = 'padding:16px 20px;background:rgba(127,29,29,.4);border:1px solid rgba(251,54,64,.3);margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap';
+      banner.innerHTML = `
+        <div>
+          <p style="font-family:var(--fd);font-size:15px;font-weight:700;color:var(--white);margin-bottom:3px">Submission failed — please try again.</p>
+          <p style="font-family:var(--fb);font-size:12px;font-weight:300;color:var(--mist)">Check your connection, or reach us directly on WhatsApp.</p>
+        </div>
+        <a href="https://wa.me/919910604536" target="_blank" rel="noopener"
+          style="flex-shrink:0;display:inline-flex;align-items:center;gap:8px;background:#25D366;padding:10px 18px;font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#064E3B;text-decoration:none">
+          💬 WhatsApp
+        </a>`;
+      FORM.insertBefore(banner, FORM.firstChild);
+
+      // Reset button
+      btn.textContent = original;
+      btn.style.opacity = '1';
+      btn.style.background = '';
+      btn.disabled = false;
+
+      // Auto-dismiss banner after 8s
+      setTimeout(() => banner.remove(), 8000);
+    }
   });
 }
 
