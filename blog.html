@@ -11,175 +11,202 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 /* ── BLOG HERO ── */
-.bh{min-height:55vh;display:flex;align-items:center;background:var(--void);position:relative;overflow:hidden;padding-top:90px}
-.bh::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 72px,rgba(251,54,64,.018) 72px,rgba(251,54,64,.018) 73px)}
-.bh::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 72px,rgba(251,54,64,.012) 72px,rgba(251,54,64,.012) 73px)}
-.bh-in{max-width:1280px;margin:0 auto;padding:60px 56px;position:relative;z-index:1;width:100%}
-.bh-wm{position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:var(--fd);font-size:clamp(80px,16vw,220px);font-weight:700;color:rgba(251,54,64,.04);line-height:1;pointer-events:none;letter-spacing:-6px;user-select:none}
-/* ── FILTER STRIP ── */
-.bf-strip{background:var(--v2);border-top:1px solid var(--bw);border-bottom:1px solid var(--bw);padding:0;position:sticky;top:90px;z-index:10}
-.bf-in{max-width:1280px;margin:0 auto;padding:0 56px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
-.bf-in::-webkit-scrollbar{display:none}
-.bf-btn{font-family:var(--fm);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--fog);padding:16px 22px;cursor:pointer;background:none;border:none;border-bottom:2px solid transparent;white-space:nowrap;transition:all .25s}
-.bf-btn:hover{color:var(--blood)}
-.bf-btn.on{color:var(--blood);border-bottom-color:var(--blood)}
-/* ── GRID ── */
-.bg-wrap{max-width:1280px;margin:0 auto;padding:3px 56px 100px}
-.bg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-/* ── CARD ── */
-.bc{background:var(--v2);border:1px solid var(--bw);overflow:hidden;display:flex;flex-direction:column;position:relative;transition:border-color .3s}
+.blg-hero{padding:140px 0 60px;background:var(--void);position:relative;overflow:hidden}
+.blg-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(251,54,64,.018) 80px,rgba(251,54,64,.018) 81px)}
+.blg-hero::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(251,54,64,.012) 80px,rgba(251,54,64,.012) 81px)}
+.blg-in{max-width:1280px;margin:0 auto;padding:0 56px}
+/* ── CATEGORY FILTER ── */
+.blg-cats{display:flex;gap:6px;flex-wrap:wrap;margin:36px 0 0}
+.bc-btn{font-family:var(--fm);font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--fog);border:1px solid var(--bw);padding:6px 16px;cursor:pointer;background:none;transition:all .25s}
+.bc-btn:hover,.bc-btn.on{color:var(--blood);border-color:rgba(251,54,64,.4);background:rgba(251,54,64,.05)}
+/* ── BLOG GRID ── */
+.blg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:3px}
+.bc{background:var(--v2);border:1px solid var(--bw);overflow:hidden;transition:border-color .3s;position:relative;display:flex;flex-direction:column}
 .bc:hover{border-color:var(--border)}
-.bc-bar{position:absolute;top:0;left:0;right:0;height:2px;background:var(--blood);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.bc-bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--blood);transform:scaleX(0);transform-origin:left;transition:transform .45s}
 .bc:hover .bc-bar{transform:scaleX(1)}
 .bc-img{aspect-ratio:16/9;background:var(--v3);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.bc-img-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.bc-img-ph svg{position:absolute;inset:0;width:100%;height:100%}
+.bc-img svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .bc-img-lbl{font-family:var(--fm);font-size:8px;letter-spacing:3px;color:var(--fog);position:relative;z-index:1;text-align:center;padding:8px}
 .bc-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.bc-body{padding:26px 28px 28px;flex:1;display:flex;flex-direction:column}
-.bc-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.bc-body{padding:26px 30px 30px;flex:1;display:flex;flex-direction:column}
+.bc-meta{display:flex;align-items:center;gap:14px;margin-bottom:12px;flex-wrap:wrap}
 .bc-cat{font-family:var(--fm);font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--blood);border:1px solid rgba(251,54,64,.3);padding:3px 10px}
 .bc-date{font-family:var(--fm);font-size:8px;letter-spacing:2px;color:var(--fog)}
-.bc-title{font-family:var(--fd);font-size:clamp(18px,2vw,24px);font-weight:700;color:var(--white);line-height:1.08;margin-bottom:10px;transition:color .25s}
+.bc-title{font-family:var(--fd);font-size:clamp(18px,2.2vw,24px);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:10px;transition:color .25s;text-decoration:none;display:block}
 .bc:hover .bc-title{color:var(--blood)}
 .bc-exc{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.8;flex:1;margin-bottom:18px}
-.bc-read{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--blood);display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:gap .25s;margin-top:auto}
+.bc-read{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--blood);text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:gap .25s;margin-top:auto}
 .bc:hover .bc-read{gap:14px}
-/* ── FEATURED (full width 3-col span) ── */
+/* ── FEATURED (spans 3 cols) ── */
 .bc-feat{grid-column:span 3;display:grid;grid-template-columns:1fr 1fr;gap:0}
-.bc-feat .bc-img{aspect-ratio:auto;min-height:380px}
+.bc-feat .bc-img{aspect-ratio:auto;min-height:360px}
 .bc-feat .bc-body{padding:52px}
-.bc-feat .bc-title{font-size:clamp(22px,3.5vw,44px);margin-bottom:18px}
+.bc-feat .bc-title{font-size:clamp(24px,3.5vw,42px);margin-bottom:16px}
 .bc-feat .bc-exc{font-size:15px;line-height:1.85}
 /* ── RESPONSIVE ── */
-@media(max-width:1024px){.bg{grid-template-columns:1fr 1fr}.bc-feat{grid-column:span 2}.bc-feat .bc-img{min-height:260px}.bh-in,.bg-wrap{padding-left:28px;padding-right:28px}.bf-in{padding:0 28px}}
-@media(max-width:640px){.bg{grid-template-columns:1fr}.bc-feat{grid-column:span 1;grid-template-columns:1fr}.bc-feat .bc-img{min-height:200px}}
+@media(max-width:1024px){.blg-grid{grid-template-columns:1fr 1fr}.bc-feat{grid-column:span 2}.bc-feat .bc-img{min-height:260px}}
+@media(max-width:640px){.blg-grid{grid-template-columns:1fr}.bc-feat{grid-column:span 1;grid-template-columns:1fr}.blg-in{padding:0 20px}.bc-feat .bc-img{min-height:200px}}
 </style>
 </head>
 <body>
 <div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div>
 <div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div>
 <div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div>
-<nav id="nav"><div class="n-logo"><div class="lw" id="logo-btn" role="button" tabindex="0"><div class="or1"></div><div class="or2"></div><div class="lsvg"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><span class="ltip">◈ RESTRICTED ACCESS</span></div><div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div></div><div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a><a class="n-lnk" href="programs.html" data-link>Programs</a><a class="n-lnk" href="coaches.html" data-link>Coaches</a><a class="n-lnk" href="schedule.html" data-link>Schedule</a><a class="n-lnk" href="gallery.html" data-link>Gallery</a><a class="n-lnk active" href="blog.html" data-link>Blog</a><a class="n-lnk" href="contact.html" data-link>Contact</a><a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a></div><button class="n-burg" id="burg"><span></span><span></span><span></span></button></nav>
-<div id="mm"><a class="mlnk" href="index.html" data-link>Home</a><a class="mlnk" href="programs.html" data-link>Programs</a><a class="mlnk" href="coaches.html" data-link>Coaches</a><a class="mlnk" href="schedule.html" data-link>Schedule</a><a class="mlnk" href="gallery.html" data-link>Gallery</a><a class="mlnk active" href="blog.html" data-link>Blog</a><a class="mlnk" href="contact.html" data-link>Contact</a><div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div></div>
+<nav id="nav">
+  <div class="n-logo">
+    <div class="lw" id="logo-btn" role="button" tabindex="0">
+      <div class="or1"></div><div class="or2"></div>
+      <div class="lsvg"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
+      <span class="ltip">◈ RESTRICTED ACCESS</span>
+    </div>
+    <div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div>
+  </div>
+  <div class="n-links">
+    <a class="n-lnk" href="index.html" data-link>Home</a>
+    <a class="n-lnk" href="programs.html" data-link>Programs</a>
+    <a class="n-lnk" href="coaches.html" data-link>Coaches</a>
+    <a class="n-lnk" href="schedule.html" data-link>Schedule</a>
+    <a class="n-lnk" href="gallery.html" data-link>Gallery</a>
+    <a class="n-lnk active" href="blog.html" data-link>Blog</a>
+    <a class="n-lnk" href="contact.html" data-link>Contact</a>
+    <a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a>
+  </div>
+  <button class="n-burg" id="burg"><span></span><span></span><span></span></button>
+</nav>
+<div id="mm">
+  <a class="mlnk" href="index.html" data-link>Home</a>
+  <a class="mlnk" href="programs.html" data-link>Programs</a>
+  <a class="mlnk" href="coaches.html" data-link>Coaches</a>
+  <a class="mlnk" href="schedule.html" data-link>Schedule</a>
+  <a class="mlnk" href="gallery.html" data-link>Gallery</a>
+  <a class="mlnk active" href="blog.html" data-link>Blog</a>
+  <a class="mlnk" href="contact.html" data-link>Contact</a>
+  <div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div>
+</div>
 <a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wai">💬</span><span class="wal">WhatsApp Us</span></a>
 
 <main>
-<!-- ── HERO ── -->
-<div class="bh">
-  <div class="bh-in">
-    <div style="font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:14px;display:flex;align-items:center;gap:14px"><span style="display:block;width:32px;height:1px;background:var(--blood)"></span>Knowledge Base</div>
-    <h1 style="font-family:var(--fd);font-size:clamp(64px,11vw,148px);font-weight:700;line-height:.82;letter-spacing:-3px;color:var(--white);margin-bottom:18px">Train Smart.<br><span style="color:var(--blood)">Fight Better.</span></h1>
-    <p style="font-family:var(--fb);font-size:clamp(15px,1.8vw,19px);font-weight:300;color:var(--mist);max-width:540px;line-height:1.85">Technique breakdowns, training tips, fight analysis and news from the Red Crown coaching team.</p>
-  </div>
-  <div class="bh-wm">INTEL</div>
-</div>
-
-<!-- ── FILTER ── -->
-<div class="bf-strip">
-  <div class="bf-in">
-    <button class="bf-btn on" onclick="filterBlog('all',this)">All Posts</button>
-    <button class="bf-btn" onclick="filterBlog('technique',this)">Technique</button>
-    <button class="bf-btn" onclick="filterBlog('nutrition',this)">Nutrition</button>
-    <button class="bf-btn" onclick="filterBlog('mindset',this)">Mindset</button>
-    <button class="bf-btn" onclick="filterBlog('news',this)">Academy News</button>
-  </div>
-</div>
-
-<!-- ── GRID ── -->
-<div class="bg-wrap">
-<div class="bg" id="blog-grid">
-
-  <!-- FEATURED -->
-  <article class="bc bc-feat rv" data-cat="technique">
-    <div class="bc-bar"></div>
-    <div class="bc-img">
-      <div class="bc-img-ph">
-        <svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".8"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".8"/><circle cx="100" cy="60" r="45" fill="none" stroke="#FB3640" stroke-opacity=".12" stroke-width=".9"/><circle cx="100" cy="60" r="20" fill="none" stroke="#FB3640" stroke-opacity=".18" stroke-width=".9"/></svg>
-        <span class="bc-img-lbl">Featured · Add cover image: &lt;img src="blog/your-image.jpg"&gt;</span>
+  <div class="blg-hero">
+    <div class="blg-in">
+      <div style="font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:14px;display:flex;align-items:center;gap:12px"><span style="display:inline-block;width:28px;height:1px;background:var(--blood)"></span>Knowledge Base</div>
+      <h1 style="font-family:var(--fd);font-size:clamp(64px,12vw,148px);font-weight:700;line-height:.82;letter-spacing:-3px;color:var(--white);margin-bottom:18px">Train Smart.<br><span style="color:var(--blood)">Fight Better.</span></h1>
+      <p style="font-family:var(--fb);font-size:clamp(15px,2vw,19px);font-weight:300;color:var(--mist);max-width:560px;line-height:1.8">Training tips, technique breakdowns, fight analysis and news from the Red Crown coaching team.</p>
+      <div class="blg-cats">
+        <button class="bc-btn on" onclick="filterBlog('all',this)">All Posts</button>
+        <button class="bc-btn" onclick="filterBlog('technique',this)">Technique</button>
+        <button class="bc-btn" onclick="filterBlog('nutrition',this)">Nutrition</button>
+        <button class="bc-btn" onclick="filterBlog('mindset',this)">Mindset</button>
+        <button class="bc-btn" onclick="filterBlog('news',this)">Academy News</button>
       </div>
-      <!-- Uncomment when you have a photo: <img src="blog/wrestling-cover.jpg" alt="Wrestling"> -->
     </div>
-    <div class="bc-body">
-      <div class="bc-meta"><span class="bc-cat">Technique</span><span class="bc-date">March 2025</span><span class="bc-date">· 6 min read</span></div>
-      <div class="bc-title">Why Wrestling Is The Most Important Skill in MMA — And How To Start From Zero</div>
-      <p class="bc-exc">Every analyst agrees: wrestling wins fights. Most beginners skip it because they don't know where to start. Our head coach breaks down the three drills every MMA student should own first — and why they change your entire game.</p>
-      <a class="bc-read" href="blog-post.html" data-link>Read Article →</a>
-    </div>
-  </article>
-
-  <!-- POST 2 -->
-  <article class="bc rv" data-cat="nutrition" style="transition-delay:.1s">
-    <div class="bc-bar"></div>
-    <div class="bc-img"><div class="bc-img-ph"><svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg><span class="bc-img-lbl">Cover Photo</span></div></div>
-    <div class="bc-body">
-      <div class="bc-meta"><span class="bc-cat">Nutrition</span><span class="bc-date">Feb 2025</span></div>
-      <div class="bc-title">What To Eat Before and After Training — A Simple Guide for MMA Students</div>
-      <p class="bc-exc">Most beginners train hard but eat wrong. Pre-training fuel, post-session recovery, and the three mistakes that are quietly killing your progress on the mat.</p>
-      <a class="bc-read" href="blog-post.html" data-link>Read →</a>
-    </div>
-  </article>
-
-  <!-- POST 3 -->
-  <article class="bc rv" data-cat="mindset" style="transition-delay:.16s">
-    <div class="bc-bar"></div>
-    <div class="bc-img"><div class="bc-img-ph"><svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg><span class="bc-img-lbl">Cover Photo</span></div></div>
-    <div class="bc-body">
-      <div class="bc-meta"><span class="bc-cat">Mindset</span><span class="bc-date">Jan 2025</span></div>
-      <div class="bc-title">The White Belt Mindset — Why Beginners Who Embrace Difficulty Progress Fastest</div>
-      <p class="bc-exc">Getting tapped repeatedly doesn't mean you're failing — it means you're learning faster than everyone who quit. The mental framework that separates the dangerous ones from the ones who disappear.</p>
-      <a class="bc-read" href="blog-post.html" data-link>Read →</a>
-    </div>
-  </article>
-
-  <!-- POST 4 -->
-  <article class="bc rv" data-cat="technique" style="transition-delay:.22s">
-    <div class="bc-bar"></div>
-    <div class="bc-img"><div class="bc-img-ph"><svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg><span class="bc-img-lbl">Cover Photo</span></div></div>
-    <div class="bc-body">
-      <div class="bc-meta"><span class="bc-cat">Technique</span><span class="bc-date">Dec 2024</span></div>
-      <div class="bc-title">The Jab: The Most Important Punch and Why Most Students Throw It Wrong</div>
-      <p class="bc-exc">The jab controls distance, sets up power shots, disrupts rhythm and wins rounds. Most beginners throw it as an afterthought. Here's what correct jab mechanics actually look like — and how to drill them.</p>
-      <a class="bc-read" href="blog-post.html" data-link>Read →</a>
-    </div>
-  </article>
-
-  <!-- POST 5 -->
-  <article class="bc rv" data-cat="news" style="transition-delay:.28s">
-    <div class="bc-bar"></div>
-    <div class="bc-img"><div class="bc-img-ph"><svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg><span class="bc-img-lbl">Cover Photo</span></div></div>
-    <div class="bc-body">
-      <div class="bc-meta"><span class="bc-cat">Academy News</span><span class="bc-date">Nov 2024</span></div>
-      <div class="bc-title">Red Crown Launches in Noida — What We're Building and Why</div>
-      <p class="bc-exc">Red Crown MMA opens its doors. The vision behind the academy, what makes our approach different, and exactly what students can expect from day one on the mat.</p>
-      <a class="bc-read" href="blog-post.html" data-link>Read →</a>
-    </div>
-  </article>
-
-</div><!-- /bg -->
-
-<!-- Bottom strip -->
-<div class="rv" style="margin-top:3px;background:var(--v2);border:1px solid var(--bw);padding:44px 52px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-  <div>
-    <div style="font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:10px">◆ New posts weekly</div>
-    <p style="font-family:var(--fd);font-size:clamp(22px,3vw,36px);font-weight:700;color:var(--white);margin-bottom:6px;line-height:1">More coming every week.</p>
-    <p style="font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist)">Daily content on <a href="https://instagram.com/redcrownmma" target="_blank" style="color:var(--blood);text-decoration:none">@redcrownmma</a></p>
   </div>
-  <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
-</div>
 
-</div><!-- /bg-wrap -->
+  <div class="blg-in" style="padding-bottom:100px">
+    <div class="blg-grid" id="blg-grid">
+
+      <!-- ── FEATURED ── -->
+      <article class="bc bc-feat rv" data-cat="technique">
+        <div class="bc-bar"></div>
+        <div class="bc-img">
+          <svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".8"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".8"/><circle cx="100" cy="60" r="40" fill="none" stroke="#FB3640" stroke-opacity=".15" stroke-width="1"/><circle cx="100" cy="60" r="20" fill="none" stroke="#FB3640" stroke-opacity=".25" stroke-width="1"/></svg>
+          <!-- Replace: <img src="blog/cover-wrestling.jpg" alt="Wrestling"> -->
+          <span class="bc-img-lbl">Featured Post · Add cover image here</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span class="bc-cat">Technique</span><span class="bc-date">March 2025</span><span class="bc-date">· 6 min read</span></div>
+          <a class="bc-title" href="blog-post.html" data-link>Why Wrestling Is The Most Important Skill in MMA — And How To Start From Zero</a>
+          <p class="bc-exc">Every MMA analyst agrees: wrestling wins fights. But most beginners skip it entirely because they don't know where to start. Our head coach breaks down the three moves every MMA student should drill first — and why they change everything about your game.</p>
+          <a class="bc-read" href="blog-post.html" data-link>Read Article →</a>
+        </div>
+      </article>
+
+      <!-- ── POST 2 ── -->
+      <article class="bc rv" data-cat="nutrition" style="transition-delay:.1s">
+        <div class="bc-bar"></div>
+        <div class="bc-img">
+          <svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg>
+          <span class="bc-img-lbl">Post Cover</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span class="bc-cat">Nutrition</span><span class="bc-date">Feb 2025</span></div>
+          <a class="bc-title" href="blog-post.html" data-link>What To Eat Before and After Training — A Simple Guide for MMA Students</a>
+          <p class="bc-exc">Most beginners train hard but eat wrong. Pre-training fuelling, post-session recovery nutrition, and the three mistakes sabotaging your progress on the mat.</p>
+          <a class="bc-read" href="blog-post.html" data-link>Read →</a>
+        </div>
+      </article>
+
+      <!-- ── POST 3 ── -->
+      <article class="bc rv" data-cat="mindset" style="transition-delay:.16s">
+        <div class="bc-bar"></div>
+        <div class="bc-img">
+          <svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg>
+          <span class="bc-img-lbl">Post Cover</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span class="bc-cat">Mindset</span><span class="bc-date">Jan 2025</span></div>
+          <a class="bc-title" href="blog-post.html" data-link>The White Belt Mindset — Why Beginners Who Embrace Difficulty Progress Fastest</a>
+          <p class="bc-exc">Getting tapped repeatedly doesn't mean you're failing. It means you're learning faster than everyone who quit. The mental framework that separates survivors from the dangerous ones.</p>
+          <a class="bc-read" href="blog-post.html" data-link>Read →</a>
+        </div>
+      </article>
+
+      <!-- ── POST 4 ── -->
+      <article class="bc rv" data-cat="technique" style="transition-delay:.22s">
+        <div class="bc-bar"></div>
+        <div class="bc-img">
+          <svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg>
+          <span class="bc-img-lbl">Post Cover</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span class="bc-cat">Technique</span><span class="bc-date">Dec 2024</span></div>
+          <a class="bc-title" href="blog-post.html" data-link>The Jab: The Most Important Punch and Why Most Students Throw It Wrong</a>
+          <p class="bc-exc">The jab sets up every punch, controls distance, disrupts rhythm and wins rounds. Most beginners throw it as an afterthought. Here's what correct jab mechanics actually look like.</p>
+          <a class="bc-read" href="blog-post.html" data-link>Read →</a>
+        </div>
+      </article>
+
+      <!-- ── POST 5 ── -->
+      <article class="bc rv" data-cat="news" style="transition-delay:.28s">
+        <div class="bc-bar"></div>
+        <div class="bc-img">
+          <svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg>
+          <span class="bc-img-lbl">Post Cover</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span class="bc-cat">Academy News</span><span class="bc-date">Nov 2024</span></div>
+          <a class="bc-title" href="blog-post.html" data-link>Red Crown Launches in Noida — What We're Building and Why</a>
+          <p class="bc-exc">Red Crown MMA Academy opens its doors. The vision behind the academy, what makes our approach different, and what students can expect from day one.</p>
+          <a class="bc-read" href="blog-post.html" data-link>Read →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Blog CTA -->
+    <div class="rv" style="margin-top:3px;background:var(--v2);border:1px solid var(--bw);padding:52px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:10px">◆ More coming weekly</div>
+        <p style="font-family:var(--fd);font-size:clamp(22px,3vw,36px);font-weight:700;color:var(--white);margin-bottom:6px;line-height:1">Follow for daily content.</p>
+        <p style="font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist)">New articles every week. Daily content on <a href="https://instagram.com/redcrownmma" target="_blank" style="color:var(--blood)">@redcrownmma</a>.</p>
+      </div>
+      <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+    </div>
+  </div>
 </main>
 
-<footer><div class="fi"><div class="fb"><div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div><div class="flinks"><a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="blog.html" data-link>Blog</a><a class="flnk" href="contact.html" data-link>Contact</a></div><div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div></div></footer>
+<footer><div class="fi">
+  <div class="fb"><div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div>
+  <div class="flinks"><a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="blog.html" data-link>Blog</a><a class="flnk" href="contact.html" data-link>Contact</a></div>
+  <div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div>
+</div></footer>
 <script src="js/main.js"></script>
 <script>
-function filterBlog(cat,btn){
-  document.querySelectorAll('.bf-btn').forEach(b=>b.classList.remove('on'));
+function filterBlog(cat, btn){
+  document.querySelectorAll('.bc-btn').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
-  document.querySelectorAll('#blog-grid .bc').forEach(c=>{
-    c.style.display=(cat==='all'||c.dataset.cat===cat)?'flex':'none';
-    if(c.classList.contains('bc-feat')) c.style.display=(cat==='all'||c.dataset.cat===cat)?'grid':'none';
+  document.querySelectorAll('.bc').forEach(card=>{
+    card.style.display = (cat==='all' || card.dataset.cat===cat) ? 'flex' : 'none';
   });
 }
 </script>

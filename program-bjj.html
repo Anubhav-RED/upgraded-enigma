@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Brazilian Jiu-Jitsu | Red Crown MMA</title>
+<title>Brazilian Jiu-Jitsu | Red Crown MMA Academy</title>
 <meta name="description" content="The intellectual backbone of modern MMA. BJJ teaches positional dominance, leverage, and the art of submitting opponents through technique alone — regardle">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
@@ -10,160 +10,183 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-:root{--acc:#1AFFE4;}
+:root{--acc:#1AFFE4;--acc3:rgba(26,255,228,.3);--acc1:rgba(26,255,228,.1);--acc05:rgba(26,255,228,.05);}
 /* ── HERO ── */
-.pg{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--void);padding-top:90px}
-.pg-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.pg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 30% 50%,rgba(26,255,228,.12),transparent 70%);pointer-events:none}
-.pg-in{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:60px 56px 80px;width:100%}
-.pg-back{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;text-decoration:none;transition:color .25s}
-.pg-back::before{content:'←';font-size:14px;color:#1AFFE4;transition:transform .25s}
-.pg-back:hover{color:#1AFFE4}.pg-back:hover::before{transform:translateX(-4px)}
-.pg-tag{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#1AFFE4;margin-bottom:14px;opacity:.9}
-.pg-h1{font-family:var(--fd);font-size:clamp(62px,10vw,148px);font-weight:700;line-height:.84;letter-spacing:-3px;color:var(--white);margin-bottom:22px}
-.pg-h1 span{color:#1AFFE4;display:block}
-.pg-sub{font-family:var(--fb);font-size:clamp(15px,1.8vw,19px);font-weight:300;color:var(--mist);line-height:1.85;max-width:560px;margin-bottom:32px}
-.pg-feats{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:38px}
-.pg-feat{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#1AFFE4;border:1px solid rgba(26,255,228,.12);padding:4px 13px;background:rgba(26,255,228,.04)}
-.pg-wm{position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:var(--fd);font-size:clamp(80px,18vw,260px);font-weight:700;letter-spacing:-6px;color:rgba(26,255,228,.04);line-height:1;pointer-events:none;user-select:none;white-space:nowrap}
-/* ── BODY ── */
-.pb{max-width:1280px;margin:0 auto;padding:80px 56px 100px}
-.sec-label{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#1AFFE4;display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.sec-label::before{content:'';width:32px;height:1px;background:#1AFFE4}
-.sec-h{font-family:var(--fd);font-size:clamp(34px,5vw,64px);font-weight:700;color:var(--white);line-height:.9;letter-spacing:-1px;margin-bottom:44px}
+.ph{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--void)}
+.ph-bg{position:absolute;inset:0;pointer-events:none}
+.ph-svg{position:absolute;inset:0;width:100%;height:100%}
+.ph::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(26,255,228,.08) 0%,transparent 65%);pointer-events:none}
+.ph-in{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:140px 56px 80px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
+.ph-back{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;text-decoration:none;transition:color .25s;cursor:none}
+.ph-back:hover{color:var(--acc)}.ph-back::before{content:'←';font-size:14px;color:var(--acc)}
+.ph-tag{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--acc);margin-bottom:16px;opacity:.85}
+.ph-h1{font-family:var(--fd);font-size:clamp(64px,11vw,148px);font-weight:700;line-height:.82;letter-spacing:-3px;color:var(--white);margin-bottom:20px}
+.ph-h1 span{color:var(--acc);display:block}
+.ph-sub{font-family:var(--fb);font-size:clamp(15px,2vw,19px);font-weight:300;color:var(--mist);line-height:1.8;margin-bottom:28px;max-width:520px}
+.pf-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:36px}
+.pf{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--acc);border:1px solid var(--acc3);padding:4px 12px;background:var(--acc05)}
+.ph-wm{position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-family:var(--fd);font-size:clamp(100px,20vw,280px);font-weight:700;color:rgba(26,255,228,.04);line-height:1;pointer-events:none;letter-spacing:-6px;user-select:none}
+/* ── RIGHT PANEL (stat block) ── */
+.ph-panel{background:rgba(0,15,8,.7);border:1px solid var(--acc3);backdrop-filter:blur(4px);padding:40px}
+.ph-panel-tag{font-family:var(--fm);font-size:8px;letter-spacing:5px;text-transform:uppercase;color:var(--acc);margin-bottom:20px;border-bottom:1px solid var(--acc3);padding-bottom:12px}
+.ph-stat{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(26,255,228,.1)}
+.ph-stat-l{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog)}
+.ph-stat-r{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--white)}
+/* ── BODY SECTIONS ── */
+.pb{max-width:1280px;margin:0 auto;padding:80px 56px}
+.sec-tag{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--acc);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sec-tag::before{content:'';width:28px;height:1px;background:var(--acc)}
+.sec-h{font-family:var(--fd);font-size:clamp(36px,5vw,64px);font-weight:700;color:var(--white);line-height:.9;margin-bottom:48px;letter-spacing:-1px}
+/* ── CURRICULUM ── */
+.ci{display:grid;grid-template-columns:60px 1fr;gap:0;background:var(--v2);border:1px solid var(--bw);border-left:3px solid var(--acc);margin-bottom:3px;transition:border-color .3s,background .3s;cursor:default}
+.ci:hover{background:var(--v3);border-left-color:var(--acc)}
+.ci-num{font-family:var(--fd);font-size:42px;font-weight:700;color:rgba(26,255,228,.2);display:flex;align-items:center;justify-content:center;padding:24px 0;line-height:1}
+.ci-t{font-family:var(--fd);font-size:20px;font-weight:700;color:var(--white);padding:24px 28px 6px;line-height:1}
+.ci-d{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);padding:0 28px 24px;line-height:1.7}
+/* ── WHO GRID ── */
+.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.wi{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);background:var(--v2);border:1px solid var(--bw);padding:22px 24px;line-height:1.6;display:flex;align-items:flex-start;gap:10px;transition:border-color .3s}
+.wi:hover{border-color:var(--acc3)}
+.wi::before{content:'';width:6px;height:6px;background:var(--acc);border-radius:50%;flex-shrink:0;margin-top:6px}
 /* ── FAQ ── */
-.fq{background:var(--v2);border:1px solid var(--bw);margin-bottom:3px;overflow:hidden;transition:border-color .3s}
-.fq:hover,.fq.open{border-color:rgba(26,255,228,.12)}
-.fq-q{font-family:var(--fd);font-size:18px;font-weight:600;color:var(--white);padding:20px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:none;text-align:left;transition:color .25s;gap:16px}
-.fq-q:hover{color:#1AFFE4}.fq-arr{color:#1AFFE4;transition:transform .3s;flex-shrink:0;font-size:14px}.fq.open .fq-arr{transform:rotate(180deg)}
-.fq-a{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.85;padding:0 28px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s}
-.fq.open .fq-a{max-height:220px;padding:0 28px 22px}
-/* ── CTA ── */
-.pcta{background:var(--v2);border:1px solid rgba(26,255,228,.12);padding:72px;text-align:center;position:relative;overflow:hidden;margin-top:72px}
-.pcta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(26,255,228,.12),transparent 65%);pointer-events:none}
-/* ── DIVIDER ── */
-.pdiv{height:1px;background:linear-gradient(90deg,transparent,rgba(26,255,228,.12),transparent);margin:72px 0}
+.fi-item{background:var(--v2);border:1px solid var(--bw);margin-bottom:3px;overflow:hidden;transition:border-color .3s}
+.fi-item:hover,.fi-item.open{border-color:var(--acc3)}
+.fi-q{font-family:var(--fd);font-size:18px;font-weight:600;color:var(--white);padding:20px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:none;text-align:left;transition:color .25s}
+.fi-q:hover{color:var(--acc)}.fi-arr{color:var(--acc);transition:transform .3s;flex-shrink:0}.fi-item.open .fi-arr{transform:rotate(180deg)}
+.fi-a{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.85;padding:0 28px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s}
+.fi-item.open .fi-a{max-height:200px;padding:0 28px 22px}
+/* ── CTA BLOCK ── */
+.pcta{background:var(--v2);border:1px solid var(--acc3);padding:72px;text-align:center;position:relative;overflow:hidden;margin-top:80px}
+.pcta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(26,255,228,.06) 0%,transparent 70%)}
+/* ── DIVIDER LINE ── */
+.pdiv{height:1px;background:linear-gradient(90deg,transparent,var(--acc3),transparent);margin:80px 0}
 /* ── MOBILE ── */
-@media(max-width:1024px){.pg-in,.pb{padding-left:28px;padding-right:28px}.pg-wm{display:none}}
-@media(max-width:640px){.pg-h1{font-size:clamp(52px,14vw,90px)}.pcta{padding:44px 28px}}
-</style><style>
-/* WEB — two-column hero + accordion curriculum */
-.pg-cols{{display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:start}}
-.pg-panel{{background:rgba(0,15,8,.75);border:1px solid rgba(26,255,228,.15);padding:36px;backdrop-filter:blur(6px)}}
-.pp-tag{{font-family:var(--fm);font-size:8px;letter-spacing:5px;text-transform:uppercase;color:#1AFFE4;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid rgba(26,255,228,.15)}}
-.pp-row{{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(26,255,228,.07)}}
-.pp-l{{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog)}}
-.pp-r{{font-family:var(--fd);font-size:17px;font-weight:700;color:var(--white)}}
-.pp-r.hi{{color:#1AFFE4}}
-/* Curriculum accordion */
-.cv{{border:1px solid var(--bw);margin-bottom:3px;overflow:hidden;background:var(--v2);transition:border-color .3s}}
-.cv:hover,.cv.open{{border-color:rgba(26,255,228,.2)}}
-.cv-h{{display:flex;align-items:center;gap:0;cursor:pointer;transition:background .25s}}
-.cv-h:hover{{background:rgba(26,255,228,.03)}}
-.cv-n{{font-family:var(--fd);font-size:36px;font-weight:700;color:rgba(26,255,228,.15);width:72px;text-align:center;flex-shrink:0;padding:20px 0;line-height:1;transition:color .3s}}
-.cv:hover .cv-n,.cv.open .cv-n{{color:rgba(26,255,228,.5)}}
-.cv-t{{font-family:var(--fd);font-size:20px;font-weight:700;color:var(--white);flex:1;transition:color .3s}}
-.cv:hover .cv-t{{color:#1AFFE4}}
-.cv-arr{{color:#1AFFE4;padding-right:24px;font-size:13px;transition:transform .3s;flex-shrink:0}}.cv.open .cv-arr{{transform:rotate(90deg)}}
-.cv-b{{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);padding:0 72px;max-height:0;overflow:hidden;transition:max-height .4s,padding .4s;line-height:1.8}}
-.cv.open .cv-b{{max-height:120px;padding:0 72px 20px}}
-@media(max-width:1024px){{.pg-cols{{grid-template-columns:1fr}}.pg-panel{{display:none}}}}
-</style>
-</head><body><div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div>
+@media(max-width:1024px){.ph-in{grid-template-columns:1fr;padding:120px 28px 60px}.ph-panel{display:none}.pb{padding:60px 28px}.wg{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.ph-h1{font-size:clamp(52px,16vw,90px)}.wg{grid-template-columns:1fr}}
+</style></head><body><div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div>
 <div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div>
-<div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div><nav id="nav"><div class="n-logo"><div class="lw" id="logo-btn" role="button" tabindex="0"><div class="or1"></div><div class="or2"></div><div class="lsvg"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><span class="ltip">◈ RESTRICTED ACCESS</span></div><div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div></div><div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a><a class="n-lnk" href="programs.html" data-link>Programs</a><a class="n-lnk" href="coaches.html" data-link>Coaches</a><a class="n-lnk" href="schedule.html" data-link>Schedule</a><a class="n-lnk" href="gallery.html" data-link>Gallery</a><a class="n-lnk" href="blog.html" data-link>Blog</a><a class="n-lnk" href="contact.html" data-link>Contact</a><a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a></div><button class="n-burg" id="burg"><span></span><span></span><span></span></button></nav>
+<div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div><nav id="nav">
+  <div class="n-logo">
+    <div class="lw" id="logo-btn" role="button" tabindex="0">
+      <div class="or1"></div><div class="or2"></div>
+      <div class="lsvg"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
+      <span class="ltip">◈ RESTRICTED ACCESS</span>
+    </div>
+    <div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div>
+  </div>
+  <div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a><a class="n-lnk" href="programs.html" data-link>Programs</a><a class="n-lnk" href="coaches.html" data-link>Coaches</a><a class="n-lnk" href="schedule.html" data-link>Schedule</a><a class="n-lnk" href="gallery.html" data-link>Gallery</a><a class="n-lnk" href="blog.html" data-link>Blog</a><a class="n-lnk" href="contact.html" data-link>Contact</a><a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a></div>
+  <button class="n-burg" id="burg"><span></span><span></span><span></span></button>
+</nav>
 <div id="mm"><a class="mlnk" href="index.html" data-link>Home</a><a class="mlnk" href="programs.html" data-link>Programs</a><a class="mlnk" href="coaches.html" data-link>Coaches</a><a class="mlnk" href="schedule.html" data-link>Schedule</a><a class="mlnk" href="gallery.html" data-link>Gallery</a><a class="mlnk" href="blog.html" data-link>Blog</a><a class="mlnk" href="contact.html" data-link>Contact</a><div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div></div>
-<a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wai">💬</span><span class="wal">WhatsApp Us</span></a><main><section class="pg"><svg class="pg-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><circle cx="50%" cy="50%" r="8%" fill="none" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".8"/><circle cx="50%" cy="50%" r="16%" fill="none" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".8"/><circle cx="50%" cy="50%" r="24%" fill="none" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".8"/><circle cx="50%" cy="50%" r="32%" fill="none" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".8"/><circle cx="50%" cy="50%" r="40%" fill="none" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".8"/><circle cx="50%" cy="50%" r="48%" fill="none" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".8"/><circle cx="50%" cy="50%" r="56%" fill="none" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".8"/><circle cx="50%" cy="50%" r="64%" fill="none" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".8"/><line x1="50%" y1="50%" x2="115.0%" y2="50.0%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="111.1%" y2="72.2%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="99.8%" y2="91.8%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="82.5%" y2="106.3%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="61.3%" y2="114.0%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="38.7%" y2="114.0%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="17.5%" y2="106.3%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="0.2%" y2="91.8%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="-11.1%" y2="72.2%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="-15.0%" y2="50.0%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="-11.1%" y2="27.8%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="0.2%" y2="8.2%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="17.5%" y2="-6.3%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="38.7%" y2="-14.0%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="61.3%" y2="-14.0%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="82.5%" y2="-6.3%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="99.8%" y2="8.2%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/><line x1="50%" y1="50%" x2="111.1%" y2="27.8%" stroke="#1AFFE4" stroke-opacity=".04" stroke-width=".7"/></svg><div class="pg-in"><div class="pg-cols"><div><a class="pg-back" href="programs.html" data-link>All Programs</a><div class="pg-tag">◆ Grappling · Ground Control · Submissions</div><h1 class="pg-h1">Brazilian<span>Jiu-Jitsu.</span></h1><p class="pg-sub">The intellectual backbone of modern MMA. BJJ teaches positional dominance, leverage, and the art of submitting opponents through technique alone — regardless of size or strength.</p><div class="pg-feats"><span class="pg-feat">Guard Passing</span><span class="pg-feat">Submissions</span><span class="pg-feat">Positional Control</span><span class="pg-feat">Belt Progression</span><span class="pg-feat">No-Gi</span><span class="pg-feat">Competition</span><span class="pg-feat">Self-Defence</span></div><div style="display:flex;gap:14px;flex-wrap:wrap">
-  <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
-  <a class="bo" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener">WhatsApp Us</a>
-</div></div><div class="pg-panel rv" style="transition-delay:.25s">
-  <div class="pp-tag">◆ Program Stats</div>
-  <div class="pp-row"><span class="pp-l">Discipline</span><span class="pp-r">Brazilian Jiu-Jitsu</span></div>
-  <div class="pp-row"><span class="pp-l">Level</span><span class="pp-r">All Levels</span></div>
-  <div class="pp-row"><span class="pp-l">Classes / Week</span><span class="pp-r">6 Days</span></div>
-  <div class="pp-row"><span class="pp-l">Belt System</span><span class="pp-r">White → Black</span></div>
-  <div class="pp-row"><span class="pp-l">Trial Class</span><span class="pp-r hi">Free</span></div>
-</div></div></div><div class="pg-wm">BJJ</div></section><div class="pb">
-  <div class="sec-label">Curriculum</div>
-  <h2 class="sec-h">What You'll Learn</h2>
-  <div class="cv rv" style="transition-delay:0.00s">
-  <div class="cv-h" onclick="this.parentNode.classList.toggle('open')">
-    <div class="cv-n">01</div>
-    <div class="cv-t">POSITIONS & HIERARCHY</div>
-    <div class="cv-arr">▶</div>
-  </div>
-  <div class="cv-b">Mount, back, side control, guard — dominance theory from day one. You always know where you are.</div>
-</div><div class="cv rv" style="transition-delay:0.06s">
-  <div class="cv-h" onclick="this.parentNode.classList.toggle('open')">
-    <div class="cv-n">02</div>
-    <div class="cv-t">GUARD WORK</div>
-    <div class="cv-arr">▶</div>
-  </div>
-  <div class="cv-b">Closed, half, butterfly, spider, De La Riva — attacking and surviving from the bottom.</div>
-</div><div class="cv rv" style="transition-delay:0.12s">
-  <div class="cv-h" onclick="this.parentNode.classList.toggle('open')">
-    <div class="cv-n">03</div>
-    <div class="cv-t">SUBMISSIONS</div>
-    <div class="cv-arr">▶</div>
-  </div>
-  <div class="cv-b">Chokes, armbars, leg locks, guillotines — finishing the fight through technique, not strength.</div>
-</div><div class="cv rv" style="transition-delay:0.18s">
-  <div class="cv-h" onclick="this.parentNode.classList.toggle('open')">
-    <div class="cv-n">04</div>
-    <div class="cv-t">PASSING & SWEEPS</div>
-    <div class="cv-arr">▶</div>
-  </div>
-  <div class="cv-b">Guard passing systems and reversal mechanics. Turn a bad position into a winning one.</div>
-</div><div class="cv rv" style="transition-delay:0.24s">
-  <div class="cv-h" onclick="this.parentNode.classList.toggle('open')">
-    <div class="cv-n">05</div>
-    <div class="cv-t">BELT PROGRESSION</div>
-    <div class="cv-arr">▶</div>
-  </div>
-  <div class="cv-b">Structured grading every 3–6 months — white through black belt. Clear goals at every stage.</div>
-</div><div class="cv rv" style="transition-delay:0.30s">
-  <div class="cv-h" onclick="this.parentNode.classList.toggle('open')">
-    <div class="cv-n">06</div>
-    <div class="cv-t">COMPETITION PREP</div>
-    <div class="cv-arr">▶</div>
-  </div>
-  <div class="cv-b">Points, advantages, submission-only rulesets and tournament tactics for those who want to compete.</div>
+<a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wai">💬</span><span class="wal">WhatsApp Us</span></a>
+<main>
+<section class="ph">
+  <div class="ph-bg">
+  <svg class="ph-svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+    <circle cx="100" cy="100" r="10" fill="none" stroke="#1AFFE4" stroke-opacity=".06" stroke-width=".8"/><circle cx="100" cy="100" r="28" fill="none" stroke="#1AFFE4" stroke-opacity=".06" stroke-width=".8"/><circle cx="100" cy="100" r="46" fill="none" stroke="#1AFFE4" stroke-opacity=".06" stroke-width=".8"/><circle cx="100" cy="100" r="64" fill="none" stroke="#1AFFE4" stroke-opacity=".06" stroke-width=".8"/><circle cx="100" cy="100" r="82" fill="none" stroke="#1AFFE4" stroke-opacity=".06" stroke-width=".8"/><circle cx="100" cy="100" r="100" fill="none" stroke="#1AFFE4" stroke-opacity=".06" stroke-width=".8"/><circle cx="100" cy="100" r="118" fill="none" stroke="#1AFFE4" stroke-opacity=".06" stroke-width=".8"/><circle cx="100" cy="100" r="136" fill="none" stroke="#1AFFE4" stroke-opacity=".06" stroke-width=".8"/><circle cx="100" cy="100" r="154" fill="none" stroke="#1AFFE4" stroke-opacity=".06" stroke-width=".8"/><circle cx="100" cy="100" r="172" fill="none" stroke="#1AFFE4" stroke-opacity=".06" stroke-width=".8"/><circle cx="100" cy="100" r="190" fill="none" stroke="#1AFFE4" stroke-opacity=".06" stroke-width=".8"/>
+    <line x1="100" y1="100" x2="280" y2="100" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/><line x1="100" y1="100" x2="255" y2="190" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/><line x1="100" y1="100" x2="190" y2="255" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/><line x1="100" y1="100" x2="100" y2="280" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/><line x1="100" y1="100" x2="10" y2="255" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/><line x1="100" y1="100" x2="-55" y2="190" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/><line x1="100" y1="100" x2="-80" y2="100" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/><line x1="100" y1="100" x2="-55" y2="9" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/><line x1="100" y1="100" x2="9" y2="-55" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/><line x1="100" y1="100" x2="99" y2="-80" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/><line x1="100" y1="100" x2="190" y2="-55" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/><line x1="100" y1="100" x2="255" y2="9" stroke="#1AFFE4" stroke-opacity=".05" stroke-width=".6"/>
+  </svg>
 </div>
+  <div class="ph-in">
+    <div>
+      <a class="ph-back" href="programs.html" data-link>All Programs</a>
+      <div class="ph-tag">◆ GROUND CONTROL · SUBMISSIONS · BELT PROGRESSION</div>
+      <h1 class="ph-h1">Brazilian<span>Jiu-Jitsu.</span></h1>
+      <p class="ph-sub">The intellectual backbone of modern MMA. BJJ teaches positional dominance, leverage, and the art of submitting opponents through technique alone — regardless of size or strength.</p>
+      <div class="pf-row"><span class="pf">Guard Passing</span><span class="pf">Submissions</span><span class="pf">Positional Control</span><span class="pf">Belt Progression</span><span class="pf">No-Gi</span><span class="pf">Competition Prep</span><span class="pf">Self-Defence</span></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+        <a class="bo" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+    <div class="ph-panel rv" style="transition-delay:.2s">
+      <div class="ph-panel-tag">◆ Program Overview</div>
+      <div class="ph-stat"><span class="ph-stat-l">Discipline</span><span class="ph-stat-r">Brazilian Jiu-Jitsu</span></div>
+      <div class="ph-stat"><span class="ph-stat-l">Level</span><span class="ph-stat-r">All Levels</span></div>
+      <div class="ph-stat"><span class="ph-stat-l">Classes/Week</span><span class="ph-stat-r">6 Days</span></div>
+      <div class="ph-stat"><span class="ph-stat-l">First Class</span><span class="ph-stat-r" style="color:var(--acc)">Free</span></div>
+      <div class="ph-stat"><span class="ph-stat-l">Location</span><span class="ph-stat-r">Noida, UP</span></div>
+    </div>
+  </div>
+  <div class="ph-wm">BJJ</div>
+</section>
+
+<div class="pb">
+  <div class="sec-tag">Curriculum</div>
+  <h2 class="sec-h">What You'll Learn</h2>
+  <div class="ci rv" style="transition-delay:0.00s">
+      <div class="ci-num">01</div>
+      <div><div class="ci-t">Positions & Hierarchy</div><div class="ci-d">Mount, back, side control, guard — dominance theory from day one.</div></div>
+    </div><div class="ci rv" style="transition-delay:0.06s">
+      <div class="ci-num">02</div>
+      <div><div class="ci-t">Guard Work</div><div class="ci-d">Closed, half, butterfly, spider, De La Riva — attacking from the bottom.</div></div>
+    </div><div class="ci rv" style="transition-delay:0.12s">
+      <div class="ci-num">03</div>
+      <div><div class="ci-t">Submissions</div><div class="ci-d">Chokes, armbars, leg locks, guillotines — finishing the fight on the ground.</div></div>
+    </div><div class="ci rv" style="transition-delay:0.18s">
+      <div class="ci-num">04</div>
+      <div><div class="ci-t">Passing & Sweeps</div><div class="ci-d">Guard passing systems + reversal mechanics from inferior positions.</div></div>
+    </div><div class="ci rv" style="transition-delay:0.24s">
+      <div class="ci-num">05</div>
+      <div><div class="ci-t">Belt Progression</div><div class="ci-d">Structured grading every 3–6 months — white through black belt.</div></div>
+    </div><div class="ci rv" style="transition-delay:0.30s">
+      <div class="ci-num">06</div>
+      <div><div class="ci-t">Competition Prep</div><div class="ci-d">Points, advantages, submission-only rule sets and tournament tactics.</div></div>
+    </div>
+
   <div class="pdiv"></div>
+
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start">
     <div>
-      <div class="sec-label">Who It's For</div>
-      <h2 class="sec-h" style="font-size:clamp(30px,4vw,50px)">Right For You If...</h2>
-      <div style="display:flex;flex-direction:column;gap:3px"><div class="wh-item" style="background:var(--v2);border:1px solid var(--bw);padding:18px 22px;font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);display:flex;align-items:flex-start;gap:10px;line-height:1.6;transition:border-color .3s">Complete beginners with no experience</div><div class="wh-item" style="background:var(--v2);border:1px solid var(--bw);padding:18px 22px;font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);display:flex;align-items:flex-start;gap:10px;line-height:1.6;transition:border-color .3s">Self-defence focused students</div><div class="wh-item" style="background:var(--v2);border:1px solid var(--bw);padding:18px 22px;font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);display:flex;align-items:flex-start;gap:10px;line-height:1.6;transition:border-color .3s">MMA athletes strengthening their ground game</div><div class="wh-item" style="background:var(--v2);border:1px solid var(--bw);padding:18px 22px;font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);display:flex;align-items:flex-start;gap:10px;line-height:1.6;transition:border-color .3s">BJJ competitors chasing belt progression</div><div class="wh-item" style="background:var(--v2);border:1px solid var(--bw);padding:18px 22px;font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);display:flex;align-items:flex-start;gap:10px;line-height:1.6;transition:border-color .3s">Wrestlers wanting to add finishing skills</div><div class="wh-item" style="background:var(--v2);border:1px solid var(--bw);padding:18px 22px;font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);display:flex;align-items:flex-start;gap:10px;line-height:1.6;transition:border-color .3s">Kids age 6+ in the Junior BJJ track</div></div>
+      <div class="sec-tag">Who It's For</div>
+      <h2 class="sec-h" style="font-size:clamp(32px,4vw,52px)">Right For You If...</h2>
+      <div class="wg" style="grid-template-columns:1fr"><div class="wi">◆ Complete beginners</div><div class="wi">◆ Self-defence seekers</div><div class="wi">◆ MMA fighters</div><div class="wi">◆ BJJ competitors</div><div class="wi">◆ Wrestlers adding ground skills</div><div class="wi">◆ Kids age 6+ in Junior track</div></div>
     </div>
     <div>
-      <div class="sec-label">FAQ</div>
-      <h2 class="sec-h" style="font-size:clamp(30px,4vw,50px)">Common Questions</h2>
-      <div class="fq rv" style="transition-delay:0.00s">
-  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">Do I need any experience to start?<span class="fq-arr">▼</span></button>
-  <div class="fq-a">None at all. Beginners start from absolute zero — positions, tapping etiquette, how rolling works. You'll be moving safely within weeks.</div>
-</div><div class="fq rv" style="transition-delay:0.07s">
-  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">How long to get a blue belt?<span class="fq-arr">▼</span></button>
-  <div class="fq-a">12–24 months with consistent training. Promotion depends entirely on technical skill, not time on the mat.</div>
-</div><div class="fq rv" style="transition-delay:0.14s">
-  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">Is BJJ dangerous?<span class="fq-arr">▼</span></button>
-  <div class="fq-a">Supervised drilling with a strict tap-early culture makes it very safe. Injury risk is lower than most team sports.</div>
-</div><div class="fq rv" style="transition-delay:0.21s">
-  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">Do you do No-Gi?<span class="fq-arr">▼</span></button>
-  <div class="fq-a">Yes. Dedicated No-Gi sessions run alongside the Gi curriculum. Excellent crossover for MMA.</div>
-</div>
+      <div class="sec-tag">Questions</div>
+      <h2 class="sec-h" style="font-size:clamp(32px,4vw,52px)">FAQ</h2>
+      <div class="fi-item rv" style="transition-delay:0.00s">
+      <button class="fi-q" onclick="this.parentNode.classList.toggle('open')">Do I need experience?<span class="fi-arr">↓</span></button>
+      <div class="fi-a">None at all. Absolute beginners start from zero — positions, tapping, etiquette. You'll be rolling safely within your first few weeks.</div>
+    </div><div class="fi-item rv" style="transition-delay:0.06s">
+      <button class="fi-q" onclick="this.parentNode.classList.toggle('open')">How long for a blue belt?<span class="fi-arr">↓</span></button>
+      <div class="fi-a">12–24 months average with consistent training. Promotion depends on technical skill, not a fixed timeline.</div>
+    </div><div class="fi-item rv" style="transition-delay:0.12s">
+      <button class="fi-q" onclick="this.parentNode.classList.toggle('open')">Is it dangerous?<span class="fi-arr">↓</span></button>
+      <div class="fi-a">Supervised rolling with the tap-early rule makes it very safe. Injury risk is lower than most sports.</div>
+    </div><div class="fi-item rv" style="transition-delay:0.18s">
+      <button class="fi-q" onclick="this.parentNode.classList.toggle('open')">Do you train No-Gi?<span class="fi-arr">↓</span></button>
+      <div class="fi-a">Yes. Dedicated No-Gi sessions run alongside the Gi curriculum. Excellent MMA preparation.</div>
+    </div>
     </div>
   </div>
-  <div class="pcta rv">
-  <div style="position:relative;z-index:1">
-    <div style="font-family:var(--fm);font-size:9px;letter-spacing:6px;text-transform:uppercase;color:#1AFFE4;margin-bottom:18px">◆ No experience needed · No commitment</div>
-    <p style="font-family:var(--fd);font-size:clamp(40px,6vw,80px);font-weight:700;color:var(--white);line-height:.88;letter-spacing:-2px;margin-bottom:14px">First class.<br><span style="color:#1AFFE4">Always free.</span></p>
-    <p style="font-family:var(--fb);font-size:16px;font-weight:300;color:var(--mist);max-width:420px;margin:0 auto 36px;line-height:1.85">Show up. Your coach handles everything from there. No gear, no commitment, no pressure.</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
-      <a class="bo" href="programs.html" data-link>All Programs</a>
+
+  <div class="pcta">
+    <div style="position:relative;z-index:1">
+      <div style="font-family:var(--fm);font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--acc);margin-bottom:16px">◆ No Experience Needed</div>
+      <p style="font-family:var(--fd);font-size:clamp(38px,6vw,72px);font-weight:700;color:var(--white);line-height:.88;letter-spacing:-2px;margin-bottom:14px">First class.<br><span style="color:var(--acc)">Always free.</span></p>
+      <p style="font-family:var(--fb);font-size:16px;font-weight:300;color:var(--mist);max-width:440px;margin:0 auto 36px;line-height:1.85">Show up. Your coach handles everything. No commitment, no gear required — just arrive and begin.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+        <a class="bo" href="programs.html" data-link>All Programs</a>
+      </div>
     </div>
   </div>
 </div>
-</div></main><footer><div class="fi"><div class="fb"><div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div><div class="flinks"><a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="blog.html" data-link>Blog</a><a class="flnk" href="contact.html" data-link>Contact</a></div><div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div></div></footer>
+</main><footer><div class="fi">
+  <div class="fb">
+    <div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
+    <div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div>
+  </div>
+  <div class="flinks">
+    <a class="flnk" href="index.html" data-link>Home</a>
+    <a class="flnk" href="programs.html" data-link>Programs</a>
+    <a class="flnk" href="coaches.html" data-link>Coaches</a>
+    <a class="flnk" href="schedule.html" data-link>Schedule</a>
+    <a class="flnk" href="gallery.html" data-link>Gallery</a>
+    <a class="flnk" href="blog.html" data-link>Blog</a>
+    <a class="flnk" href="contact.html" data-link>Contact</a>
+  </div>
+  <div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div>
+</div></footer>
 <script src="js/main.js"></script></body></html>
