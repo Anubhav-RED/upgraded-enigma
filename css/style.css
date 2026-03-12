@@ -59,8 +59,8 @@ body.hov #cr .cr-arm { opacity: 0; }
 #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; transition: background .35s, border-color .35s; }
 #nav.solid { background: rgba(0,15,8,.97); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
 .n-logo { display: flex; align-items: center; gap: 14px; cursor: none; }
-.lw { position: relative; width: 44px; height: 50px; cursor: none; flex-shrink: 0; }
-.lsvg { width: 120px; height: 120px; position: absolute; top: -30%; left: -80%; tranform: translate(-50%, -50%); z-index: 3; filter: drop-shadow(0 0 8px rgba(251,54,64,.45)); animation: breathe 4s ease-in-out infinite, flckr 20s ease 8s infinite; transition: filter .3s, transform .3s; }
+.lw { position: relative; width: 44px; height: 44px; cursor: none; flex-shrink: 0; }
+.lsvg { width: 44px; height: 44px; position: relative; z-index: 3; filter: drop-shadow(0 0 8px rgba(251,54,64,.45)); animation: breathe 4s ease-in-out infinite, flckr 20s ease 8s infinite; transition: filter .3s, transform .3s; }
 @keyframes breathe { 0%,100%{filter:drop-shadow(0 0 7px rgba(251,54,64,.4))} 50%{filter:drop-shadow(0 0 24px rgba(251,54,64,.9)) drop-shadow(0 0 50px rgba(251,54,64,.2))} }
 @keyframes flckr { 0%,90%,100%{opacity:1} 91%{opacity:.7} 93%{opacity:1} 95%{opacity:.5} 96.5%{opacity:.95} 97%{opacity:1} }
 .or1 { position: absolute; inset: -8px; border-radius: 50%; z-index: 2; border: 1.5px solid rgba(251,54,64,.22); animation: spin 14s linear infinite; pointer-events: none; }
@@ -153,8 +153,7 @@ body.hov #cr .cr-arm { opacity: 0; }
 footer { background: var(--void); border-top: 1px solid var(--bw); padding: 52px 56px; }
 .fi  { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr auto; gap: 40px; align-items: center; }
 .fb  { display: flex; align-items: center; gap: 14px; }
-.fls { width: 106px; height: 106px; filter: drop-shadow(0 0 6px rgba(251,54,64,.35)); }
-.fls img {width: 20%; height: 20%; object-fit: absolute; top: 50%; left: 50%; transform: translate (-50%, -50%);}
+.fls { width: 36px; height: 36px; filter: drop-shadow(0 0 6px rgba(251,54,64,.35)); }
 .fn  { font-family: var(--fd); font-size: 16px; font-weight: 700; letter-spacing: 3px; color: var(--white); }
 .fn em { color: var(--blood); font-style: normal; }
 .fsb { font-family: var(--fm); font-size: 8px; letter-spacing: 3px; color: var(--fog); }
