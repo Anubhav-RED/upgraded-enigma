@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MMA — Mixed Martial Arts | Red Crown MMA Academy</title>
+<meta name="description" content="MMA classes in Noida — full mixed martial arts training combining BJJ, Muay Thai, Boxing and Wrestling at Red Crown MMA Academy.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
+<meta name="theme-color" content="#000F08">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.prog-hero{padding:120px 0 0;background:var(--void);position:relative;overflow:hidden}
+.prog-inner{max-width:1280px;margin:0 auto;padding:0 56px}
+.prog-back{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;text-decoration:none;transition:color .25s}
+.prog-back:hover{color:var(--blood)}.prog-back::before{content:'←';font-size:14px}
+.prog-tag{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:16px}
+.prog-h1{font-family:var(--fd);font-size:clamp(72px,14vw,180px);font-weight:700;line-height:.82;letter-spacing:-4px;color:var(--white);margin-bottom:22px}
+.prog-h1 em{color:var(--blood);font-style:normal;display:block}
+.prog-sub{font-family:var(--fb);font-size:clamp(16px,2vw,20px);font-weight:300;color:var(--mist);max-width:640px;line-height:1.8;margin-bottom:36px}
+.prog-feats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.prog-wm{position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-family:var(--fd);font-size:clamp(100px,22vw,320px);font-weight:700;color:rgba(251,54,64,.035);line-height:1;pointer-events:none;letter-spacing:-8px;user-select:none}
+/* Disciplines grid */
+.disc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin:52px 0}
+.disc-card{background:var(--v2);border:1px solid var(--bw);padding:32px 28px;transition:border-color .3s,transform .3s;cursor:pointer;text-decoration:none;display:block;position:relative;overflow:hidden}
+.disc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--blood);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.disc-card:hover{border-color:var(--border)}.disc-card:hover::before{transform:scaleX(1)}
+.disc-num{font-family:var(--fd);font-size:52px;font-weight:700;color:rgba(251,54,64,.12);line-height:1;margin-bottom:8px}
+.disc-name{font-family:var(--fd);font-size:clamp(20px,2.5vw,28px);font-weight:700;color:var(--white);line-height:1;margin-bottom:10px;transition:color .25s}
+.disc-card:hover .disc-name{color:var(--blood)}
+.disc-role{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--blood);margin-bottom:12px}
+.disc-desc{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.75}
+.disc-link{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:6px;margin-top:16px;transition:color .25s,gap .25s}
+.disc-card:hover .disc-link{color:var(--blood);gap:12px}
+/* Phase blocks */
+.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin:0 0 3px}
+.prog-block{background:var(--v2);border:1px solid var(--bw);padding:44px}
+.prog-block-title{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:18px}
+.prog-block h2{font-family:var(--fd);font-size:clamp(28px,3vw,40px);font-weight:700;color:var(--white);margin-bottom:20px;line-height:1}
+.prog-block ul{list-style:none;padding:0}
+.prog-block ul li{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);padding:9px 0;border-bottom:1px solid var(--bw);display:flex;gap:12px;line-height:1.6}
+.prog-block ul li::before{content:"◆";color:var(--blood);font-size:8px;flex-shrink:0;margin-top:4px}
+/* Journey timeline */
+.journey{background:var(--v2);border:1px solid var(--bw);padding:52px;margin:3px 0}
+.journey-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;position:relative}
+.journey-steps::before{content:'';position:absolute;top:20px;left:10%;right:10%;height:1px;background:var(--bw)}
+.jstep{text-align:center;position:relative;padding:0 12px}
+.jstep-dot{width:40px;height:40px;border:2px solid var(--blood);background:var(--void);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:var(--fd);font-size:16px;font-weight:700;color:var(--blood);position:relative;z-index:1}
+.jstep-title{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--white);margin-bottom:8px}
+.jstep-desc{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.7}
+/* FAQ */
+.faq-item{background:var(--v2);border:1px solid var(--bw);margin-bottom:3px;overflow:hidden}
+.faq-q{font-family:var(--fd);font-size:18px;font-weight:600;color:var(--white);padding:22px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:color .25s}
+.faq-q:hover{color:var(--blood)}.faq-arr{transition:transform .3s;color:var(--blood)}.faq-item.open .faq-arr{transform:rotate(180deg)}
+.faq-a{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.85;padding:0 28px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+.faq-item.open .faq-a{max-height:300px;padding:0 28px 22px}
+/* Stat bar */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin:52px 0}
+.stat-box{background:var(--v2);border:1px solid var(--bw);padding:32px;text-align:center}
+.stat-num{font-family:var(--fd);font-size:clamp(40px,6vw,70px);font-weight:700;color:var(--blood);line-height:1}
+.stat-label{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);margin-top:8px}
+@media(max-width:1024px){.disc-grid{grid-template-columns:1fr 1fr}.stat-row{grid-template-columns:1fr 1fr}.journey-steps{grid-template-columns:1fr 1fr;gap:32px}.journey-steps::before{display:none}}
+@media(max-width:768px){.prog-grid{grid-template-columns:1fr}.disc-grid{grid-template-columns:1fr}.prog-inner{padding:0 20px}.stat-row{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.stat-row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div>
+<div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div>
+<div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div>
+<nav id="nav">
+  <div class="n-logo">
+    <div class="lw" id="logo-btn" role="button" tabindex="0">
+      <div class="or1"></div><div class="or2"></div>
+      <div class="lsvg"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
+      <span class="ltip">◈ RESTRICTED ACCESS</span>
+    </div>
+    <div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div>
+  </div>
+  <div class="n-links">
+    <a class="n-lnk" href="index.html" data-link>Home</a>
+    <a class="n-lnk active" href="programs.html" data-link>Programs</a>
+    <a class="n-lnk" href="coaches.html" data-link>Coaches</a>
+    <a class="n-lnk" href="schedule.html" data-link>Schedule</a>
+    <a class="n-lnk" href="gallery.html" data-link>Gallery</a>
+    <a class="n-lnk" href="blog.html" data-link>Blog</a>
+    <a class="n-lnk" href="contact.html" data-link>Contact</a>
+    <a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a>
+  </div>
+  <button class="n-burg" id="burg"><span></span><span></span><span></span></button>
+</nav>
+<div id="mm">
+  <a class="mlnk" href="index.html" data-link>Home</a>
+  <a class="mlnk" href="programs.html" data-link>Programs</a>
+  <a class="mlnk" href="coaches.html" data-link>Coaches</a>
+  <a class="mlnk" href="schedule.html" data-link>Schedule</a>
+  <a class="mlnk" href="gallery.html" data-link>Gallery</a>
+  <a class="mlnk" href="blog.html" data-link>Blog</a>
+  <a class="mlnk" href="contact.html" data-link>Contact</a>
+  <div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div>
+</div>
+<a id="wa" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wai">💬</span><span class="wal">WhatsApp Us</span></a>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <section class="prog-hero">
+    <div class="prog-inner">
+      <a class="prog-back" href="programs.html" data-link>All Programs</a>
+      <div class="prog-tag">◈ The Complete Discipline · Flagship Program</div>
+      <h1 class="prog-h1">Mixed<em>Martial<br>Arts.</em></h1>
+      <p class="prog-sub">Four combat disciplines. One fighter. MMA is the most complete test of a martial artist — and the fastest way to become genuinely dangerous. Red Crown's MMA program integrates BJJ, Muay Thai, Boxing and Wrestling into a single, cohesive system built for real competition.</p>
+      <div class="prog-feats">
+        <span class="pfeat">Striking Integration</span>
+        <span class="pfeat">Takedowns & Cage Work</span>
+        <span class="pfeat">Ground & Pound</span>
+        <span class="pfeat">Submission Grappling</span>
+        <span class="pfeat">Fight Camp Training</span>
+        <span class="pfeat">Competition Prep</span>
+        <span class="pfeat">All Levels Welcome</span>
+        <span class="pfeat">Sparring</span>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+        <a class="bo" href="schedule.html" data-link>View Schedule</a>
+      </div>
+    </div>
+    <div class="prog-wm">MMA</div>
+
+    <!-- Stats bar -->
+    <div class="prog-inner" style="margin-top:56px">
+      <div class="stat-row">
+        <div class="stat-box rv">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Combat Disciplines</div>
+        </div>
+        <div class="stat-box rv" style="transition-delay:.08s">
+          <div class="stat-num">6×</div>
+          <div class="stat-label">Weekly Classes</div>
+        </div>
+        <div class="stat-box rv" style="transition-delay:.16s">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Experience Required</div>
+        </div>
+        <div class="stat-box rv" style="transition-delay:.24s">
+          <div class="stat-num">1st</div>
+          <div class="stat-label">Class Always Free</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="prog-inner" style="padding-bottom:100px">
+
+    <!-- ── THE FOUR PILLARS ── -->
+    <div style="margin:64px 0 20px">
+      <div class="prog-tag">◆ The Four Pillars</div>
+      <p style="font-family:var(--fd);font-size:clamp(28px,4vw,48px);font-weight:700;color:var(--white);line-height:.95;max-width:700px">Every weapon. Every range. Every position.</p>
+    </div>
+
+    <div class="disc-grid">
+      <a class="disc-card rv" href="program-bjj.html" data-link>
+        <div class="disc-num">01</div>
+        <div class="disc-role">Ground Game</div>
+        <div class="disc-name">Brazilian Jiu-Jitsu</div>
+        <p class="disc-desc">Positional dominance, submissions, and the ability to control or finish a fight from any ground position. The intellectual backbone of MMA.</p>
+        <span class="disc-link">Explore BJJ →</span>
+      </a>
+      <a class="disc-card rv" href="program-muaythai.html" data-link style="transition-delay:.08s">
+        <div class="disc-num">02</div>
+        <div class="disc-role">Primary Striking</div>
+        <div class="disc-name">Muay Thai</div>
+        <p class="disc-desc">Eight limbs — fists, elbows, knees, kicks and the clinch. The world standard for MMA stand-up, delivering damage at every striking range.</p>
+        <span class="disc-link">Explore Muay Thai →</span>
+      </a>
+      <a class="disc-card rv" href="program-boxing.html" data-link style="transition-delay:.16s">
+        <div class="disc-num">03</div>
+        <div class="disc-role">Hands & Movement</div>
+        <div class="disc-name">Boxing</div>
+        <p class="disc-desc">Precise combination punching, elite defensive head movement, and footwork that creates angles and avoids counters. The foundation of hand speed.</p>
+        <span class="disc-link">Explore Boxing →</span>
+      </a>
+      <a class="disc-card rv" href="program-wrestling.html" data-link style="transition-delay:.24s">
+        <div class="disc-num">04</div>
+        <div class="disc-role">Fight Control</div>
+        <div class="disc-name">Wrestling</div>
+        <p class="disc-desc">Takedowns, clinch control, cage wrestling and sprawl defence. Wrestling decides where the fight takes place — the single most decisive skill in MMA.</p>
+        <span class="disc-link">Explore Wrestling →</span>
+      </a>
+    </div>
+
+    <!-- ── CURRICULUM ── -->
+    <div class="prog-grid rv" style="margin-top:3px">
+      <div class="prog-block">
+        <div class="prog-block-title">◆ What You'll Train</div>
+        <h2>MMA<br>Curriculum</h2>
+        <ul>
+          <li>Striking in MMA — punching for distance management, not just power</li>
+          <li>The clinch transition — from striking range to takedown entry</li>
+          <li>Takedowns with a live striker — bridging wrestling and stand-up</li>
+          <li>Ground and pound — maintaining top position while striking</li>
+          <li>Submission hunting from dominant positions</li>
+          <li>Defending takedowns and returning to feet safely</li>
+          <li>Cage work — offensive and defensive cage wrestling</li>
+          <li>MMA guard passing — no-gi transitions and positional pressure</li>
+          <li>Escapes under strikes — surviving bottom position in MMA</li>
+          <li>Fight IQ — reading opponents, controlling pace, managing rounds</li>
+        </ul>
+      </div>
+      <div class="prog-block rv" style="transition-delay:.1s">
+        <div class="prog-block-title">◆ Who This Is For</div>
+        <h2>Right For<br>You If...</h2>
+        <ul>
+          <li>You want to train MMA but don't know where to start</li>
+          <li>You have a background in one discipline and want to integrate others</li>
+          <li>You're preparing for your first amateur MMA bout</li>
+          <li>You want the most complete and effective self-defence skillset</li>
+          <li>You want a structured program, not just random classes</li>
+          <li>You're a serious competitor targeting regional or national competition</li>
+        </ul>
+        <div style="background:var(--v3);border-left:3px solid var(--blood);padding:20px 24px;margin-top:24px">
+          <div style="font-family:var(--fm);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--blood);margin-bottom:8px">◆ No background needed</div>
+          <p style="font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.75;margin:0">Complete beginners are welcomed into the MMA beginner track. You do not need BJJ, boxing or wrestling experience before your first class.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── THE JOURNEY ── -->
+    <div class="journey rv" style="transition-delay:.1s">
+      <div class="prog-block-title">◆ Your Path</div>
+      <p style="font-family:var(--fd);font-size:clamp(26px,4vw,44px);font-weight:700;color:var(--white);line-height:.95;margin-bottom:8px">From first class<br>to first fight.</p>
+      <p style="font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.8;max-width:560px">Every student moves at their own pace — but this is the typical progression at Red Crown.</p>
+      <div class="journey-steps">
+        <div class="jstep">
+          <div class="jstep-dot">1</div>
+          <div class="jstep-title">Foundations</div>
+          <p class="jstep-desc">Months 1–3. Basic striking, positional grappling, movement, defence. No sparring yet. Building the language of MMA.</p>
+        </div>
+        <div class="jstep">
+          <div class="jstep-dot">2</div>
+          <div class="jstep-title">Integration</div>
+          <p class="jstep-desc">Months 3–9. Linking disciplines — striking to takedown, clinch to ground. Controlled MMA sparring begins.</p>
+        </div>
+        <div class="jstep">
+          <div class="jstep-dot">3</div>
+          <div class="jstep-title">Development</div>
+          <p class="jstep-desc">Months 9–18. Fight IQ, game planning, live MMA rounds. Inter-academy sparring and amateur competition option.</p>
+        </div>
+        <div class="jstep">
+          <div class="jstep-dot">4</div>
+          <div class="jstep-title">Competition</div>
+          <p class="jstep-desc">18 months+. Full fight camp preparation, corner coaching, competing at regional and national amateur level.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FAQs ── -->
+    <div style="margin:52px 0">
+      <div class="prog-tag" style="margin-bottom:20px">◆ Common Questions</div>
+
+      <div class="faq-item rv" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Do I need to already train BJJ or boxing before starting MMA? <span class="faq-arr">↓</span></div>
+        <div class="faq-a">No. We have a dedicated MMA beginner track that starts from zero across all disciplines. You'll learn the striking, grappling and wrestling fundamentals within the MMA program itself. Having a background in one art helps, but it's absolutely not required.</div>
+      </div>
+
+      <div class="faq-item rv" onclick="this.classList.toggle('open')" style="transition-delay:.05s">
+        <div class="faq-q">How is MMA training different from just doing BJJ and boxing separately? <span class="faq-arr">↓</span></div>
+        <div class="faq-a">MMA training specifically drills the transitions between disciplines — the moments where most fighters fail. Shooting a takedown against a striker, defending a takedown and returning to striking, controlling ground position under punches — these are skills that only come from dedicated MMA-specific drilling. Cross-training helps, but only integrated MMA training builds real fight-readiness.</div>
+      </div>
+
+      <div class="faq-item rv" onclick="this.classList.toggle('open')" style="transition-delay:.1s">
+        <div class="faq-q">When will I be ready to compete? <span class="faq-arr">↓</span></div>
+        <div class="faq-a">Readiness for competition depends on training consistency and natural progression. Most students who train 4+ sessions per week are competition-ready within 12–18 months. Your coaches will advise when you're at the right level — we never push students to compete before they're ready.</div>
+      </div>
+
+      <div class="faq-item rv" onclick="this.classList.toggle('open')" style="transition-delay:.15s">
+        <div class="faq-q">Is MMA training safe? <span class="faq-arr">↓</span></div>
+        <div class="faq-a">Yes — when structured correctly. All live drilling and sparring is supervised by coaches. Beginners do not participate in live MMA sparring until they have built the fundamental skills to do so safely. Protective gear is worn during all contact sessions. Injury risk is significantly lower in a well-run MMA program than in unstructured gym environments.</div>
+      </div>
+
+      <div class="faq-item rv" onclick="this.classList.toggle('open')" style="transition-delay:.2s">
+        <div class="faq-q">Should I train MMA or individual disciplines? <span class="faq-arr">↓</span></div>
+        <div class="faq-a">If your goal is competition MMA or complete self-defence, the MMA program is the right choice. If you have a specific passion for one art — pure BJJ, pure Muay Thai — then the individual discipline programs give deeper focus in that art. Many students do both: attend their specialist discipline class plus the MMA integration sessions. Your coach can help you structure this.</div>
+      </div>
+
+    </div>
+
+    <!-- ── CTA ── -->
+    <div style="background:var(--v2);border:1px solid var(--bw);padding:72px;text-align:center;position:relative;overflow:hidden">
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(251,54,64,.05),transparent);pointer-events:none"></div>
+      <div style="font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:14px;position:relative">◈ Your first class is free</div>
+      <p style="font-family:var(--fd);font-size:clamp(36px,7vw,72px);font-weight:700;color:var(--white);line-height:.88;margin-bottom:16px;position:relative">Start MMA.<br><span style="color:var(--blood)">No experience needed.</span></p>
+      <p style="font-family:var(--fb);font-size:16px;font-weight:300;color:var(--mist);margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;position:relative">One free session. No gear required. No commitment. Your coach handles everything from the moment you walk in.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative">
+        <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+        <a class="bo" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20want%20to%20book%20a%20free%20MMA%20trial%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="fi">
+    <div class="fb">
+      <div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
+      <div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div>
+    </div>
+    <div class="flinks">
+      <a class="flnk" href="index.html" data-link>Home</a>
+      <a class="flnk" href="programs.html" data-link>Programs</a>
+      <a class="flnk" href="coaches.html" data-link>Coaches</a>
+      <a class="flnk" href="schedule.html" data-link>Schedule</a>
+      <a class="flnk" href="gallery.html" data-link>Gallery</a>
+      <a class="flnk" href="blog.html" data-link>Blog</a>
+      <a class="flnk" href="contact.html" data-link>Contact</a>
+    </div>
+    <div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

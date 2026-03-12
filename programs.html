@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 .pcards{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:52px}
-.pcard{background:var(--v2);border:1px solid var(--bw);overflow:hidden;cursor:none;transition:border-color .3s;position:relative}
+.pcard{background:var(--v2);border:1px solid var(--bw);overflow:hidden;cursor:pointer;transition:border-color .3s;position:relative}
 .pcard:hover{border-color:var(--border)}
 .pcard-bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--blood);transform:scaleX(0);transform-origin:left;transition:transform .45s;z-index:2}
 .pcard:hover .pcard-bar{transform:scaleX(1)}
@@ -84,6 +84,7 @@
   <a class="mlnk" href="gallery.html" data-link>Gallery</a>
   <a class="mlnk" href="blog.html" data-link>Blog</a><a class="mlnk" href="contact.html" data-link>Contact</a>
   <div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div></div>
+    
 <a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp">
   <span class="wai">💬</span><span class="wal">WhatsApp Us</span>
 </a>
@@ -99,12 +100,30 @@
   </div>
   <div class="pgb">
     <div class="pcards">
+      <!-- MMA — FLAGSHIP -->
+      <article class="pcard wide rv" style="transition-delay:0.04s">
+  <div class="pcard-bar"></div>
+  <div class="pphoto phb" style="aspect-ratio:32/7;position:relative">
+    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
+    <p class="phl">MMA Training · Full Contact · Noida</p>
+    <div class="pphoto-ov"><span>Mixed Martial Arts</span></div>
+    <div style="position:absolute;right:40px;top:50%;transform:translateY(-50%);font-family:var(--fd);font-size:clamp(60px,10vw,140px);font-weight:700;color:rgba(251,54,64,.07);line-height:1;pointer-events:none;letter-spacing:-4px">MMA</div>
+  </div>
+  <div class="pbody">
+    <div class="ptag">◈ Flagship Program · BJJ · Muay Thai · Boxing · Wrestling</div>
+    <h2 class="pname"><a href="program-mma.html" data-link style="color:inherit;text-decoration:none">Mixed Martial Arts →</a></h2>
+    <p class="pdesc">The complete combat system. MMA integrates all four disciplines into one cohesive fighting art — training the transitions, positions and fight IQ that no single martial art can teach alone. Red Crown's MMA program runs from complete beginner to competition-ready fighter.</p>
+    <div class="pfeats"><span class="pfeat">Striking Integration</span><span class="pfeat">Takedowns</span><span class="pfeat">Ground & Pound</span><span class="pfeat">Submissions</span><span class="pfeat">Cage Work</span><span class="pfeat">Competition Prep</span><span class="pfeat">All Levels</span></div>
+    <p class="pideal">Red Crown's core program — built for anyone who wants to become a complete martial artist, whether for fitness, self-defence or the cage.</p>
+    <a class="bp" href="program-mma.html" data-link><span>Explore MMA Program →</span></a>
+  </div>
+</article>
       <article class="pcard  rv" style="transition-delay:0.1s">
   <div class="pcard-bar"></div>
   <div class="pphoto phb">
     <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
     <p class="phl">BJJ Rolling Session · Mat-level angle · Submission attempt</p>
-    <div class="pphoto-ov"><span>Explore Program →</span></div>
+    <div class="pphoto-ov"><span>Brazilian Jiu-Jitsu</span></div>
   </div>
   <div class="pbody">
     <div class="ptag">Grappling · Ground Control · Submissions</div>
@@ -112,7 +131,7 @@
     <p class="pdesc">The intellectual backbone of modern MMA. BJJ teaches positional dominance, leverage, and the art of submitting opponents through technique alone — regardless of size or strength.</p>
     <div class="pfeats"><span class="pfeat">Guard Passing</span><span class="pfeat">Submissions</span><span class="pfeat">Positional Control</span><span class="pfeat">Belt Progression</span><span class="pfeat">Competition</span></div>
     <p class="pideal">Ideal for: complete beginners, self-defence, BJJ competition, and MMA integration at all levels.</p>
-    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a><a class="bo" href="program-bjj.html" data-link>Explore →</a></div>
   </div>
 </article>
       <article class="pcard  rv" style="transition-delay:0.16s">
@@ -120,7 +139,7 @@
   <div class="pphoto phb">
     <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
     <p class="phl">Muay Thai Pad Work · Knee strike · High intensity</p>
-    <div class="pphoto-ov"><span>Explore Program →</span></div>
+    <div class="pphoto-ov"><span>Muay Thai</span></div>
   </div>
   <div class="pbody">
     <div class="ptag">Eight Limbs · Clinch · Power</div>
@@ -136,7 +155,7 @@
   <div class="pphoto phb">
     <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
     <p class="phl">Boxing Bag Work · Impact shot · Dramatic rim lighting</p>
-    <div class="pphoto-ov"><span>Explore Program →</span></div>
+    <div class="pphoto-ov"><span>Boxing</span></div>
   </div>
   <div class="pbody">
     <div class="ptag">Precision · Footwork · Defence</div>
@@ -152,7 +171,7 @@
   <div class="pphoto phb">
     <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
     <p class="phl">Wrestling Takedown · Low angle · Explosive action</p>
-    <div class="pphoto-ov"><span>Explore Program →</span></div>
+    <div class="pphoto-ov"><span>Wrestling & Grappling</span></div>
   </div>
   <div class="pbody">
     <div class="ptag">Takedowns · Clinch · Mat Control</div>
@@ -168,7 +187,7 @@
   <div class="pphoto phb">
     <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
     <p class="phl">Kids Program · Safe structured environment · Fun class</p>
-    <div class="pphoto-ov"><span>Explore Program →</span></div>
+    <div class="pphoto-ov"><span>Kids & Juniors</span></div>
   </div>
   <div class="pbody">
     <div class="ptag">Ages 6–14 · BJJ · Muay Thai · MMA Fundamentals</div>
@@ -185,7 +204,7 @@
       <article class="pcard">
         <div class="pcard-bar"></div>
         <div class="sc-row">
-          <div class="pphoto phb" style="min-height:280px"><svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">S&amp;C Session · Combat Athlete</p><div class="pphoto-ov"><span>Explore Program →</span></div></div>
+          <div class="pphoto phb" style="min-height:280px"><svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">S&amp;C Session · Combat Athlete</p><div class="pphoto-ov"><span>S&amp;C Training</span></div></div>
           <div class="pbody">
             <div class="ptag">Combat Athlete Development</div>
             <h2 class="pname"><a href="program-sc.html" data-link style="color:inherit;text-decoration:none">Strength &amp;<br>Conditioning</a></h2>
@@ -207,25 +226,22 @@
     <div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div>
   </div>
 </footer>
-<script src="js/main.js"></script>
 <script>
-// Full card click navigation
-(function(){
-  var cards = document.querySelectorAll('.pcard');
-  cards.forEach(function(card){
-    var a = card.querySelector('.pname a');
-    if(!a) return;
-    var href = a.getAttribute('href');
-    if(!href || href === 'contact.html') return;
-    card.style.cursor = 'pointer';
-    card.addEventListener('click', function(e){
-      if(e.target.tagName === 'A') return;
-      var wipe = document.getElementById('wipe');
-      if(wipe){ wipe.className='in'; setTimeout(function(){ location.href=href; },440); }
-      else { location.href = href; }
-    });
+// Make entire program cards clickable
+document.querySelectorAll('.pcard').forEach(card => {
+  const link = card.querySelector('.pname a, .bo');
+  if(!link) return;
+  const href = link.getAttribute('href');
+  if(!href || href === 'contact.html') return;
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', e => {
+    if(e.target.tagName === 'A') return; // let actual links handle themselves
+    const wipe = document.getElementById('wipe');
+    if(wipe){ wipe.className='in'; setTimeout(()=>location.href=href,440); }
+    else location.href = href;
   });
-})();
+});
 </script>
+<script src="js/main.js"></script>
 </body>
 </html>
