@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* HERO */
+
 #hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--void)}
 .h-hex{position:absolute;inset:0;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 2L54 18V50L28 66L2 50V18Z' fill='none' stroke='%23FB3640' stroke-width='1'/%3E%3Cpath d='M28 66L54 82V114L28 130L2 114V82Z' fill='none' stroke='%23FB3640' stroke-width='1'/%3E%3C/svg%3E");background-size:56px 100px}
 .h-slash{position:absolute;inset:0;background:linear-gradient(125deg,var(--void) 50%,rgba(251,54,64,.05) 100%)}
@@ -39,13 +39,13 @@
 .h-hint{position:absolute;bottom:-52px;left:50%;transform:translateX(-50%);font-family:var(--fm);font-size:8px;letter-spacing:3px;color:var(--blood);border:1px solid var(--border);padding:5px 12px;white-space:nowrap;opacity:0;transition:opacity .35s;animation:pbdr 2s ease-in-out infinite}
 .h-logo-wrap:hover .h-hint{opacity:1}
 .h-mma{font-family:var(--fm);font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--fog);margin-top:52px}
-/* Scroll cue */
+
 .h-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:ha .8s ease 1.4s both;cursor:none}
 .h-sbar{width:1px;height:52px;background:rgba(251,54,64,.18);overflow:hidden;position:relative}
 .h-sbar::after{content:'';position:absolute;inset:0;background:var(--blood);animation:sdrop 2s ease-in-out infinite}
 @keyframes sdrop{0%{transform:translateY(-100%)}100%{transform:translateY(200%)}}
 .h-stxt{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--fog)}
-/* Stats */
+
 .stats{background:var(--v2);padding:64px 0;border-bottom:1px solid var(--bw)}
 .stats-in{max-width:1280px;margin:0 auto;padding:0 56px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
 .stat{background:var(--v3);padding:36px 32px;position:relative;overflow:hidden;border-left:1px solid var(--bw);transition:background .3s}
@@ -55,7 +55,7 @@
 .snum{font-family:var(--fd);font-size:clamp(50px,6vw,78px);font-weight:700;color:var(--blood);line-height:1;margin-bottom:8px}
 .slb{font-family:var(--fm);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mist)}
 .sbg{position:absolute;right:-10px;bottom:-10px;font-family:var(--fd);font-size:120px;font-weight:700;color:rgba(251,54,64,.04);line-height:1;pointer-events:none}
-/* Program preview */
+
 .pp{padding:100px 0;background:var(--void)}
 .pp-in{max-width:1280px;margin:0 auto;padding:0 56px}
 .pg{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:52px}
@@ -71,7 +71,7 @@
 .pc:hover .pc-desc{max-height:80px;opacity:1}
 .pc-arr{margin-top:auto;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:2px;color:var(--blood);padding-top:14px;transition:letter-spacing .25s}
 .pc:hover .pc-arr{letter-spacing:3px}
-/* Testimonials */
+
 .tst{padding:100px 0;background:var(--v2)}
 .tst-in{max-width:1280px;margin:0 auto;padding:0 56px}
 .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:52px}
@@ -83,7 +83,7 @@
 .tc-q{font-family:var(--fb);font-size:14px;font-weight:300;font-style:italic;color:var(--mist);line-height:1.85;margin-bottom:22px}
 .tc-nm{font-family:var(--fd);font-size:16px;font-weight:700;letter-spacing:1px;color:var(--white);margin-bottom:3px}
 .tc-mt{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog)}
-/* CTA */
+
 .cta{background:var(--blood);padding:88px 0;text-align:center;position:relative;overflow:hidden}
 .cta::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 88px,rgba(0,0,0,.07) 88px,rgba(0,0,0,.07) 89px)}
 .cta-in{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 56px}
@@ -262,7 +262,7 @@
 <script src="js/main.js"></script>
 <script>
 
-    /* ─ NAVIGATE ─ */
+
     location.href = 'fighter-team.html';
   }
 
