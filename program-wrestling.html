@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Wrestling & Grappling | Red Crown MMA</title>
+<meta name="description" content="Control who stands and who hits the ground. Freestyle takedowns, Greco clinch, and mat pressure — wrestling is the single most decisive skillset in modern ">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
+<meta name="theme-color" content="#000F08">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+:root{--acc:#D4A843;}
+/* ── HERO ── */
+.pg{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--void);padding-top:90px}
+.pg-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 30% 50%,rgba(212,168,67,.12),transparent 70%);pointer-events:none}
+.pg-in{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:60px 56px 80px;width:100%}
+.pg-back{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;text-decoration:none;transition:color .25s}
+.pg-back::before{content:'←';font-size:14px;color:#D4A843;transition:transform .25s}
+.pg-back:hover{color:#D4A843}.pg-back:hover::before{transform:translateX(-4px)}
+.pg-tag{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#D4A843;margin-bottom:14px;opacity:.9}
+.pg-h1{font-family:var(--fd);font-size:clamp(62px,10vw,148px);font-weight:700;line-height:.84;letter-spacing:-3px;color:var(--white);margin-bottom:22px}
+.pg-h1 span{color:#D4A843;display:block}
+.pg-sub{font-family:var(--fb);font-size:clamp(15px,1.8vw,19px);font-weight:300;color:var(--mist);line-height:1.85;max-width:560px;margin-bottom:32px}
+.pg-feats{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:38px}
+.pg-feat{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#D4A843;border:1px solid rgba(212,168,67,.12);padding:4px 13px;background:rgba(212,168,67,.04)}
+.pg-wm{position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:var(--fd);font-size:clamp(80px,18vw,260px);font-weight:700;letter-spacing:-6px;color:rgba(212,168,67,.04);line-height:1;pointer-events:none;user-select:none;white-space:nowrap}
+/* ── BODY ── */
+.pb{max-width:1280px;margin:0 auto;padding:80px 56px 100px}
+.sec-label{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#D4A843;display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.sec-label::before{content:'';width:32px;height:1px;background:#D4A843}
+.sec-h{font-family:var(--fd);font-size:clamp(34px,5vw,64px);font-weight:700;color:var(--white);line-height:.9;letter-spacing:-1px;margin-bottom:44px}
+/* ── FAQ ── */
+.fq{background:var(--v2);border:1px solid var(--bw);margin-bottom:3px;overflow:hidden;transition:border-color .3s}
+.fq:hover,.fq.open{border-color:rgba(212,168,67,.12)}
+.fq-q{font-family:var(--fd);font-size:18px;font-weight:600;color:var(--white);padding:20px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:none;text-align:left;transition:color .25s;gap:16px}
+.fq-q:hover{color:#D4A843}.fq-arr{color:#D4A843;transition:transform .3s;flex-shrink:0;font-size:14px}.fq.open .fq-arr{transform:rotate(180deg)}
+.fq-a{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.85;padding:0 28px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s}
+.fq.open .fq-a{max-height:220px;padding:0 28px 22px}
+/* ── CTA ── */
+.pcta{background:var(--v2);border:1px solid rgba(212,168,67,.12);padding:72px;text-align:center;position:relative;overflow:hidden;margin-top:72px}
+.pcta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(212,168,67,.12),transparent 65%);pointer-events:none}
+/* ── DIVIDER ── */
+.pdiv{height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,67,.12),transparent);margin:72px 0}
+/* ── MOBILE ── */
+@media(max-width:1024px){.pg-in,.pb{padding-left:28px;padding-right:28px}.pg-wm{display:none}}
+@media(max-width:640px){.pg-h1{font-size:clamp(52px,14vw,90px)}.pcta{padding:44px 28px}}
+</style><style>
+/* CAGE — side-by-side panels, iron aesthetic, vertical strip curriculum */
+.cage-hero-grid{{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:52px}}
+.cage-panel{{background:rgba(0,15,8,.8);border:1px solid rgba(212,168,67,.15);padding:40px}}
+.cage-panel-tag{{font-family:var(--fm);font-size:8px;letter-spacing:5px;text-transform:uppercase;color:#D4A843;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(212,168,67,.15)}}
+/* Strip curriculum */
+.cs-list{{display:flex;flex-direction:column;gap:3px}}
+.cs-item{{display:grid;grid-template-columns:56px 1fr;gap:0;background:var(--v2);border:1px solid var(--bw);border-left:3px solid rgba(212,168,67,.3);overflow:hidden;transition:border-left-color .3s,background .3s}}
+.cs-item:hover{{background:var(--v3);border-left-color:#D4A843}}
+.cs-n{{font-family:var(--fd);font-size:32px;font-weight:700;color:rgba(212,168,67,.2);display:flex;align-items:center;justify-content:center;transition:color .3s}}
+.cs-item:hover .cs-n{{color:rgba(212,168,67,.5)}}
+.cs-body{{padding:20px 24px 20px 0}}
+.cs-t{{font-family:var(--fd);font-size:19px;font-weight:700;color:var(--white);margin-bottom:5px;line-height:1;transition:color .3s}}
+.cs-item:hover .cs-t{{color:#D4A843}}
+.cs-d{{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.7}}
+/* who-for */
+.wg-3{{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}}
+.wg-item{{background:var(--v2);border:1px solid var(--bw);padding:20px;font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.6;transition:border-color .3s;display:flex;align-items:flex-start;gap:10px}}
+.wg-item::before{{content:'◆';color:#D4A843;font-size:8px;flex-shrink:0;margin-top:5px}}
+.wg-item:hover{{border-color:rgba(212,168,67,.2)}}
+@media(max-width:1024px){{.cage-hero-grid{{grid-template-columns:1fr}}.wg-3{{grid-template-columns:1fr 1fr}}}}
+@media(max-width:580px){{.wg-3{{grid-template-columns:1fr}}}}
+</style>
+</head><body><div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div>
+<div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div>
+<div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div><nav id="nav"><div class="n-logo"><div class="lw" id="logo-btn" role="button" tabindex="0"><div class="or1"></div><div class="or2"></div><div class="lsvg"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><span class="ltip">◈ RESTRICTED ACCESS</span></div><div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div></div><div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a><a class="n-lnk" href="programs.html" data-link>Programs</a><a class="n-lnk" href="coaches.html" data-link>Coaches</a><a class="n-lnk" href="schedule.html" data-link>Schedule</a><a class="n-lnk" href="gallery.html" data-link>Gallery</a><a class="n-lnk" href="blog.html" data-link>Blog</a><a class="n-lnk" href="contact.html" data-link>Contact</a><a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a></div><button class="n-burg" id="burg"><span></span><span></span><span></span></button></nav>
+<div id="mm"><a class="mlnk" href="index.html" data-link>Home</a><a class="mlnk" href="programs.html" data-link>Programs</a><a class="mlnk" href="coaches.html" data-link>Coaches</a><a class="mlnk" href="schedule.html" data-link>Schedule</a><a class="mlnk" href="gallery.html" data-link>Gallery</a><a class="mlnk" href="blog.html" data-link>Blog</a><a class="mlnk" href="contact.html" data-link>Contact</a><div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div></div>
+<a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wai">💬</span><span class="wal">WhatsApp Us</span></a><main><section class="pg"><svg class="pg-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><line x1="0%" y1="0%" x2="0%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="5%" y1="0%" x2="5%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="10%" y1="0%" x2="10%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="15%" y1="0%" x2="15%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="20%" y1="0%" x2="20%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="25%" y1="0%" x2="25%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="30%" y1="0%" x2="30%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="35%" y1="0%" x2="35%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="40%" y1="0%" x2="40%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="45%" y1="0%" x2="45%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="50%" y1="0%" x2="50%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="55%" y1="0%" x2="55%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="60%" y1="0%" x2="60%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="65%" y1="0%" x2="65%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="70%" y1="0%" x2="70%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="75%" y1="0%" x2="75%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="80%" y1="0%" x2="80%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="85%" y1="0%" x2="85%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="90%" y1="0%" x2="90%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="95%" y1="0%" x2="95%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="100%" y1="0%" x2="100%" y2="100%" stroke="#D4A843" stroke-opacity=".045" stroke-width=".7"/><line x1="0%" y1="0%" x2="100%" y2="0%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="8%" x2="100%" y2="8%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="16%" x2="100%" y2="16%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="24%" x2="100%" y2="24%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="32%" x2="100%" y2="32%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="40%" x2="100%" y2="40%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="48%" x2="100%" y2="48%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="56%" x2="100%" y2="56%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="64%" x2="100%" y2="64%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="72%" x2="100%" y2="72%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="80%" x2="100%" y2="80%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="88%" x2="100%" y2="88%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="96%" x2="100%" y2="96%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="104%" x2="100%" y2="104%" stroke="#D4A843" stroke-opacity=".025" stroke-width=".5"/><line x1="0%" y1="0%" x2="4%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="7%" y1="0%" x2="11%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="14%" y1="0%" x2="18%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="21%" y1="0%" x2="25%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="28%" y1="0%" x2="32%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="35%" y1="0%" x2="39%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="42%" y1="0%" x2="46%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="49%" y1="0%" x2="53%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="56%" y1="0%" x2="60%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="63%" y1="0%" x2="67%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="70%" y1="0%" x2="74%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="77%" y1="0%" x2="81%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="84%" y1="0%" x2="88%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="91%" y1="0%" x2="95%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="98%" y1="0%" x2="102%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/><line x1="105%" y1="0%" x2="109%" y2="100%" stroke="#D4A843" stroke-opacity=".02" stroke-width=".4"/></svg><div class="pg-in"><a class="pg-back" href="programs.html" data-link>All Programs</a><div class="pg-tag">◆ Takedowns · Clinch · Mat Control</div><h1 class="pg-h1">Wrestling &<span>Grappling.</span></h1><p class="pg-sub">Control who stands and who hits the ground. Freestyle takedowns, Greco clinch, and mat pressure — wrestling is the single most decisive skillset in modern MMA.</p><div class="pg-feats"><span class="pg-feat">Freestyle Takedowns</span><span class="pg-feat">Greco-Roman Clinch</span><span class="pg-feat">Sprawl Defence</span><span class="pg-feat">Cage Work</span><span class="pg-feat">Scrambles</span><span class="pg-feat">Mat Control</span><span class="pg-feat">MMA Integration</span></div><div class="cage-hero-grid"><div><div style="display:flex;gap:14px;flex-wrap:wrap">
+  <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+  <a class="bo" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener">WhatsApp Us</a>
+</div></div><div class="cage-panel rv" style="transition-delay:.2s"><div class="cage-panel-tag">◆ Program Data</div><div class="pp-row" style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(212,168,67,.1)"><span style="font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog)">Discipline</span><span style="font-family:var(--fd);font-size:17px;font-weight:700;color:var(--white)">Wrestling & Grappling</span></div><div class="pp-row" style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(212,168,67,.1)"><span style="font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog)">Style</span><span style="font-family:var(--fd);font-size:17px;font-weight:700;color:var(--white)">Freestyle + Greco-Roman</span></div><div class="pp-row" style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(212,168,67,.1)"><span style="font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog)">Classes / Week</span><span style="font-family:var(--fd);font-size:17px;font-weight:700;color:var(--white)">6 Days</span></div><div class="pp-row" style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(212,168,67,.1)"><span style="font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog)">Gi Required</span><span style="font-family:var(--fd);font-size:17px;font-weight:700;color:var(--white)">No — Shorts & Rash Guard</span></div><div class="pp-row" style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(212,168,67,.1)"><span style="font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog)">First Class</span><span style="font-family:var(--fd);font-size:17px;font-weight:700;color:#D4A843">Free</span></div><div style="margin-top:20px"><div style="display:flex;gap:14px;flex-wrap:wrap">
+  <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+  <a class="bo" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener">WhatsApp Us</a>
+</div></div></div></div></div><div class="pg-wm">WR</div></section><div class="pb">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px">
+    <div>
+      <div class="sec-label">Curriculum</div>
+      <h2 class="sec-h">What You'll Learn</h2>
+      <div class="cs-list"><div class="cs-item rv" style="transition-delay:0.00s"><div class="cs-n">01</div><div class="cs-body"><div class="cs-t">TAKEDOWN SYSTEMS</div><div class="cs-d">Double leg, single leg, high crotch — setup, fakes, timing, finish. Clean entries from every range.</div></div></div><div class="cs-item rv" style="transition-delay:0.06s"><div class="cs-n">02</div><div class="cs-body"><div class="cs-t">GRECO-ROMAN CLINCH</div><div class="cs-d">Body lock, hip throw, suplex entries and cage-assisted throws. Upper-body dominance.</div></div></div><div class="cs-item rv" style="transition-delay:0.12s"><div class="cs-n">03</div><div class="cs-body"><div class="cs-t">SPRAWL & BRAWL</div><div class="cs-d">Stopping takedowns, framing, shucking and immediately reversing into your own attack.</div></div></div><div class="cs-item rv" style="transition-delay:0.18s"><div class="cs-n">04</div><div class="cs-body"><div class="cs-t">CAGE WRESTLING</div><div class="cs-d">Using the fence for control, takedowns, exits and positioning for ground-and-pound.</div></div></div><div class="cs-item rv" style="transition-delay:0.24s"><div class="cs-n">05</div><div class="cs-body"><div class="cs-t">SCRAMBLE WORK</div><div class="cs-d">Re-shots, stand-ups, back takes and positional chess from uncomfortable, bad positions.</div></div></div><div class="cs-item rv" style="transition-delay:0.30s"><div class="cs-n">06</div><div class="cs-body"><div class="cs-t">MMA INTEGRATION</div><div class="cs-d">Wrestling-to-striking transitions, ground-and-pound setup, ride-outs and cage pressure.</div></div></div></div>
+    </div>
+    <div>
+      <div class="sec-label">Who It's For</div>
+      <h2 class="sec-h">Right For You If...</h2>
+      <div class="wg-3" style="grid-template-columns:1fr"><div class="wg-item rv" style="transition-delay:0.00s">MMA fighters needing to dictate where the fight happens</div><div class="wg-item rv" style="transition-delay:0.05s">BJJ practitioners adding a powerful takedown game</div><div class="wg-item rv" style="transition-delay:0.10s">Strikers who need reliable takedown defence</div><div class="wg-item rv" style="transition-delay:0.15s">Competition MMA athletes in fight camp</div><div class="wg-item rv" style="transition-delay:0.20s">Anyone who wants the most fight-decisive skill in MMA</div><div class="wg-item rv" style="transition-delay:0.25s">Submission wrestling competitors</div></div>
+      <div class="pdiv" style="margin:44px 0"></div>
+      <div class="sec-label">FAQ</div>
+      <h2 class="sec-h" style="font-size:clamp(28px,3.5vw,44px)">Questions</h2>
+      <div class="fq rv" style="transition-delay:0.00s">
+  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">No wrestling background needed?<span class="fq-arr">▼</span></button>
+  <div class="fq-a">None at all. We teach from the absolute fundamentals. Every elite wrestler started knowing nothing.</div>
+</div><div class="fq rv" style="transition-delay:0.07s">
+  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">Why is wrestling so important for MMA?<span class="fq-arr">▼</span></button>
+  <div class="fq-a">Wrestling determines where the fight takes place. It is statistically the most common predictor of MMA success and the gap most beginners need to close fastest.</div>
+</div><div class="fq rv" style="transition-delay:0.14s">
+  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">Do I need a gi?<span class="fq-arr">▼</span></button>
+  <div class="fq-a">No. Wrestling and grappling is done in shorts and a rash guard. No gi required.</div>
+</div><div class="fq rv" style="transition-delay:0.21s">
+  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">Is it hard on the body?<span class="fq-arr">▼</span></button>
+  <div class="fq-a">Like all contact training, conditioning matters. We build into live drilling gradually. Neck, hip and core strength all develop through the program itself.</div>
+</div>
+    </div>
+  </div>
+  <div class="pcta rv">
+  <div style="position:relative;z-index:1">
+    <div style="font-family:var(--fm);font-size:9px;letter-spacing:6px;text-transform:uppercase;color:#D4A843;margin-bottom:18px">◆ No experience needed · No commitment</div>
+    <p style="font-family:var(--fd);font-size:clamp(40px,6vw,80px);font-weight:700;color:var(--white);line-height:.88;letter-spacing:-2px;margin-bottom:14px">First class.<br><span style="color:#D4A843">Always free.</span></p>
+    <p style="font-family:var(--fb);font-size:16px;font-weight:300;color:var(--mist);max-width:420px;margin:0 auto 36px;line-height:1.85">Show up. Your coach handles everything from there. No gear, no commitment, no pressure.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+      <a class="bo" href="programs.html" data-link>All Programs</a>
+    </div>
+  </div>
+</div>
+</div></main><footer><div class="fi"><div class="fb"><div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div><div class="flinks"><a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="blog.html" data-link>Blog</a><a class="flnk" href="contact.html" data-link>Contact</a></div><div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div></div></footer>
+<script src="js/main.js"></script></body></html>

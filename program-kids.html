@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Kids & Juniors | Red Crown MMA</title>
+<meta name="description" content="Safe, structured and character-building. Red Crown's kids program develops discipline, coordination, confidence and respect — all in a controlled, coach-su">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
+<meta name="theme-color" content="#000F08">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+:root{--acc:#F0C040;}
+/* ── HERO ── */
+.pg{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--void);padding-top:90px}
+.pg-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 30% 50%,rgba(240,192,64,.12),transparent 70%);pointer-events:none}
+.pg-in{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:60px 56px 80px;width:100%}
+.pg-back{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;text-decoration:none;transition:color .25s}
+.pg-back::before{content:'←';font-size:14px;color:#F0C040;transition:transform .25s}
+.pg-back:hover{color:#F0C040}.pg-back:hover::before{transform:translateX(-4px)}
+.pg-tag{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#F0C040;margin-bottom:14px;opacity:.9}
+.pg-h1{font-family:var(--fd);font-size:clamp(62px,10vw,148px);font-weight:700;line-height:.84;letter-spacing:-3px;color:var(--white);margin-bottom:22px}
+.pg-h1 span{color:#F0C040;display:block}
+.pg-sub{font-family:var(--fb);font-size:clamp(15px,1.8vw,19px);font-weight:300;color:var(--mist);line-height:1.85;max-width:560px;margin-bottom:32px}
+.pg-feats{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:38px}
+.pg-feat{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#F0C040;border:1px solid rgba(240,192,64,.12);padding:4px 13px;background:rgba(240,192,64,.04)}
+.pg-wm{position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:var(--fd);font-size:clamp(80px,18vw,260px);font-weight:700;letter-spacing:-6px;color:rgba(240,192,64,.04);line-height:1;pointer-events:none;user-select:none;white-space:nowrap}
+/* ── BODY ── */
+.pb{max-width:1280px;margin:0 auto;padding:80px 56px 100px}
+.sec-label{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:#F0C040;display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.sec-label::before{content:'';width:32px;height:1px;background:#F0C040}
+.sec-h{font-family:var(--fd);font-size:clamp(34px,5vw,64px);font-weight:700;color:var(--white);line-height:.9;letter-spacing:-1px;margin-bottom:44px}
+/* ── FAQ ── */
+.fq{background:var(--v2);border:1px solid var(--bw);margin-bottom:3px;overflow:hidden;transition:border-color .3s}
+.fq:hover,.fq.open{border-color:rgba(240,192,64,.12)}
+.fq-q{font-family:var(--fd);font-size:18px;font-weight:600;color:var(--white);padding:20px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:none;text-align:left;transition:color .25s;gap:16px}
+.fq-q:hover{color:#F0C040}.fq-arr{color:#F0C040;transition:transform .3s;flex-shrink:0;font-size:14px}.fq.open .fq-arr{transform:rotate(180deg)}
+.fq-a{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.85;padding:0 28px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s}
+.fq.open .fq-a{max-height:220px;padding:0 28px 22px}
+/* ── CTA ── */
+.pcta{background:var(--v2);border:1px solid rgba(240,192,64,.12);padding:72px;text-align:center;position:relative;overflow:hidden;margin-top:72px}
+.pcta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(240,192,64,.12),transparent 65%);pointer-events:none}
+/* ── DIVIDER ── */
+.pdiv{height:1px;background:linear-gradient(90deg,transparent,rgba(240,192,64,.12),transparent);margin:72px 0}
+/* ── MOBILE ── */
+@media(max-width:1024px){.pg-in,.pb{padding-left:28px;padding-right:28px}.pg-wm{display:none}}
+@media(max-width:640px){.pg-h1{font-size:clamp(52px,14vw,90px)}.pcta{padding:44px 28px}}
+</style><style>
+/* STARS — achievement card layout, warmer more energetic */
+.stars-hero-content{{max-width:700px}}
+/* Achievement cards for curriculum */
+.ach-grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}}
+.ach-card{{background:var(--v2);border:1px solid var(--bw);padding:32px 28px;position:relative;overflow:hidden;transition:border-color .3s,background .3s}}
+.ach-card:hover{{background:var(--v3);border-color:rgba(240,192,64,.25)}}
+.ach-card::before{{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:rgba(240,192,64,.3);transform:scaleX(0);transform-origin:left;transition:transform .4s}}
+.ach-card:hover::before{{transform:scaleX(1)}}
+.ach-n{{font-family:var(--fm);font-size:10px;letter-spacing:4px;color:#F0C040;margin-bottom:10px}}
+.ach-t{{font-family:var(--fd);font-size:21px;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.05}}
+.ach-d{{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.8}}
+/* milestone / progress path for kids */
+.milestone{{display:flex;align-items:center;gap:12px;margin-bottom:3px;background:var(--v2);border:1px solid var(--bw);padding:18px 24px;transition:border-color .3s}}
+.milestone:hover{{border-color:rgba(240,192,64,.2)}}
+.m-dot{{width:32px;height:32px;border-radius:50%;border:2px solid rgba(240,192,64,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--fd);font-size:14px;font-weight:700;color:#F0C040;background:rgba(240,192,64,.06)}}
+.m-txt{{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.6}}
+/* who-for grid */
+.wkids{{display:grid;grid-template-columns:repeat(2,1fr);gap:3px}}
+.wkids-item{{background:var(--v2);border:1px solid var(--bw);padding:20px 22px;font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.6;display:flex;align-items:flex-start;gap:10px;transition:border-color .3s}}
+.wkids-item::before{{content:'★';color:#F0C040;font-size:10px;flex-shrink:0;margin-top:2px}}
+.wkids-item:hover{{border-color:rgba(240,192,64,.2)}}
+@media(max-width:900px){{.ach-grid{{grid-template-columns:1fr 1fr}}.wkids{{grid-template-columns:1fr}}}}
+@media(max-width:580px){{.ach-grid{{grid-template-columns:1fr}}}}
+</style>
+</head><body><div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div>
+<div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div>
+<div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div><nav id="nav"><div class="n-logo"><div class="lw" id="logo-btn" role="button" tabindex="0"><div class="or1"></div><div class="or2"></div><div class="lsvg"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><span class="ltip">◈ RESTRICTED ACCESS</span></div><div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div></div><div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a><a class="n-lnk" href="programs.html" data-link>Programs</a><a class="n-lnk" href="coaches.html" data-link>Coaches</a><a class="n-lnk" href="schedule.html" data-link>Schedule</a><a class="n-lnk" href="gallery.html" data-link>Gallery</a><a class="n-lnk" href="blog.html" data-link>Blog</a><a class="n-lnk" href="contact.html" data-link>Contact</a><a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a></div><button class="n-burg" id="burg"><span></span><span></span><span></span></button></nav>
+<div id="mm"><a class="mlnk" href="index.html" data-link>Home</a><a class="mlnk" href="programs.html" data-link>Programs</a><a class="mlnk" href="coaches.html" data-link>Coaches</a><a class="mlnk" href="schedule.html" data-link>Schedule</a><a class="mlnk" href="gallery.html" data-link>Gallery</a><a class="mlnk" href="blog.html" data-link>Blog</a><a class="mlnk" href="contact.html" data-link>Contact</a><div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div></div>
+<a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wai">💬</span><span class="wal">WhatsApp Us</span></a><main><section class="pg" style="min-height:85vh"><svg class="pg-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><circle cx="50%" cy="50%" r="20%" fill="none" stroke="#F0C040" stroke-opacity=".04" stroke-width=".6"/><circle cx="50%" cy="50%" r="35%" fill="none" stroke="#F0C040" stroke-opacity=".04" stroke-width=".6"/><circle cx="50%" cy="50%" r="50%" fill="none" stroke="#F0C040" stroke-opacity=".04" stroke-width=".6"/><polygon points="15.00,10.00,17.47,16.60,24.51,16.91,18.99,21.30,20.88,28.09,15.00,24.20,9.12,28.09,11.01,21.30,5.49,16.91,12.53,16.60" fill="#F0C040" fill-opacity=".05"/><polygon points="75.00,8.00,76.73,12.62,81.66,12.84,77.80,15.91,79.11,20.66,75.00,17.94,70.89,20.66,72.20,15.91,68.34,12.84,73.27,12.62" fill="#F0C040" fill-opacity=".05"/><polygon points="88.00,58.00,90.96,65.92,99.41,66.29,92.79,71.56,95.05,79.71,88.00,75.04,80.95,79.71,83.21,71.56,76.59,66.29,85.04,65.92" fill="#F0C040" fill-opacity=".05"/><polygon points="20.00,72.00,21.97,77.28,27.61,77.53,23.20,81.04,24.70,86.47,20.00,83.36,15.30,86.47,16.80,81.04,12.39,77.53,18.03,77.28" fill="#F0C040" fill-opacity=".05"/><polygon points="50.00,24.00,53.95,34.56,65.22,35.06,56.39,42.08,59.40,52.94,50.00,46.72,40.60,52.94,43.61,42.08,34.78,35.06,46.05,34.56" fill="#F0C040" fill-opacity=".05"/><polygon points="60.00,79.00,61.48,82.96,65.71,83.15,62.40,85.78,63.53,89.85,60.00,87.52,56.47,89.85,57.60,85.78,54.29,83.15,58.52,82.96" fill="#F0C040" fill-opacity=".05"/><polygon points="35.00,50.00,36.23,53.30,39.76,53.45,37.00,55.65,37.94,59.05,35.00,57.10,32.06,59.05,33.00,55.65,30.24,53.45,33.77,53.30" fill="#F0C040" fill-opacity=".05"/><polygon points="90.00,26.00,92.22,31.94,98.56,32.22,93.59,36.17,95.29,42.28,90.00,38.78,84.71,42.28,86.41,36.17,81.44,32.22,87.78,31.94" fill="#F0C040" fill-opacity=".05"/></svg><div class="pg-in"><div class="stars-hero-content"><a class="pg-back" href="programs.html" data-link>All Programs</a><div class="pg-tag">◆ Ages 6–14 · Character · Confidence</div><h1 class="pg-h1">Kids &<span>Juniors.</span></h1><p class="pg-sub">Safe, structured and character-building. Red Crown's kids program develops discipline, coordination, confidence and respect — all in a controlled, coach-supervised environment.</p><div class="pg-feats"><span class="pg-feat">Ages 6–14</span><span class="pg-feat">BJJ Basics</span><span class="pg-feat">Muay Thai Basics</span><span class="pg-feat">Anti-Bullying</span><span class="pg-feat">Belt Progression</span><span class="pg-feat">Character Development</span><span class="pg-feat">Zero Unsupervised Contact</span></div><div style="display:flex;gap:14px;flex-wrap:wrap">
+  <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+  <a class="bo" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener">WhatsApp Us</a>
+</div></div></div><div class="pg-wm">KIDS</div></section><div class="pb">
+  <div class="sec-label">Curriculum</div>
+  <h2 class="sec-h">What Kids Learn</h2>
+  <div class="ach-grid"><div class="ach-card rv" style="transition-delay:0.00s"><div class="ach-n">01</div><div class="ach-t">BJJ FOUNDATIONS</div><div class="ach-d">Guard, mount, side control, escapes and the tap — learning positional safety from day one.</div></div><div class="ach-card rv" style="transition-delay:0.07s"><div class="ach-n">02</div><div class="ach-t">MUAY THAI BASICS</div><div class="ach-d">Jab, cross, teep and round kick — technique and control before any power or contact.</div></div><div class="ach-card rv" style="transition-delay:0.14s"><div class="ach-n">03</div><div class="ach-t">SAFE FALLING</div><div class="ach-d">Breakfalls, rolls and body awareness — protecting themselves before anything else is taught.</div></div><div class="ach-card rv" style="transition-delay:0.21s"><div class="ach-n">04</div><div class="ach-t">ANTI-BULLYING</div><div class="ach-d">De-escalation first. Practical self-defence second. Unshakeable confidence always.</div></div><div class="ach-card rv" style="transition-delay:0.28s"><div class="ach-n">05</div><div class="ach-t">DISCIPLINE & RESPECT</div><div class="ach-d">Bowing in, listening, supporting teammates — winning and losing with equal character.</div></div><div class="ach-card rv" style="transition-delay:0.35s"><div class="ach-n">06</div><div class="ach-t">BELT PROGRESSION</div><div class="ach-d">Gradings every 3–4 months — technique, attendance and attitude. All three matter equally.</div></div></div>
+  <div class="pdiv"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
+    <div>
+      <div class="sec-label">Who It's For</div>
+      <h2 class="sec-h" style="font-size:clamp(28px,4vw,48px)">Right For Your Child If...</h2>
+      <div class="wkids"><div class="wkids-item rv" style="transition-delay:0.00s">Children aged 6 to 14 with any or no experience</div><div class="wkids-item rv" style="transition-delay:0.05s">Kids who are being bullied or lack confidence</div><div class="wkids-item rv" style="transition-delay:0.10s">Parents who want structured discipline and character-building</div><div class="wkids-item rv" style="transition-delay:0.15s">High-energy children who need a productive, safe outlet</div><div class="wkids-item rv" style="transition-delay:0.20s">Curious kids who want to try martial arts</div><div class="wkids-item rv" style="transition-delay:0.25s">Teenagers interested in combat sports competition</div></div>
+    </div>
+    <div>
+      <div class="sec-label">Parents FAQ</div>
+      <h2 class="sec-h" style="font-size:clamp(28px,4vw,48px)">Common Questions</h2>
+      <div class="fq rv" style="transition-delay:0.00s">
+  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">What is the minimum age?<span class="fq-arr">▼</span></button>
+  <div class="fq-a">We accept children from 6 years old. Younger children may be assessed case-by-case depending on focus and maturity.</div>
+</div><div class="fq rv" style="transition-delay:0.07s">
+  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">Is there contact sparring for kids?<span class="fq-arr">▼</span></button>
+  <div class="fq-a">Zero unsupervised or uncontrolled contact. Light technical sparring is introduced only at age-appropriate stages with full parental agreement and coach sign-off.</div>
+</div><div class="fq rv" style="transition-delay:0.14s">
+  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">What do I bring to the first class?<span class="fq-arr">▼</span></button>
+  <div class="fq-a">Comfortable workout clothes and water. Nothing to buy before the free trial — we advise on gear after session one.</div>
+</div><div class="fq rv" style="transition-delay:0.21s">
+  <button class="fq-q" onclick="this.parentNode.classList.toggle('open')">Are coaches background-checked?<span class="fq-arr">▼</span></button>
+  <div class="fq-a">Yes. All coaches working with juniors are vetted. Child safety is our absolute first priority above everything.</div>
+</div>
+    </div>
+  </div>
+  <div class="pcta rv">
+  <div style="position:relative;z-index:1">
+    <div style="font-family:var(--fm);font-size:9px;letter-spacing:6px;text-transform:uppercase;color:#F0C040;margin-bottom:18px">◆ No experience needed · No commitment</div>
+    <p style="font-family:var(--fd);font-size:clamp(40px,6vw,80px);font-weight:700;color:var(--white);line-height:.88;letter-spacing:-2px;margin-bottom:14px">First class.<br><span style="color:#F0C040">Always free.</span></p>
+    <p style="font-family:var(--fb);font-size:16px;font-weight:300;color:var(--mist);max-width:420px;margin:0 auto 36px;line-height:1.85">Show up. Your coach handles everything from there. No gear, no commitment, no pressure.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+      <a class="bo" href="programs.html" data-link>All Programs</a>
+    </div>
+  </div>
+</div>
+</div></main><footer><div class="fi"><div class="fb"><div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div><div class="flinks"><a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="blog.html" data-link>Blog</a><a class="flnk" href="contact.html" data-link>Contact</a></div><div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div></div></footer>
+<script src="js/main.js"></script></body></html>
