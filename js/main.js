@@ -68,39 +68,220 @@ const CIO=new IntersectionObserver(entries=>{
 document.querySelectorAll('[data-count]').forEach(el=>CIO.observe(el));
 
 /* ── FIGHTER TEAM TERMINAL ── */
-const FTS=document.getElementById('fts'), FTTERM=document.getElementById('fts-t'), FTBAR=document.getElementById('fts-b'), FTSTAT=document.getElementById('fts-s');
-const LINES=['INITIATING SECURE HANDSHAKE...','SCANNING BIOMETRICS...','VERIFYING CLEARANCE LEVEL...','','> IDENTITY CONFIRMED.','> CLEARANCE: LEVEL ██ RESTRICTED','> DOSSIER: RED CROWN FIGHT TEAM','','DECRYPTING MANIFEST...','LOADING CLASSIFIED FILES...','','◆ ACCESS GRANTED. WELCOME, HUNTER.'];
+const FTS=document.getElementById('fts');
 let ftRunning=false;
 
-function launchFT(){
+function launchFT(evt){
   if(ftRunning||!FTS) return;
-  ftRunning=true; FTS.classList.add('on');
-  FTTERM.innerHTML='<span class="ftc"></span>';
-  FTBAR.style.width='0%'; FTSTAT.textContent='INITIATING...';
-  let pct=0;
-  const bi=setInterval(()=>{pct=Math.min(pct+1.2,100);FTBAR.style.width=pct+'%';if(pct>=100)clearInterval(bi);},35);
-  let li=0;
-  function nextLine(){
-    if(li>=LINES.length){
-      FTSTAT.textContent='ACCESS GRANTED';
-      setTimeout(()=>{FTS.classList.remove('on');ftRunning=false;WIPE.className='in';setTimeout(()=>location.href='fighter-team.html',440);},900);
-      return;
-    }
-    const line=LINES[li++];
-    if(line===''){FTTERM.innerHTML=FTTERM.innerHTML.replace(/<span class="ftc"><\/span>$/,'')+'\n<span class="ftc"></span>';setTimeout(nextLine,120);return;}
-    let i=0;
-    const existing=FTTERM.innerHTML.replace(/<span class="ftc"><\/span>$/,'');
-    (function typeChar(){
-      if(i<=line.length){FTTERM.innerHTML=existing+line.slice(0,i)+'<span class="ftc"></span>';i++;setTimeout(typeChar,20+Math.random()*22);}
-      else{FTTERM.innerHTML=FTTERM.innerHTML.replace(/<span class="ftc"><\/span>$/,'')+'\n';setTimeout(nextLine,line.includes('◆')?700:140);}
-    })();
+  ftRunning=true;
+  const ox=(evt&&evt.clientX)?evt.clientX:window.innerWidth/2;
+  const oy=(evt&&evt.clientY)?evt.clientY:window.innerHeight/2;
+  FTS.innerHTML='<canvas id="rl-canvas"></canvas>';
+  FTS.classList.add('on');
+  const C=document.getElementById('rl-canvas');
+  const ctx=C.getContext('2d');
+  C.width=window.innerWidth; C.height=window.innerHeight;
+  const W=C.width,H=C.height;
+
+  function rnd(a,b){return a+Math.random()*(b-a);}
+
+  /* ── CRACKS ── */
+  function buildCrack(x,y,angle,len,depth){
+    const pts=[{x,y}];
+    let cx=x,cy=y,ang=angle;
+    const steps=Math.ceil(len/18);
+    for(let i=0;i<steps;i++){ang+=rnd(-.35,.35);cx+=Math.cos(ang)*len/steps;cy+=Math.sin(ang)*len/steps;pts.push({x:cx,y:cy});}
+    const crack={pts,drawn:0,depth,width:depth===0?rnd(1.4,2.2):rnd(.5,1.1),branches:[]};
+    if(depth<2){for(let b=0;b<3;b++){const bi=Math.floor(rnd(pts.length*.3,pts.length*.7));crack.branches.push({at:bi,crack:buildCrack(pts[bi].x,pts[bi].y,ang+rnd(-1.1,1.1),len*rnd(.35,.6),depth+1)});}}
+    return crack;
   }
-  setTimeout(nextLine,300);
+  const maxDist=Math.hypot(W,H);
+  const CRACKS=[];
+  for(let i=0;i<14;i++) CRACKS.push(buildCrack(ox,oy,(i/14)*Math.PI*2+rnd(-.2,.2),maxDist*rnd(.55,1.1),0));
+
+  function drawCrack(c){
+    if(c.drawn<1)return;
+    const end=Math.min(Math.floor(c.drawn),c.pts.length-1);
+    if(end<1)return;
+    ctx.save();
+    ctx.shadowColor='#FB3640';ctx.shadowBlur=c.depth===0?12:6;
+    ctx.strokeStyle=c.depth===0?'rgba(251,54,64,.5)':'rgba(251,54,64,.25)';
+    ctx.lineWidth=c.width*3.5;ctx.lineCap='round';ctx.lineJoin='round';
+    ctx.beginPath();ctx.moveTo(c.pts[0].x,c.pts[0].y);
+    for(let i=1;i<=end;i++)ctx.lineTo(c.pts[i].x,c.pts[i].y);
+    ctx.stroke();
+    ctx.shadowBlur=0;ctx.strokeStyle='#FB3640';ctx.lineWidth=c.width;
+    ctx.beginPath();ctx.moveTo(c.pts[0].x,c.pts[0].y);
+    for(let i=1;i<=end;i++)ctx.lineTo(c.pts[i].x,c.pts[i].y);
+    ctx.stroke();ctx.restore();
+    c.branches.forEach(b=>{if(c.drawn>=b.at){b.crack.drawn=Math.max(0,(c.drawn-b.at)*1.2);drawCrack(b.crack);}});
+  }
+
+  /* ── RAVENS ──
+     Each raven: position, velocity, wing phase (flapping), size, alpha, rotation
+     Drawn as a simple bird silhouette: body arc + two bezier wings
+  */
+  const RAVENS=[];
+  for(let i=0;i<12;i++){
+    const angle=rnd(0,Math.PI*2);
+    const spd=rnd(2.8,5.5);
+    RAVENS.push({
+      x:ox, y:oy,
+      vx:Math.cos(angle)*spd,
+      vy:Math.sin(angle)*spd - rnd(.5,2.5), /* bias upward */
+      wing:rnd(0,Math.PI*2),
+      wingSpd:rnd(.08,.16),
+      size:rnd(14,28),
+      alpha:0,
+      life:0, /* 0→1 */
+      delay:rnd(0,18), /* frames before spawning */
+      spawned:false
+    });
+  }
+
+  function drawRaven(r){
+    if(r.alpha<=0)return;
+    ctx.save();
+    ctx.translate(r.x,r.y);
+    ctx.rotate(Math.atan2(r.vy,r.vx));
+    ctx.globalAlpha=r.alpha;
+
+    const s=r.size;
+    const flap=Math.sin(r.wing)*0.5; /* -0.5 to 0.5 */
+
+    /* Body */
+    ctx.fillStyle='#1a0000';
+    ctx.shadowColor='#FB3640';ctx.shadowBlur=6;
+    ctx.beginPath();
+    ctx.ellipse(0,0,s*.55,s*.2,0,0,Math.PI*2);
+    ctx.fill();
+
+    /* Left wing */
+    ctx.beginPath();
+    ctx.moveTo(-s*.1,-s*.05);
+    ctx.bezierCurveTo(-s*.6,-s*(.5+flap),-s*.9,-s*(.3+flap),-s*.8,s*.1);
+    ctx.bezierCurveTo(-s*.5,s*.05,-s*.2,s*.0,-s*.1,-s*.05);
+    ctx.fill();
+
+    /* Right wing */
+    ctx.beginPath();
+    ctx.moveTo(-s*.1,-s*.05);
+    ctx.bezierCurveTo(-s*.6, s*(.4+flap),-s*.9, s*(.2+flap),-s*.8,-s*.1);
+    ctx.bezierCurveTo(-s*.5,-s*.05,-s*.2,-s*.0,-s*.1,-s*.05);
+    ctx.fill();
+
+    /* Head */
+    ctx.shadowBlur=0;
+    ctx.beginPath();
+    ctx.ellipse(s*.45,0,s*.18,s*.15,-.2,0,Math.PI*2);
+    ctx.fill();
+
+    /* Beak */
+    ctx.strokeStyle='#FB3640';ctx.lineWidth=1.2;
+    ctx.beginPath();ctx.moveTo(s*.6,-s*.04);ctx.lineTo(s*.82,s*.02);ctx.stroke();
+
+    ctx.restore();
+  }
+
+  /* ── WIPE CURTAIN (drawn on top during phase 3) ── */
+  let wipeX=0;
+
+  let phase=1, floodAlpha=0, frameCount=0, raf;
+
+  function frame(){
+    raf=requestAnimationFrame(frame);
+    frameCount++;
+    ctx.clearRect(0,0,W,H);
+
+    /* ── PHASE 1: cracks spider out ── */
+    if(phase===1){
+      ctx.fillStyle='#060002';ctx.fillRect(0,0,W,H);
+      let done=true;
+      CRACKS.forEach(c=>{
+        c.drawn+=c.pts.length/(c.depth===0?32:20);
+        if(c.drawn<c.pts.length)done=false;
+        drawCrack(c);
+      });
+      /* Radial glow at origin */
+      const g=ctx.createRadialGradient(ox,oy,0,ox,oy,180);
+      g.addColorStop(0,'rgba(251,54,64,.22)');g.addColorStop(.5,'rgba(251,54,64,.06)');g.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+      /* Ravens emerge during crack phase */
+      RAVENS.forEach(r=>{
+        if(r.delay>0){r.delay--;return;}
+        r.spawned=true;
+        r.x+=r.vx; r.y+=r.vy;
+        r.vy-=.04; /* gravity drift upward */
+        r.vx*=.995;
+        r.wing+=r.wingSpd;
+        r.life=Math.min(r.life+.04,1);
+        r.alpha=r.life<.3?r.life/.3:r.life>.75?(1-r.life)/.25:1;
+        r.alpha*=.85;
+        drawRaven(r);
+      });
+      if(done)phase=2;
+
+    /* ── PHASE 2: blood flood ── */
+    }else if(phase===2){
+      floodAlpha=Math.min(floodAlpha+.04,1);
+      ctx.fillStyle='#060002';ctx.fillRect(0,0,W,H);
+      CRACKS.forEach(c=>drawCrack(c));
+      ctx.fillStyle=`rgba(10,0,2,${floodAlpha})`;ctx.fillRect(0,0,W,H);
+      ctx.save();ctx.globalCompositeOperation='lighter';
+      CRACKS.forEach(c=>{
+        if(c.pts.length<2)return;
+        ctx.strokeStyle=`rgba(251,54,64,${floodAlpha*.7})`;
+        ctx.lineWidth=c.width*(2+floodAlpha*4);
+        ctx.shadowColor='#FB3640';ctx.shadowBlur=20*floodAlpha;
+        ctx.beginPath();ctx.moveTo(c.pts[0].x,c.pts[0].y);
+        c.pts.forEach(p=>ctx.lineTo(p.x,p.y));ctx.stroke();
+      });
+      ctx.restore();
+      ctx.fillStyle=`rgba(120,0,10,${floodAlpha*.85})`;ctx.fillRect(0,0,W,H);
+      /* Ravens still flying through the flood */
+      RAVENS.forEach(r=>{
+        if(!r.spawned)return;
+        r.x+=r.vx;r.y+=r.vy;r.vy-=.04;r.wing+=r.wingSpd;
+        r.life=Math.min(r.life+.025,1);
+        r.alpha=(r.life>.8?(1-r.life)/.2:r.life)*0.7;
+        drawRaven(r);
+      });
+      if(floodAlpha>=1)phase=3;
+
+    /* ── PHASE 3: red curtain wipe left→right ── */
+    }else if(phase===3){
+      ctx.fillStyle='#0A0002';ctx.fillRect(0,0,W,H);
+      wipeX=Math.min(wipeX+W/18, W);
+      /* Wipe block */
+      ctx.fillStyle='#FB3640';
+      ctx.fillRect(0,0,wipeX,H);
+      /* Leading edge glow */
+      if(wipeX<W){
+        const eg=ctx.createLinearGradient(wipeX-30,0,wipeX+10,0);
+        eg.addColorStop(0,'rgba(251,54,64,0)');
+        eg.addColorStop(.6,'rgba(255,80,80,.3)');
+        eg.addColorStop(1,'rgba(255,200,200,.7)');
+        ctx.fillStyle=eg;ctx.fillRect(wipeX-30,0,40,H);
+      }
+      /* Ravens silhouetted against the red */
+      RAVENS.forEach(r=>{
+        if(!r.spawned)return;
+        r.x+=r.vx;r.y+=r.vy;r.vy-=.04;r.wing+=r.wingSpd;
+        r.alpha=Math.max(r.alpha-.018,0);
+        if(r.alpha>0)drawRaven(r);
+      });
+      if(wipeX>=W){
+        cancelAnimationFrame(raf);
+        setTimeout(()=>location.href='fighter-team.html',120);
+      }
+    }
+  }
+  requestAnimationFrame(frame);
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&FTS&&FTS.classList.contains('on')){FTS.classList.remove('on');ftRunning=false;}});
 ['logo-btn','hero-logo-btn'].forEach(id=>{
   const el=document.getElementById(id);
-  if(el){el.addEventListener('click',launchFT);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')launchFT();});}
+  if(el){el.addEventListener('click',e=>launchFT(e));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')launchFT();});}
 });
 
 /* ── GALLERY LIGHTBOX ── */

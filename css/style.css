@@ -41,24 +41,11 @@ body.hov #cr .cr-arm { opacity: 0; }
 @keyframes wi  { to { transform: scaleX(1); transform-origin: right; } }
 @keyframes wo  { from { transform: scaleX(1); transform-origin: left; } to { transform: scaleX(0); transform-origin: left; } }
 
-/* ── FIGHTER TEAM OVERLAY — REDLINE BREACH ── */
-#fts {
-  position: fixed; inset: 0; z-index: 9970;
-  background: transparent;
-  opacity: 0; pointer-events: none;
-  transition: opacity .1s;
-  overflow: hidden;
-}
+/* ── FIGHTER TEAM OVERLAY — REDLINE BREACH ───── */
+#fts { position: fixed; inset: 0; z-index: 9970; background: transparent; opacity: 0; pointer-events: none; transition: opacity .1s; overflow: hidden; }
 #fts.on { opacity: 1; pointer-events: all; }
-
-#rl-canvas {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-}
-
-.fts-box,.fts-bdg,#fts-t,.ftc,.fts-bw,.fts-b,.fts-s,
-.bh-c,.bh-hud,.bh-stage,#bh-rune-ring,#bh-title,
-#bh-sub,#bh-bar-wrap,#bh-status,#bh-flash,.fts-sl { display: none !important; }
+#rl-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fts-sl,.fts-box,.fts-bdg,#fts-t,.ftc,.fts-bw,.fts-b,.fts-s { display: none !important; }
 
 /* ── NAV ─────────────────────────────────────── */
 #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; transition: background .35s, border-color .35s; }
@@ -239,31 +226,4 @@ footer { background: var(--void); border-top: 1px solid var(--bw); padding: 52px
   footer { padding: 36px 18px; }
   #wa { bottom: 16px; right: 16px; }
   .frow { grid-template-columns: 1fr; }
-
-  @media (max-width: 480px) {
-  #nav { padding: 0 16px; height: 60px; }
-  .n-txt { display: none; }
-  #wa { padding: 12px 14px; }
-  .wal { display: none; }
-  .pghi, .pgb { padding-left: 14px; padding-right: 14px; }
-  footer { padding: 28px 14px; }
-  .flinks { gap: 14px; }
-}
-
-@media (max-width: 768px) {
-  .bh-tl { top: 16px;    left: 16px;  }
-  .bh-tr { top: 16px;    right: 16px; }
-  .bh-bl { bottom: 16px; left: 16px;  }
-  .bh-br { bottom: 16px; right: 16px; }
-  .bh-hud-tl { top: 80px;    left: 16px;  }
-  .bh-hud-tr { top: 80px;    right: 16px; }
-  .bh-hud-bl { bottom: 80px; left: 16px;  }
-  .bh-hud-br { bottom: 80px; right: 16px; }
-}
-
-@media (max-width: 480px) {
-  .bh-hud { display: none; }
-  #bh-title { font-size: clamp(38px, 14vw, 64px); letter-spacing: -1px; }
-  #bh-bar-wrap { width: 85vw; }
-}
 }
