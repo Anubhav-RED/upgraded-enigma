@@ -234,4 +234,31 @@ footer { background: var(--void); border-top: 1px solid var(--bw); padding: 52px
   footer { padding: 36px 18px; }
   #wa { bottom: 16px; right: 16px; }
   .frow { grid-template-columns: 1fr; }
+
+  @media (max-width: 480px) {
+  #nav { padding: 0 16px; height: 60px; }
+  .n-txt { display: none; }
+  #wa { padding: 12px 14px; }
+  .wal { display: none; }
+  .pghi, .pgb { padding-left: 14px; padding-right: 14px; }
+  footer { padding: 28px 14px; }
+  .flinks { gap: 14px; }
+}
+
+@media (max-width: 768px) {
+  .bh-tl { top: 16px;    left: 16px;  }
+  .bh-tr { top: 16px;    right: 16px; }
+  .bh-bl { bottom: 16px; left: 16px;  }
+  .bh-br { bottom: 16px; right: 16px; }
+  .bh-hud-tl { top: 80px;    left: 16px;  }
+  .bh-hud-tr { top: 80px;    right: 16px; }
+  .bh-hud-bl { bottom: 80px; left: 16px;  }
+  .bh-hud-br { bottom: 80px; right: 16px; }
+}
+
+@media (max-width: 480px) {
+  .bh-hud { display: none; }
+  #bh-title { font-size: clamp(38px, 14vw, 64px); letter-spacing: -1px; }
+  #bh-bar-wrap { width: 85vw; }
+}
 }
