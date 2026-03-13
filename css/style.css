@@ -41,19 +41,24 @@ body.hov #cr .cr-arm { opacity: 0; }
 @keyframes wi  { to { transform: scaleX(1); transform-origin: right; } }
 @keyframes wo  { from { transform: scaleX(1); transform-origin: left; } to { transform: scaleX(0); transform-origin: left; } }
 
-/* ── FIGHTER TEAM TERMINAL ───────────────────── */
-#fts { position: fixed; inset: 0; z-index: 9970; background: var(--void); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
+/* ── FIGHTER TEAM OVERLAY — REDLINE BREACH ── */
+#fts {
+  position: fixed; inset: 0; z-index: 9970;
+  background: transparent;
+  opacity: 0; pointer-events: none;
+  transition: opacity .1s;
+  overflow: hidden;
+}
 #fts.on { opacity: 1; pointer-events: all; }
-.fts-sl { position: absolute; inset: 0; background: repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.14) 3px,rgba(0,0,0,.14) 4px); }
-.fts-box { position: relative; z-index: 1; width: min(560px,90vw); padding: 52px; }
-.fts-bdg { font-family: var(--fm); font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--blood); border: 1px solid var(--border); padding: 6px 14px; display: inline-block; margin-bottom: 32px; animation: pbdr 1.8s ease-in-out infinite; }
-@keyframes pbdr { 0%,100%{border-color:rgba(251,54,64,.3)} 50%{border-color:var(--blood)} }
-#fts-t { font-family: var(--fm); font-size: 13px; color: var(--blood); line-height: 2.1; min-height: 140px; margin-bottom: 24px; white-space: pre-wrap; }
-.ftc { display: inline-block; width: 9px; height: 14px; background: var(--blood); animation: blnk .9s step-end infinite; }
-@keyframes blnk { 50%{opacity:0} }
-.fts-bw { width: 100%; height: 2px; background: rgba(251,54,64,.12); margin-bottom: 12px; }
-.fts-b  { height: 100%; background: var(--blood); width: 0; transition: width .06s linear; }
-.fts-s  { font-family: var(--fm); font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--fog); }
+
+#rl-canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+}
+
+.fts-box,.fts-bdg,#fts-t,.ftc,.fts-bw,.fts-b,.fts-s,
+.bh-c,.bh-hud,.bh-stage,#bh-rune-ring,#bh-title,
+#bh-sub,#bh-bar-wrap,#bh-status,#bh-flash,.fts-sl { display: none !important; }
 
 /* ── NAV ─────────────────────────────────────── */
 #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; transition: background .35s, border-color .35s; }
