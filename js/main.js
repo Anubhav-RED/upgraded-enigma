@@ -67,250 +67,38 @@ const CIO=new IntersectionObserver(entries=>{
 },{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>CIO.observe(el));
 
-/* ══════════════════════════════════════════════════════
-   BLOODHOUND — BEAST OF THE HUNT
-   Full ultimate activation sequence
-   Phase 1: Amber flash flood
-   Phase 2: Sonar rings + sweep arm on canvas
-   Phase 3: Corner HUD brackets snap in
-   Phase 4: HUD readouts populate
-   Phase 5: Rune ring rotates in
-   Phase 6: "THE HUNT" glitch-slams
-   Phase 7: Charge bar fills
-   Phase 8: Final burst → navigate
-══════════════════════════════════════════════════════ */
-const FTS = document.getElementById('fts');
-let ftRunning = false;
-let bhRAF = null;
+/* ── FIGHTER TEAM TERMINAL ── */
+const FTS=document.getElementById('fts'), FTTERM=document.getElementById('fts-t'), FTBAR=document.getElementById('fts-b'), FTSTAT=document.getElementById('fts-s');
+const LINES=['INITIATING SECURE HANDSHAKE...','SCANNING BIOMETRICS...','VERIFYING CLEARANCE LEVEL...','','> IDENTITY CONFIRMED.','> CLEARANCE: LEVEL ██ RESTRICTED','> DOSSIER: RED CROWN FIGHT TEAM','','DECRYPTING MANIFEST...','LOADING CLASSIFIED FILES...','','◆ ACCESS GRANTED. WELCOME, HUNTER.'];
+let ftRunning=false;
 
-function launchFT() {
-  if (ftRunning) return;
-  if (!FTS) { location.href = 'fighter-team.html'; return; }
-  ftRunning = true;
-
-  /* Inject Bloodhound HUD layout */
-  FTS.innerHTML = `
-    <div id="bh-flash"></div>
-    <canvas id="bh-canvas"></canvas>
-    <div class="fts-sl"></div>
-    <div class="bh-c bh-tl"></div>
-    <div class="bh-c bh-tr"></div>
-    <div class="bh-c bh-bl"></div>
-    <div class="bh-c bh-br"></div>
-    <div class="bh-hud bh-hud-tl" id="bh-hl">HUNTER PROTOCOL ᚱ<br>RED CROWN MMA<br>NOIDA · INDIA</div>
-    <div class="bh-hud bh-hud-tr" id="bh-hr">TARGET: FIGHT TEAM<br>STATUS: LOCATED<br>RANGE: WITHIN REACH</div>
-    <div class="bh-hud bh-hud-bl" id="bh-hbl">SCAN: ACTIVE<br>THREAT: ██████<br>ᚹ GLORY AWAITS</div>
-    <div class="bh-hud bh-hud-br" id="bh-hbr">ᚱ ENTER THE HUNT<br>SENSES: HEIGHTENED<br>PREY: IDENTIFIED</div>
-    <div id="bh-stage">
-      <div id="bh-rune-ring">
-        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:100%">
-          <circle cx="80" cy="80" r="74" fill="none" stroke="#C89828" stroke-opacity=".35" stroke-width="1"/>
-          <line x1="80" y1="6"   x2="80" y2="18"  stroke="#C89828" stroke-opacity=".6" stroke-width="1.2"/>
-          <line x1="80" y1="142" x2="80" y2="154" stroke="#C89828" stroke-opacity=".6" stroke-width="1.2"/>
-          <line x1="6"  y1="80"  x2="18" y2="80"  stroke="#C89828" stroke-opacity=".6" stroke-width="1.2"/>
-          <line x1="142" y1="80" x2="154" y2="80" stroke="#C89828" stroke-opacity=".6" stroke-width="1.2"/>
-          <text x="80" y="9"   text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="9" fill="#C89828" fill-opacity=".7">ᚱ</text>
-          <text x="151" y="80" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="9" fill="#C89828" fill-opacity=".7">ᛗ</text>
-          <text x="80" y="152" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="9" fill="#C89828" fill-opacity=".7">ᚹ</text>
-          <text x="9"  y="80"  text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="9" fill="#C89828" fill-opacity=".7">ᛟ</text>
-          <line x1="28"  y1="28"  x2="36"  y2="36"  stroke="#C89828" stroke-opacity=".3" stroke-width=".8"/>
-          <line x1="124" y1="28"  x2="132" y2="36"  stroke="#C89828" stroke-opacity=".3" stroke-width=".8"/>
-          <line x1="28"  y1="124" x2="36"  y2="132" stroke="#C89828" stroke-opacity=".3" stroke-width=".8"/>
-          <line x1="124" y1="124" x2="132" y2="132" stroke="#C89828" stroke-opacity=".3" stroke-width=".8"/>
-          <circle cx="80" cy="80" r="54" fill="none" stroke="#C89828" stroke-opacity=".2" stroke-width=".8" stroke-dasharray="5 10"/>
-          <polygon points="80,62 98,80 80,98 62,80" fill="none" stroke="#C89828" stroke-opacity=".55" stroke-width="1.2"/>
-          <polygon points="80,70 90,80 80,90 70,80" fill="none" stroke="#C89828" stroke-opacity=".35" stroke-width=".8"/>
-          <circle cx="80" cy="80" r="4" fill="#C89828" fill-opacity=".7"/>
-          <circle cx="80" cy="80" r="7" fill="none" stroke="#C89828" stroke-opacity=".4" stroke-width=".7"/>
-        </svg>
-      </div>
-      <div id="bh-title" data-txt="THE HUNT">THE HUNT</div>
-      <div id="bh-sub">Beast of the Hunt · Activated · ᚱ Red Crown</div>
-      <div id="bh-bar-wrap"><div id="bh-bar"></div></div>
-      <div id="bh-status">SCANNING FOR PREY...</div>
-    </div>
-  `;
-
-  /* Canvas sonar — use window dimensions directly since FTS is fixed full-screen */
-  const CANVAS = document.getElementById('bh-canvas');
-  if (!CANVAS) { FTS.classList.add('on'); return; }
-  const ctx = CANVAS.getContext('2d');
-  if (!ctx) { FTS.classList.add('on'); return; }
-
-  function resizeCanvas() {
-    CANVAS.width  = window.innerWidth;
-    CANVAS.height = window.innerHeight;
+function launchFT(){
+  if(ftRunning||!FTS) return;
+  ftRunning=true; FTS.classList.add('on');
+  FTTERM.innerHTML='<span class="ftc"></span>';
+  FTBAR.style.width='0%'; FTSTAT.textContent='INITIATING...';
+  let pct=0;
+  const bi=setInterval(()=>{pct=Math.min(pct+1.2,100);FTBAR.style.width=pct+'%';if(pct>=100)clearInterval(bi);},35);
+  let li=0;
+  function nextLine(){
+    if(li>=LINES.length){
+      FTSTAT.textContent='ACCESS GRANTED';
+      setTimeout(()=>{FTS.classList.remove('on');ftRunning=false;WIPE.className='in';setTimeout(()=>location.href='fighter-team.html',440);},900);
+      return;
+    }
+    const line=LINES[li++];
+    if(line===''){FTTERM.innerHTML=FTTERM.innerHTML.replace(/<span class="ftc"><\/span>$/,'')+'\n<span class="ftc"></span>';setTimeout(nextLine,120);return;}
+    let i=0;
+    const existing=FTTERM.innerHTML.replace(/<span class="ftc"><\/span>$/,'');
+    (function typeChar(){
+      if(i<=line.length){FTTERM.innerHTML=existing+line.slice(0,i)+'<span class="ftc"></span>';i++;setTimeout(typeChar,20+Math.random()*22);}
+      else{FTTERM.innerHTML=FTTERM.innerHTML.replace(/<span class="ftc"><\/span>$/,'')+'\n';setTimeout(nextLine,line.includes('◆')?700:140);}
+    })();
   }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-
-  const rings = [];
-  function spawnRing(a) { rings.push({ r: 0, alpha: a || .7, speed: 2.4 }); }
-
-  spawnRing(.75);
-  setTimeout(() => spawnRing(.8),   220);
-  setTimeout(() => spawnRing(.7),   440);
-  setTimeout(() => spawnRing(.85),  700);
-  setTimeout(() => spawnRing(.65),  950);
-  setTimeout(() => spawnRing(.9),  1200);
-  setTimeout(() => { spawnRing(1); spawnRing(.95); spawnRing(.8); }, 1950);
-
-  let sweepAngle = -Math.PI / 2;
-  const DECAY = .0028, SWEEP_SPEED = .032;
-
-  function drawFrame() {
-    bhRAF = requestAnimationFrame(drawFrame);
-    const W = CANVAS.width, H = CANVAS.height;
-    if (!W || !H) return;                        /* skip if zero-size */
-    const cx = W / 2, cy = H / 2;
-    const maxR = Math.max(Math.hypot(cx, cy) * 1.1, 1);  /* never zero */
-    ctx.clearRect(0, 0, W, H);
-
-    /* Radial glow */
-    const r1 = Math.max(maxR * .55, 1);          /* gradient outer radius always > 0 */
-    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, r1);
-    grd.addColorStop(0, 'rgba(200,152,40,.07)');
-    grd.addColorStop(.5,'rgba(200,152,40,.02)');
-    grd.addColorStop(1,  'rgba(0,0,0,0)');
-    ctx.fillStyle = grd; ctx.fillRect(0, 0, W, H);
-
-    /* Tactical grid */
-    const step = Math.max(40, Math.floor(Math.min(W,H) / 14));
-    ctx.save();
-    ctx.strokeStyle = 'rgba(200,152,40,.04)';
-    ctx.lineWidth = .5;
-    for (let x = cx % step; x < W; x += step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
-    for (let y = cy % step; y < H; y += step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
-    ctx.restore();
-
-    /* Rings */
-    for (let i = rings.length - 1; i >= 0; i--) {
-      const rg = rings[i];
-      rg.r += rg.speed; rg.alpha -= DECAY;
-      if (rg.alpha <= 0 || rg.r > maxR) { rings.splice(i,1); continue; }
-      ctx.save();
-      ctx.beginPath(); ctx.arc(cx, cy, Math.max(rg.r, 0.1), 0, Math.PI*2);
-      ctx.strokeStyle = `rgba(200,152,40,${rg.alpha})`; ctx.lineWidth = 1.5; ctx.stroke();
-      ctx.beginPath(); ctx.arc(cx, cy, Math.max(rg.r - 3, 0.1), 0, Math.PI*2);
-      ctx.strokeStyle = `rgba(255,220,120,${rg.alpha*.3})`; ctx.lineWidth = .6; ctx.stroke();
-      ctx.restore();
-    }
-
-    /* Sweep sector */
-    sweepAngle += SWEEP_SPEED;
-    const SWEEP_ARC = Math.PI / 3;
-    ctx.save();
-    const steps = 20;
-    for (let s = 0; s < steps; s++) {
-      const a1 = sweepAngle - SWEEP_ARC + (SWEEP_ARC * s / steps);
-      const a2 = sweepAngle - SWEEP_ARC + (SWEEP_ARC * (s+1) / steps);
-      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, maxR, a1, a2); ctx.closePath();
-      ctx.fillStyle = `rgba(200,152,40,${(s/steps)*.14})`; ctx.fill();
-    }
-    /* Sweep leading edge */
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(cx + maxR * Math.cos(sweepAngle), cy + maxR * Math.sin(sweepAngle));
-    ctx.strokeStyle = 'rgba(200,152,40,.6)'; ctx.lineWidth = 1.5;
-    ctx.shadowColor = '#C89828'; ctx.shadowBlur = 8; ctx.stroke();
-    ctx.restore();
-
-    /* Centre reticle */
-    ctx.save();
-    ctx.shadowColor = ''; ctx.shadowBlur = 0;
-    ctx.strokeStyle = 'rgba(200,152,40,.4)'; ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(cx-20,cy); ctx.lineTo(cx+20,cy);
-    ctx.moveTo(cx,cy-20); ctx.lineTo(cx,cy+20); ctx.stroke();
-    ctx.beginPath(); ctx.arc(cx,cy,6,0,Math.PI*2); ctx.stroke();
-    ctx.restore();
-  }
-
-  /* Show overlay then start animation */
-  FTS.classList.add('on');
-  requestAnimationFrame(drawFrame);
-
-  /* Phase 1: amber flood */
-  requestAnimationFrame(() => {
-    FTS.classList.add('bh-flare');
-    setTimeout(() => FTS.classList.remove('bh-flare'), 280);
-  });
-
-  /* Phase 2: flicker */
-  setTimeout(() => {
-    FTS.classList.add('bh-flicker-anim');
-    setTimeout(() => FTS.classList.remove('bh-flicker-anim'), 200);
-  }, 120);
-
-  /* Phase 3: corners */
-  setTimeout(() => document.querySelectorAll('.bh-c').forEach(c => c.classList.add('snap')), 300);
-
-  /* Phase 4: HUD readouts */
-  setTimeout(() => {
-    ['bh-hl','bh-hr','bh-hbl','bh-hbr'].forEach((id,i) => {
-      setTimeout(() => { const e=document.getElementById(id); if(e) e.classList.add('vis'); }, i*80);
-    });
-  }, 550);
-
-  /* Phase 5: rune ring */
-  setTimeout(() => { const rr=document.getElementById('bh-rune-ring'); if(rr) rr.classList.add('vis'); }, 700);
-
-  /* Phase 6: title slam + glitch */
-  setTimeout(() => {
-    const title=document.getElementById('bh-title');
-    const sub=document.getElementById('bh-sub');
-    if (title) {
-      title.classList.add('vis');
-      setTimeout(() => { title.classList.add('glitch'); setTimeout(()=>title.classList.remove('glitch'),240); }, 80);
-      setTimeout(() => { title.classList.add('glitch'); setTimeout(()=>title.classList.remove('glitch'),180); }, 500);
-    }
-    if (sub) setTimeout(() => sub.classList.add('vis'), 200);
-  }, 950);
-
-  /* Phase 7: charge bar */
-  setTimeout(() => {
-    const bw=document.getElementById('bh-bar-wrap');
-    const bar=document.getElementById('bh-bar');
-    const st=document.getElementById('bh-status');
-    if (bw) bw.classList.add('vis');
-    if (st) st.classList.add('vis');
-    if (bar) {
-      const MSGS=['SCANNING FOR PREY...','HEIGHTENING SENSES...','TRACKING HUNT...','FIGHT TEAM LOCATED.','COMMENCING HUNT.'];
-      let pct=0, si=0;
-      const bi=setInterval(()=>{
-        pct=Math.min(pct+1.35,100);
-        bar.style.width=pct+'%';
-        const nsi=Math.floor((pct/100)*(MSGS.length-1));
-        if(nsi!==si && st){ si=nsi; st.textContent=MSGS[si]; }
-        if(pct>=100) clearInterval(bi);
-      }, 28);
-    }
-  }, 1200);
-
-  /* Phase 8: final burst + navigate */
-  setTimeout(() => {
-    const title=document.getElementById('bh-title');
-    if(title){ title.classList.add('glitch'); setTimeout(()=>title.classList.remove('glitch'),200); }
-    FTS.classList.add('bh-flare');
-    setTimeout(()=>FTS.classList.remove('bh-flare'),160);
-    FTS.classList.add('bh-flicker-anim');
-    setTimeout(()=>{
-      window.removeEventListener('resize', resizeCanvas);
-      if(bhRAF) cancelAnimationFrame(bhRAF);
-      FTS.classList.remove('on'); ftRunning=false;
-      if(WIPE) WIPE.className='in';
-      setTimeout(()=>location.href='fighter-team.html',440);
-    }, 380);
-  }, 2050);
+  setTimeout(nextLine,300);
 }
-window.launchFT = launchFT;
-
-document.addEventListener('keydown', e => {
-  if (e.key==='Escape' && FTS && FTS.classList.contains('on')) {
-    if(bhRAF) cancelAnimationFrame(bhRAF);
-    FTS.classList.remove('on'); ftRunning=false;
-  }
-});
-['logo-btn','hero-logo-btn'].forEach(id => {
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&FTS&&FTS.classList.contains('on')){FTS.classList.remove('on');ftRunning=false;}});
+['logo-btn','hero-logo-btn'].forEach(id=>{
   const el=document.getElementById(id);
   if(el){el.addEventListener('click',launchFT);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')launchFT();});}
 });
