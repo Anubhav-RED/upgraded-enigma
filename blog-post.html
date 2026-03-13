@@ -1,217 +1,438 @@
-<!DOCTYPE html><html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>POST TITLE | Red Crown MMA Blog</title>
-<meta name="description" content="POST DESCRIPTION — Red Crown MMA Academy, Noida.">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
-<meta name="theme-color" content="#000F08">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<style>
-.post-wrap{max-width:780px;margin:0 auto;padding:140px 32px 80px}
-.post-back{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;text-decoration:none;transition:color .25s;cursor:none}
-.post-back:hover{color:var(--blood)}.post-back::before{content:'←';font-size:14px;color:var(--blood)}
-.post-meta{display:flex;align-items:center;gap:14px;margin-bottom:20px;flex-wrap:wrap}
-.post-cat{font-family:var(--fm);font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--blood);border:1px solid rgba(251,54,64,.3);padding:3px 10px}
-.post-date,.post-rt{font-family:var(--fm);font-size:8px;letter-spacing:2px;color:var(--fog)}
-.post-h1{font-family:var(--fd);font-size:clamp(36px,7vw,72px);font-weight:700;line-height:.88;letter-spacing:-2px;color:var(--white);margin-bottom:20px}
-.post-lede{font-family:var(--fb);font-size:clamp(16px,2vw,20px);font-weight:300;font-style:italic;color:var(--mist);border-left:3px solid var(--blood);padding-left:20px;line-height:1.75;margin-bottom:40px}
-.post-cover{width:100%;aspect-ratio:16/7;background:var(--v2);border:1px solid var(--bw);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;margin-bottom:52px}
-.post-cover svg{position:absolute;inset:0;width:100%;height:100%}
-.post-cover-lbl{font-family:var(--fm);font-size:9px;letter-spacing:3px;color:var(--fog);position:relative;z-index:1}
-.post-cover img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-/* Typography */
-.post-body h2{font-family:var(--fd);font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--white);margin:48px 0 14px;line-height:.95}
-.post-body h3{font-family:var(--fd);font-size:clamp(20px,3vw,28px);font-weight:600;color:var(--white);margin:32px 0 10px}
-.post-body p{font-family:var(--fb);font-size:16px;font-weight:300;color:var(--mist);line-height:1.9;margin-bottom:20px}
-.post-body strong{color:var(--white);font-weight:600}
-.post-body em{color:var(--blood);font-style:normal}
-.post-body ul,.post-body ol{margin:0 0 22px;padding:0;list-style:none}
-.post-body li{font-family:var(--fb);font-size:15px;font-weight:300;color:var(--mist);padding:9px 0 9px 24px;border-bottom:1px solid var(--bw);line-height:1.7;position:relative}
-.post-body ul li::before{content:'◆';position:absolute;left:0;color:var(--blood);font-size:8px;top:13px}
-.post-body ol{counter-reset:li}
-.post-body ol li{counter-increment:li}
-.post-body ol li::before{content:counter(li);position:absolute;left:0;color:var(--blood);font-family:var(--fm);font-size:11px;font-weight:700;top:11px}
-.post-pullquote{border-left:3px solid var(--blood);background:var(--v2);padding:26px 30px;margin:36px 0;font-family:var(--fd);font-size:clamp(19px,2.5vw,26px);font-weight:600;color:var(--white);line-height:1.3}
-.post-callout{background:var(--v2);border:1px solid var(--bw);border-top:3px solid var(--blood);padding:26px 30px;margin:32px 0}
-.post-callout-tag{font-family:var(--fm);font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--blood);margin-bottom:8px}
-.post-divider{width:52px;height:2px;background:var(--blood);margin:40px 0}
-/* Author */
-.post-author{display:flex;align-items:center;gap:24px;background:var(--v2);border:1px solid var(--bw);padding:28px;margin-top:52px;flex-wrap:wrap}
-.post-author-img{width:68px;height:68px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--border)}
-.post-author-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.post-author-name{font-family:var(--fd);font-size:20px;font-weight:700;color:var(--white);margin-bottom:3px}
-.post-author-role{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--blood);margin-bottom:6px}
-.post-author-bio{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.7}
-/* Related */
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:3px}
-@media(max-width:900px){.related-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:580px){.post-wrap{padding:120px 18px 60px}.related-grid{grid-template-columns:1fr}.post-author{flex-direction:column}}
-</style>
-</head>
-<body>
-<div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div>
-<div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div>
-<div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div>
-<nav id="nav">
-  <div class="n-logo">
-    <div class="lw" id="logo-btn" onclick="window.launchFT&&window.launchFT()" role="button" tabindex="0">
-      <div class="or1"></div><div class="or2"></div>
-      <div class="lsvg"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
-      <span class="ltip">◈ RESTRICTED ACCESS</span>
-    </div>
-    <div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div>
-  </div>
-  <div class="n-links">
-    <a class="n-lnk" href="index.html" data-link>Home</a>
-    <a class="n-lnk" href="programs.html" data-link>Programs</a>
-    <a class="n-lnk" href="coaches.html" data-link>Coaches</a>
-    <a class="n-lnk" href="schedule.html" data-link>Schedule</a>
-    <a class="n-lnk" href="gallery.html" data-link>Gallery</a>
-    <a class="n-lnk active" href="blog.html" data-link>Blog</a>
-    <a class="n-lnk" href="contact.html" data-link>Contact</a>
-    <a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a>
-  </div>
-  <button class="n-burg" id="burg"><span></span><span></span><span></span></button>
-</nav>
-<div id="mm">
-  <a class="mlnk" href="index.html" data-link>Home</a>
-  <a class="mlnk" href="programs.html" data-link>Programs</a>
-  <a class="mlnk" href="coaches.html" data-link>Coaches</a>
-  <a class="mlnk" href="schedule.html" data-link>Schedule</a>
-  <a class="mlnk" href="gallery.html" data-link>Gallery</a>
-  <a class="mlnk active" href="blog.html" data-link>Blog</a>
-  <a class="mlnk" href="contact.html" data-link>Contact</a>
-  <div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div>
-</div>
-<a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wai">💬</span><span class="wal">WhatsApp Us</span></a>
+/* RED CROWN MMA — HUNT PROTOCOL — main.js */
+(function(){
+'use strict';
 
-<main>
-<div class="post-wrap">
-  <a class="post-back" href="blog.html" data-link>Back to Blog</a>
+/* ── CURSOR ── */
+const CR=document.getElementById('cr'), CD=document.getElementById('cd');
+let mx=innerWidth/2, my=innerHeight/2, rx=mx, ry=my;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function tick(){
+  rx+=(mx-rx)*.13; ry+=(my-ry)*.13;
+  CR.style.left=rx+'px'; CR.style.top=ry+'px';
+  CD.style.left=mx+'px'; CD.style.top=my+'px';
+  requestAnimationFrame(tick);
+})();
+document.querySelectorAll('a,button,[data-hover],.gc,.pc,.cc,.tc,.tier').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
 
-  <!-- ── META ── Change these ── -->
-  <div class="post-meta">
-    <span class="post-cat">CATEGORY</span>
-    <span class="post-date">MONTH YEAR</span>
-    <span class="post-rt">· X min read</span>
-  </div>
+/* ── NAV SCROLL ── */
+const NAV=document.getElementById('nav');
+if(NAV){
+  window.addEventListener('scroll',()=>NAV.classList.toggle('solid',scrollY>30),{passive:true});
+  if(scrollY>30) NAV.classList.add('solid');
+}
 
-  <!-- ── TITLE ── -->
-  <h1 class="post-h1">Your Full Article Title Goes Here</h1>
+/* ── HAMBURGER ── */
+const BURG=document.getElementById('burg'), MM=document.getElementById('mm');
+if(BURG&&MM){
+  BURG.addEventListener('click',()=>{
+    const o=MM.classList.toggle('open');
+    BURG.classList.toggle('open',o);
+    document.body.style.overflow=o?'hidden':'';
+  });
+  MM.querySelectorAll('.mlnk').forEach(l=>l.addEventListener('click',()=>{
+    MM.classList.remove('open'); BURG.classList.remove('open'); document.body.style.overflow='';
+  }));
+}
 
-  <!-- ── LEDE ── Hook sentence that tells the reader what they'll get -->
-  <p class="post-lede">This is your opening hook — one or two sentences that tell the reader exactly what they'll learn and why it matters. Make it direct and punchy.</p>
+/* ── PAGE WIPE TRANSITIONS ── */
+const WIPE=document.getElementById('wipe');
+document.querySelectorAll('[data-link]').forEach(el=>{
+  el.addEventListener('click',e=>{
+    const href=el.getAttribute('href');
+    if(!href||href==='#'||href.startsWith('#')) return;
+    e.preventDefault();
+    WIPE.className='in';
+    setTimeout(()=>location.href=href,440);
+  });
+});
+if(WIPE){WIPE.className='out'; setTimeout(()=>WIPE.className='',470);}
 
-  <!-- ── COVER IMAGE ──
-       To add: place your image file in RedCrownMMA folder
-       Then replace the placeholder div with:
-       <img src="your-image.jpg" alt="Descriptive text">
-  -->
-  <div class="post-cover">
-    <svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".8"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".8"/></svg>
-    <span class="post-cover-lbl">Cover Photo — add: &lt;img src="your-image.jpg"&gt;</span>
-  </div>
+/* ── SCROLL REVEALS ── */
+const IO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');IO.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>IO.observe(el));
 
-  <!-- ════════════════════════════════════════
-       START WRITING YOUR ARTICLE BELOW HERE
-       ════════════════════════════════════════ -->
-  <div class="post-body">
+/* ── STAT COUNTERS ── */
+const CIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const el=e.target, t=parseFloat(el.dataset.count), dur=1600, s=performance.now();
+    (function step(n){const p=Math.min((n-s)/dur,1),v=1-Math.pow(1-p,3);el.textContent=Number.isInteger(t)?Math.round(v*t):(v*t).toFixed(1);if(p<1)requestAnimationFrame(step);})(s);
+    CIO.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>CIO.observe(el));
 
-    <h2>Your First Section</h2>
-    <p>Write your first paragraph here. Keep paragraphs to 3–5 sentences. One clear point per paragraph. <strong>Bold key terms</strong> when they first appear. Use <em>red highlight</em> sparingly.</p>
-    <p>Second paragraph of this section. Be direct — cut filler phrases like "it's worth noting that" or "as we can see". Just state the thing.</p>
+/* ══════════════════════════════════════════════════════
+   BLOODHOUND — BEAST OF THE HUNT
+   Full ultimate activation sequence
+   Phase 1: Amber flash flood
+   Phase 2: Sonar rings + sweep arm on canvas
+   Phase 3: Corner HUD brackets snap in
+   Phase 4: HUD readouts populate
+   Phase 5: Rune ring rotates in
+   Phase 6: "THE HUNT" glitch-slams
+   Phase 7: Charge bar fills
+   Phase 8: Final burst → navigate
+══════════════════════════════════════════════════════ */
+const FTS = document.getElementById('fts');
+let ftRunning = false;
+let bhRAF = null;
 
-    <!-- Pull quote — for your strongest single sentence -->
-    <div class="post-pullquote">"Your most powerful quote or key insight from the article goes here."</div>
+function launchFT() {
+  if (ftRunning) return;
+  if (!FTS) { location.href = 'fighter-team.html'; return; }
+  ftRunning = true;
 
-    <h2>Second Section</h2>
-    <p>Continue your article. Use h2 for major sections, h3 for sub-points within a section.</p>
-
-    <h3>A Sub-Point</h3>
-    <p>Detail for this sub-point. Keep each section 150–300 words.</p>
-
-    <!-- Bullet list -->
-    <ul>
-      <li>First key point — one clear idea per bullet</li>
-      <li>Second key point — avoid starting every bullet the same way</li>
-      <li>Third key point — 4–8 bullets max before splitting into two lists</li>
-    </ul>
-
-    <!-- Callout box — for tips, warnings, coach's notes -->
-    <div class="post-callout">
-      <div class="post-callout-tag">◆ Coach's Note</div>
-      <p>Use this box for a key tip or warning that deserves extra attention without interrupting the main flow.</p>
-    </div>
-
-    <h2>Closing Section</h2>
-    <p>Return to your main point from the lede. What should the reader do now? What's the single takeaway?</p>
-
-    <!-- Numbered list -->
-    <ol>
-      <li>Step one — numbered lists work for instructions and ranked items</li>
-      <li>Step two — keep each item actionable</li>
-      <li>Step three — end with the most important</li>
-    </ol>
-
-    <div class="post-divider"></div>
-
-  </div>
-  <!-- ════════════════════════════════════════
-       END ARTICLE
-       ════════════════════════════════════════ -->
-
-  <!-- In-post CTA -->
-  <div style="background:var(--v2);border:1px solid var(--bw);border-top:3px solid var(--blood);padding:44px;text-align:center;margin:40px 0">
-    <div style="font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:12px">◆ Want to learn this on the mat?</div>
-    <p style="font-family:var(--fd);font-size:clamp(28px,5vw,48px);font-weight:700;color:var(--white);margin-bottom:10px;line-height:.9">First class<br><span style="color:var(--blood)">is free.</span></p>
-    <p style="font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);margin-bottom:28px;line-height:1.8">No experience needed. No commitment. Just show up.</p>
-    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
-  </div>
-
-  <!-- Author -->
-  <div class="post-author">
-    <div class="post-author-img"><img src="founder.jpg" alt="Head Coach"></div>
-    <div>
-      <div class="post-author-name">COACH NAME HERE</div>
-      <div class="post-author-role">Head Coach · Red Crown MMA Academy</div>
-      <p class="post-author-bio">Brief 1–2 sentence bio — background, credentials, speciality at Red Crown.</p>
-    </div>
-  </div>
-</div>
-
-<!-- Related posts -->
-<div style="max-width:1280px;margin:0 auto;padding:0 56px 80px">
-  <div style="font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:3px">◆ Continue Reading</div>
-  <div class="related-grid">
-    <a href="blog-post.html" data-link style="text-decoration:none">
-      <div class="bc rv" style="height:100%"><div class="bc-bar"></div>
-        <div class="bc-img" style="aspect-ratio:16/9"><svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg></div>
-        <div class="bc-body"><div class="bc-meta"><span class="bc-cat">Technique</span></div><div class="bc-title">Related Post Title</div><span class="bc-read">Read →</span></div>
+  /* Inject Bloodhound HUD layout */
+  FTS.innerHTML = `
+    <div id="bh-flash"></div>
+    <canvas id="bh-canvas"></canvas>
+    <div class="fts-sl"></div>
+    <div class="bh-c bh-tl"></div>
+    <div class="bh-c bh-tr"></div>
+    <div class="bh-c bh-bl"></div>
+    <div class="bh-c bh-br"></div>
+    <div class="bh-hud bh-hud-tl" id="bh-hl">HUNTER PROTOCOL ᚱ<br>RED CROWN MMA<br>NOIDA · INDIA</div>
+    <div class="bh-hud bh-hud-tr" id="bh-hr">TARGET: FIGHT TEAM<br>STATUS: LOCATED<br>RANGE: WITHIN REACH</div>
+    <div class="bh-hud bh-hud-bl" id="bh-hbl">SCAN: ACTIVE<br>THREAT: ██████<br>ᚹ GLORY AWAITS</div>
+    <div class="bh-hud bh-hud-br" id="bh-hbr">ᚱ ENTER THE HUNT<br>SENSES: HEIGHTENED<br>PREY: IDENTIFIED</div>
+    <div id="bh-stage">
+      <div id="bh-rune-ring">
+        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:100%">
+          <circle cx="80" cy="80" r="74" fill="none" stroke="#C89828" stroke-opacity=".35" stroke-width="1"/>
+          <line x1="80" y1="6"   x2="80" y2="18"  stroke="#C89828" stroke-opacity=".6" stroke-width="1.2"/>
+          <line x1="80" y1="142" x2="80" y2="154" stroke="#C89828" stroke-opacity=".6" stroke-width="1.2"/>
+          <line x1="6"  y1="80"  x2="18" y2="80"  stroke="#C89828" stroke-opacity=".6" stroke-width="1.2"/>
+          <line x1="142" y1="80" x2="154" y2="80" stroke="#C89828" stroke-opacity=".6" stroke-width="1.2"/>
+          <text x="80" y="9"   text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="9" fill="#C89828" fill-opacity=".7">ᚱ</text>
+          <text x="151" y="80" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="9" fill="#C89828" fill-opacity=".7">ᛗ</text>
+          <text x="80" y="152" text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="9" fill="#C89828" fill-opacity=".7">ᚹ</text>
+          <text x="9"  y="80"  text-anchor="middle" dominant-baseline="middle" font-family="serif" font-size="9" fill="#C89828" fill-opacity=".7">ᛟ</text>
+          <line x1="28"  y1="28"  x2="36"  y2="36"  stroke="#C89828" stroke-opacity=".3" stroke-width=".8"/>
+          <line x1="124" y1="28"  x2="132" y2="36"  stroke="#C89828" stroke-opacity=".3" stroke-width=".8"/>
+          <line x1="28"  y1="124" x2="36"  y2="132" stroke="#C89828" stroke-opacity=".3" stroke-width=".8"/>
+          <line x1="124" y1="124" x2="132" y2="132" stroke="#C89828" stroke-opacity=".3" stroke-width=".8"/>
+          <circle cx="80" cy="80" r="54" fill="none" stroke="#C89828" stroke-opacity=".2" stroke-width=".8" stroke-dasharray="5 10"/>
+          <polygon points="80,62 98,80 80,98 62,80" fill="none" stroke="#C89828" stroke-opacity=".55" stroke-width="1.2"/>
+          <polygon points="80,70 90,80 80,90 70,80" fill="none" stroke="#C89828" stroke-opacity=".35" stroke-width=".8"/>
+          <circle cx="80" cy="80" r="4" fill="#C89828" fill-opacity=".7"/>
+          <circle cx="80" cy="80" r="7" fill="none" stroke="#C89828" stroke-opacity=".4" stroke-width=".7"/>
+        </svg>
       </div>
-    </a>
-    <a href="blog-post.html" data-link style="text-decoration:none">
-      <div class="bc rv" style="height:100%;transition-delay:.08s"><div class="bc-bar"></div>
-        <div class="bc-img" style="aspect-ratio:16/9"><svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg></div>
-        <div class="bc-body"><div class="bc-meta"><span class="bc-cat">Mindset</span></div><div class="bc-title">Related Post Title</div><span class="bc-read">Read →</span></div>
-      </div>
-    </a>
-    <a href="blog-post.html" data-link style="text-decoration:none">
-      <div class="bc rv" style="height:100%;transition-delay:.16s"><div class="bc-bar"></div>
-        <div class="bc-img" style="aspect-ratio:16/9"><svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg></div>
-        <div class="bc-body"><div class="bc-meta"><span class="bc-cat">Nutrition</span></div><div class="bc-title">Related Post Title</div><span class="bc-read">Read →</span></div>
-      </div>
-    </a>
-  </div>
-</div>
-</main>
+      <div id="bh-title" data-txt="THE HUNT">THE HUNT</div>
+      <div id="bh-sub">Beast of the Hunt · Activated · ᚱ Red Crown</div>
+      <div id="bh-bar-wrap"><div id="bh-bar"></div></div>
+      <div id="bh-status">SCANNING FOR PREY...</div>
+    </div>
+  `;
 
-<footer><div class="fi">
-  <div class="fb"><div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div>
-  <div class="flinks"><a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="blog.html" data-link>Blog</a><a class="flnk" href="contact.html" data-link>Contact</a></div>
-  <div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div>
-</div></footer>
-<script src="js/main.js"></script>
-</body></html>
+  /* Canvas sonar — use window dimensions directly since FTS is fixed full-screen */
+  const CANVAS = document.getElementById('bh-canvas');
+  if (!CANVAS) { FTS.classList.add('on'); return; }
+  const ctx = CANVAS.getContext('2d');
+  if (!ctx) { FTS.classList.add('on'); return; }
+
+  function resizeCanvas() {
+    CANVAS.width  = window.innerWidth;
+    CANVAS.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  const rings = [];
+  function spawnRing(a) { rings.push({ r: 0, alpha: a || .7, speed: 2.4 }); }
+
+  spawnRing(.75);
+  setTimeout(() => spawnRing(.8),   220);
+  setTimeout(() => spawnRing(.7),   440);
+  setTimeout(() => spawnRing(.85),  700);
+  setTimeout(() => spawnRing(.65),  950);
+  setTimeout(() => spawnRing(.9),  1200);
+  setTimeout(() => { spawnRing(1); spawnRing(.95); spawnRing(.8); }, 1950);
+
+  let sweepAngle = -Math.PI / 2;
+  const DECAY = .0028, SWEEP_SPEED = .032;
+
+  function drawFrame() {
+    bhRAF = requestAnimationFrame(drawFrame);
+    const W = CANVAS.width, H = CANVAS.height;
+    if (!W || !H) return;                        /* skip if zero-size */
+    const cx = W / 2, cy = H / 2;
+    const maxR = Math.max(Math.hypot(cx, cy) * 1.1, 1);  /* never zero */
+    ctx.clearRect(0, 0, W, H);
+
+    /* Radial glow */
+    const r1 = Math.max(maxR * .55, 1);          /* gradient outer radius always > 0 */
+    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, r1);
+    grd.addColorStop(0, 'rgba(200,152,40,.07)');
+    grd.addColorStop(.5,'rgba(200,152,40,.02)');
+    grd.addColorStop(1,  'rgba(0,0,0,0)');
+    ctx.fillStyle = grd; ctx.fillRect(0, 0, W, H);
+
+    /* Tactical grid */
+    const step = Math.max(40, Math.floor(Math.min(W,H) / 14));
+    ctx.save();
+    ctx.strokeStyle = 'rgba(200,152,40,.04)';
+    ctx.lineWidth = .5;
+    for (let x = cx % step; x < W; x += step) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+    for (let y = cy % step; y < H; y += step) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+    ctx.restore();
+
+    /* Rings */
+    for (let i = rings.length - 1; i >= 0; i--) {
+      const rg = rings[i];
+      rg.r += rg.speed; rg.alpha -= DECAY;
+      if (rg.alpha <= 0 || rg.r > maxR) { rings.splice(i,1); continue; }
+      ctx.save();
+      ctx.beginPath(); ctx.arc(cx, cy, Math.max(rg.r, 0.1), 0, Math.PI*2);
+      ctx.strokeStyle = `rgba(200,152,40,${rg.alpha})`; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.beginPath(); ctx.arc(cx, cy, Math.max(rg.r - 3, 0.1), 0, Math.PI*2);
+      ctx.strokeStyle = `rgba(255,220,120,${rg.alpha*.3})`; ctx.lineWidth = .6; ctx.stroke();
+      ctx.restore();
+    }
+
+    /* Sweep sector */
+    sweepAngle += SWEEP_SPEED;
+    const SWEEP_ARC = Math.PI / 3;
+    ctx.save();
+    const steps = 20;
+    for (let s = 0; s < steps; s++) {
+      const a1 = sweepAngle - SWEEP_ARC + (SWEEP_ARC * s / steps);
+      const a2 = sweepAngle - SWEEP_ARC + (SWEEP_ARC * (s+1) / steps);
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, maxR, a1, a2); ctx.closePath();
+      ctx.fillStyle = `rgba(200,152,40,${(s/steps)*.14})`; ctx.fill();
+    }
+    /* Sweep leading edge */
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + maxR * Math.cos(sweepAngle), cy + maxR * Math.sin(sweepAngle));
+    ctx.strokeStyle = 'rgba(200,152,40,.6)'; ctx.lineWidth = 1.5;
+    ctx.shadowColor = '#C89828'; ctx.shadowBlur = 8; ctx.stroke();
+    ctx.restore();
+
+    /* Centre reticle */
+    ctx.save();
+    ctx.shadowColor = ''; ctx.shadowBlur = 0;
+    ctx.strokeStyle = 'rgba(200,152,40,.4)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(cx-20,cy); ctx.lineTo(cx+20,cy);
+    ctx.moveTo(cx,cy-20); ctx.lineTo(cx,cy+20); ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx,cy,6,0,Math.PI*2); ctx.stroke();
+    ctx.restore();
+  }
+
+  /* Show overlay then start animation */
+  FTS.classList.add('on');
+  requestAnimationFrame(drawFrame);
+
+  /* Phase 1: amber flood */
+  requestAnimationFrame(() => {
+    FTS.classList.add('bh-flare');
+    setTimeout(() => FTS.classList.remove('bh-flare'), 280);
+  });
+
+  /* Phase 2: flicker */
+  setTimeout(() => {
+    FTS.classList.add('bh-flicker-anim');
+    setTimeout(() => FTS.classList.remove('bh-flicker-anim'), 200);
+  }, 120);
+
+  /* Phase 3: corners */
+  setTimeout(() => document.querySelectorAll('.bh-c').forEach(c => c.classList.add('snap')), 300);
+
+  /* Phase 4: HUD readouts */
+  setTimeout(() => {
+    ['bh-hl','bh-hr','bh-hbl','bh-hbr'].forEach((id,i) => {
+      setTimeout(() => { const e=document.getElementById(id); if(e) e.classList.add('vis'); }, i*80);
+    });
+  }, 550);
+
+  /* Phase 5: rune ring */
+  setTimeout(() => { const rr=document.getElementById('bh-rune-ring'); if(rr) rr.classList.add('vis'); }, 700);
+
+  /* Phase 6: title slam + glitch */
+  setTimeout(() => {
+    const title=document.getElementById('bh-title');
+    const sub=document.getElementById('bh-sub');
+    if (title) {
+      title.classList.add('vis');
+      setTimeout(() => { title.classList.add('glitch'); setTimeout(()=>title.classList.remove('glitch'),240); }, 80);
+      setTimeout(() => { title.classList.add('glitch'); setTimeout(()=>title.classList.remove('glitch'),180); }, 500);
+    }
+    if (sub) setTimeout(() => sub.classList.add('vis'), 200);
+  }, 950);
+
+  /* Phase 7: charge bar */
+  setTimeout(() => {
+    const bw=document.getElementById('bh-bar-wrap');
+    const bar=document.getElementById('bh-bar');
+    const st=document.getElementById('bh-status');
+    if (bw) bw.classList.add('vis');
+    if (st) st.classList.add('vis');
+    if (bar) {
+      const MSGS=['SCANNING FOR PREY...','HEIGHTENING SENSES...','TRACKING HUNT...','FIGHT TEAM LOCATED.','COMMENCING HUNT.'];
+      let pct=0, si=0;
+      const bi=setInterval(()=>{
+        pct=Math.min(pct+1.35,100);
+        bar.style.width=pct+'%';
+        const nsi=Math.floor((pct/100)*(MSGS.length-1));
+        if(nsi!==si && st){ si=nsi; st.textContent=MSGS[si]; }
+        if(pct>=100) clearInterval(bi);
+      }, 28);
+    }
+  }, 1200);
+
+  /* Phase 8: final burst + navigate */
+  setTimeout(() => {
+    const title=document.getElementById('bh-title');
+    if(title){ title.classList.add('glitch'); setTimeout(()=>title.classList.remove('glitch'),200); }
+    FTS.classList.add('bh-flare');
+    setTimeout(()=>FTS.classList.remove('bh-flare'),160);
+    FTS.classList.add('bh-flicker-anim');
+    setTimeout(()=>{
+      window.removeEventListener('resize', resizeCanvas);
+      if(bhRAF) cancelAnimationFrame(bhRAF);
+      FTS.classList.remove('on'); ftRunning=false;
+      if(WIPE) WIPE.className='in';
+      setTimeout(()=>location.href='fighter-team.html',440);
+    }, 380);
+  }, 2050);
+}
+window.launchFT = launchFT;
+
+document.addEventListener('keydown', e => {
+  if (e.key==='Escape' && FTS && FTS.classList.contains('on')) {
+    if(bhRAF) cancelAnimationFrame(bhRAF);
+    FTS.classList.remove('on'); ftRunning=false;
+  }
+});
+['logo-btn','hero-logo-btn'].forEach(id => {
+  const el=document.getElementById(id);
+  if(el){el.addEventListener('click',launchFT);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')launchFT();});}
+});
+
+/* ── GALLERY LIGHTBOX ── */
+const LB=document.getElementById('lb'), LBIMG=document.getElementById('lbimg'), LBCAP=document.getElementById('lbcap'), LBCLS=document.getElementById('lbcls'), LBPREV=document.getElementById('lbprev'), LBNEXT=document.getElementById('lbnext'), LBCNT=document.getElementById('lbcnt');
+let items=[], lbIdx=0;
+document.querySelectorAll('.gc[data-lb]').forEach((c,i)=>{
+  items.push({lbl:c.dataset.lb,sub:c.dataset.lbSub||''});
+  c.addEventListener('click',()=>openLB(i));
+  c.addEventListener('keydown',e=>{if(e.key==='Enter')openLB(i);});
+});
+function openLB(i){if(!LB)return;lbIdx=i;updateLB();LB.classList.add('open');document.body.style.overflow='hidden';}
+function closeLB(){if(!LB)return;LB.classList.remove('open');document.body.style.overflow='';}
+function updateLB(){
+  const it=items[lbIdx];
+  LBCAP.textContent=it.lbl;
+  LBCNT.textContent=(lbIdx+1)+' / '+items.length;
+  LBIMG.querySelectorAll('.lbphl').forEach(el=>el.textContent=it.lbl);
+}
+if(LBCLS)LBCLS.addEventListener('click',closeLB);
+if(LBPREV)LBPREV.addEventListener('click',()=>{lbIdx=(lbIdx-1+items.length)%items.length;updateLB();});
+if(LBNEXT)LBNEXT.addEventListener('click',()=>{lbIdx=(lbIdx+1)%items.length;updateLB();});
+if(LB){
+  LB.addEventListener('click',e=>{if(e.target===LB)closeLB();});
+  document.addEventListener('keydown',e=>{
+    if(!LB.classList.contains('open'))return;
+    if(e.key==='Escape')closeLB();
+    if(e.key==='ArrowLeft'){lbIdx=(lbIdx-1+items.length)%items.length;updateLB();}
+    if(e.key==='ArrowRight'){lbIdx=(lbIdx+1)%items.length;updateLB();}
+  });
+}
+
+/* ── FORM DEMO ── */
+const FORM = document.getElementById('trial-form');
+if(FORM){
+  FORM.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = FORM.querySelector('.fsub');
+    const original = btn.textContent;
+
+    // Show sending state
+    btn.textContent = '◆ SENDING...';
+    btn.style.opacity = '.7';
+    btn.disabled = true;
+
+    const data = {
+      name:    FORM.querySelector('#cf-name').value,
+      phone:   FORM.querySelector('#cf-phone').value,
+      email:   FORM.querySelector('#cf-email').value,
+      program: FORM.querySelector('#cf-prog').value,
+      level:   FORM.querySelector('#cf-lvl').value,
+      message: FORM.querySelector('#cf-msg').value
+    };
+
+    // Set a timeout — if fetch hangs over 8s, treat as failed
+    const timeout = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('timeout')), 8000)
+    );
+
+    try {
+      await Promise.race([
+        fetch('https://script.google.com/macros/s/AKfycbwo-ZIlRgaGTZkaAFgLYCaVZUBtXixZMmDI7RwhKYS_4r_4EhFBvoc7Hac2-duvzg7A/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }),
+        timeout
+      ]);
+
+      // Fetch resolved = request reached Google's servers
+      showSuccess();
+      FORM.reset();
+
+    } catch(err) {
+      // Network failure or timeout
+      showError();
+    }
+
+    function showSuccess() {
+      // Replace form with a confirmation card
+      FORM.innerHTML = `
+        <div style="text-align:center;padding:48px 24px;border:1px solid rgba(22,163,74,.25);background:rgba(22,163,74,.06)">
+          <div style="font-family:var(--fm);font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#16a34a;margin-bottom:16px">◆ Request Received</div>
+          <p style="font-family:var(--fd);font-size:32px;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1">You're on the list.</p>
+          <p style="font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.8;margin-bottom:28px">
+            We'll confirm your free trial within <strong style="color:var(--white)">24 hours</strong>.<br>
+            For faster response, message us directly on WhatsApp.
+          </p>
+          <a href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener"
+            style="display:inline-flex;align-items:center;gap:10px;background:#25D366;padding:13px 28px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#064E3B;text-decoration:none">
+            💬 <span>WhatsApp Us Now</span>
+          </a>
+        </div>`;
+    }
+
+    function showError() {
+      // Keep form intact, show error banner above it
+      const banner = document.createElement('div');
+      banner.style.cssText = 'padding:16px 20px;background:rgba(127,29,29,.4);border:1px solid rgba(251,54,64,.3);margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap';
+      banner.innerHTML = `
+        <div>
+          <p style="font-family:var(--fd);font-size:15px;font-weight:700;color:var(--white);margin-bottom:3px">Submission failed — please try again.</p>
+          <p style="font-family:var(--fb);font-size:12px;font-weight:300;color:var(--mist)">Check your connection, or reach us directly on WhatsApp.</p>
+        </div>
+        <a href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener"
+          style="flex-shrink:0;display:inline-flex;align-items:center;gap:8px;background:#25D366;padding:10px 18px;font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#064E3B;text-decoration:none">
+          💬 WhatsApp
+        </a>`;
+      FORM.insertBefore(banner, FORM.firstChild);
+
+      // Reset button
+      btn.textContent = original;
+      btn.style.opacity = '1';
+      btn.style.background = '';
+      btn.disabled = false;
+
+      // Auto-dismiss banner after 8s
+      setTimeout(() => banner.remove(), 8000);
+    }
+  });
+}
+
+})();

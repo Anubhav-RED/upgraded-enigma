@@ -1,208 +1,217 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Coaching Team | Red Crown MMA</title>
-<meta name="description" content="Red Crown MMA Academy — Noida premier MMA. BJJ, Muay Thai, Boxing, Wrestling, Kids. Free trial.">
+<title>POST TITLE | Red Crown MMA Blog</title>
+<meta name="description" content="POST DESCRIPTION — Red Crown MMA Academy, Noida.">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
 <meta name="theme-color" content="#000F08">
-<link rel="apple-touch-icon" href="logoNT.png">
-<meta name="theme-color" content="#000F08">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.hc-grid{display:grid;grid-template-columns:380px 1fr;gap:0;margin-top:52px}
-.hc-photo{position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;min-height:480px}
-.hc-info{background:var(--v2);padding:52px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--bw)}
-.hc-role{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:14px}
-.hc-name{font-family:var(--fd);font-size:clamp(38px,5.5vw,68px);font-weight:700;letter-spacing:-1px;line-height:.9;color:var(--white);margin-bottom:16px}
-.rec{display:flex;gap:0;margin-bottom:18px;border:1px solid var(--bw);width:fit-content}
-.rec-item{padding:14px 22px;text-align:center;border-right:1px solid var(--bw)}
-.rec-item:last-child{border-right:none}
-.rec-n{font-family:var(--fd);font-size:30px;font-weight:700;line-height:1;margin-bottom:4px}
-.rec-n.w{color:#3DDC97}.rec-n.l{color:var(--blood)}.rec-n.d{color:var(--gold)}.rec-n.b{color:var(--mist)}
-.rec-l{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--fog)}
-.hc-bio{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.85;margin-bottom:14px;max-width:540px}
-.hc-qt{font-family:var(--fb);font-size:15px;font-weight:300;font-style:italic;color:var(--mist);border-left:3px solid var(--blood);padding-left:18px;margin-bottom:18px;max-width:500px}
-.hc-creds{display:flex;flex-wrap:wrap;gap:8px}
-.hc-cred{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mist);border:1px solid rgba(143,170,160,.2);padding:5px 14px}
-.frt{margin-top:24px}
-.frt-t{font-family:var(--fm);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--blood);margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.frt-t::before{content:'◆';font-size:7px}
-table.rt{width:100%;border-collapse:collapse;font-family:var(--fb);font-size:12px}
-.rt th{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog);padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.06);text-align:left}
-.rt td{padding:10px 10px;border-bottom:1px solid rgba(255,255,255,.03);color:var(--mist)}
-.rt tr:hover td{background:rgba(251,54,64,.03)}
-.rw{font-family:var(--fd);font-weight:700;letter-spacing:1px;color:#3DDC97}
-.rl{font-family:var(--fd);font-weight:700;letter-spacing:1px;color:var(--blood)}
-.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:3px}
-.cc{background:var(--v2);border:1px solid var(--bw);overflow:hidden;cursor:none;position:relative;transition:border-color .3s}
-.cc:hover{border-color:var(--border)}
-.cc-bar{position:absolute;top:0;left:0;right:0;height:2px;background:var(--blood);transform:scaleX(0);transform-origin:left;transition:transform .45s;z-index:2}
-.cc:hover .cc-bar{transform:scaleX(1)}
-.cc-photo{aspect-ratio:3/2;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
-.cc-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,var(--v2));z-index:1}
-.cc-body{padding:22px 26px 30px}
-.cc-role{font-family:var(--fm);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--blood);margin-bottom:6px}
-.cc-name{font-family:var(--fd);font-size:clamp(20px,3vw,32px);font-weight:700;color:var(--white);margin-bottom:6px;transition:color .3s;line-height:.95}
-.cc:hover .cc-name{color:var(--blood)}
-.cc-rec{display:flex;gap:12px;margin-bottom:10px}
-.cc-r{font-family:var(--fd);font-size:13px;font-weight:700}
-.cc-r.w{color:#3DDC97}.cc-r.l{color:var(--blood)}.cc-r.d{color:var(--gold)}
-.cc-bio{font-family:var(--fb);font-size:12px;font-weight:300;color:var(--fog);line-height:1.8}
-@media(max-width:900px){.hc-grid{grid-template-columns:1fr}.cg{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.cg{grid-template-columns:1fr}}
+.post-wrap{max-width:780px;margin:0 auto;padding:140px 32px 80px}
+.post-back{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;text-decoration:none;transition:color .25s;cursor:none}
+.post-back:hover{color:var(--blood)}.post-back::before{content:'←';font-size:14px;color:var(--blood)}
+.post-meta{display:flex;align-items:center;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+.post-cat{font-family:var(--fm);font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--blood);border:1px solid rgba(251,54,64,.3);padding:3px 10px}
+.post-date,.post-rt{font-family:var(--fm);font-size:8px;letter-spacing:2px;color:var(--fog)}
+.post-h1{font-family:var(--fd);font-size:clamp(36px,7vw,72px);font-weight:700;line-height:.88;letter-spacing:-2px;color:var(--white);margin-bottom:20px}
+.post-lede{font-family:var(--fb);font-size:clamp(16px,2vw,20px);font-weight:300;font-style:italic;color:var(--mist);border-left:3px solid var(--blood);padding-left:20px;line-height:1.75;margin-bottom:40px}
+.post-cover{width:100%;aspect-ratio:16/7;background:var(--v2);border:1px solid var(--bw);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;margin-bottom:52px}
+.post-cover svg{position:absolute;inset:0;width:100%;height:100%}
+.post-cover-lbl{font-family:var(--fm);font-size:9px;letter-spacing:3px;color:var(--fog);position:relative;z-index:1}
+.post-cover img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+/* Typography */
+.post-body h2{font-family:var(--fd);font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--white);margin:48px 0 14px;line-height:.95}
+.post-body h3{font-family:var(--fd);font-size:clamp(20px,3vw,28px);font-weight:600;color:var(--white);margin:32px 0 10px}
+.post-body p{font-family:var(--fb);font-size:16px;font-weight:300;color:var(--mist);line-height:1.9;margin-bottom:20px}
+.post-body strong{color:var(--white);font-weight:600}
+.post-body em{color:var(--blood);font-style:normal}
+.post-body ul,.post-body ol{margin:0 0 22px;padding:0;list-style:none}
+.post-body li{font-family:var(--fb);font-size:15px;font-weight:300;color:var(--mist);padding:9px 0 9px 24px;border-bottom:1px solid var(--bw);line-height:1.7;position:relative}
+.post-body ul li::before{content:'◆';position:absolute;left:0;color:var(--blood);font-size:8px;top:13px}
+.post-body ol{counter-reset:li}
+.post-body ol li{counter-increment:li}
+.post-body ol li::before{content:counter(li);position:absolute;left:0;color:var(--blood);font-family:var(--fm);font-size:11px;font-weight:700;top:11px}
+.post-pullquote{border-left:3px solid var(--blood);background:var(--v2);padding:26px 30px;margin:36px 0;font-family:var(--fd);font-size:clamp(19px,2.5vw,26px);font-weight:600;color:var(--white);line-height:1.3}
+.post-callout{background:var(--v2);border:1px solid var(--bw);border-top:3px solid var(--blood);padding:26px 30px;margin:32px 0}
+.post-callout-tag{font-family:var(--fm);font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--blood);margin-bottom:8px}
+.post-divider{width:52px;height:2px;background:var(--blood);margin:40px 0}
+/* Author */
+.post-author{display:flex;align-items:center;gap:24px;background:var(--v2);border:1px solid var(--bw);padding:28px;margin-top:52px;flex-wrap:wrap}
+.post-author-img{width:68px;height:68px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--border)}
+.post-author-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.post-author-name{font-family:var(--fd);font-size:20px;font-weight:700;color:var(--white);margin-bottom:3px}
+.post-author-role{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--blood);margin-bottom:6px}
+.post-author-bio{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.7}
+/* Related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:3px}
+@media(max-width:900px){.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.post-wrap{padding:120px 18px 60px}.related-grid{grid-template-columns:1fr}.post-author{flex-direction:column}}
 </style>
 </head>
 <body>
-<div id="cr" aria-hidden="true">
-  <svg viewBox="0 0 36 36" fill="none">
-    <circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/>
-    <line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/>
-    <line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/>
-    <line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/>
-    <line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/>
-    <circle cx="18" cy="18" r="2" fill="#FB3640"/>
-  </svg>
-</div>
-<div id="cd" aria-hidden="true"></div>
-<div id="grain" aria-hidden="true"></div>
-<div id="scanline" aria-hidden="true"></div>
-<div id="wipe" aria-hidden="true"></div>
-<div id="fts">
-  <div class="fts-sl"></div>
-  <div class="fts-box">
-    <div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div>
-    <div id="fts-t"><span class="ftc"></span></div>
-    <div class="fts-bw"><div class="fts-b" id="fts-b"></div></div>
-    <div class="fts-s" id="fts-s">INITIATING...</div>
-  </div>
-</div>
+<div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div>
+<div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div>
+<div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div>
 <nav id="nav">
   <div class="n-logo">
     <div class="lw" id="logo-btn" onclick="window.launchFT&&window.launchFT()" role="button" tabindex="0">
       <div class="or1"></div><div class="or2"></div>
       <div class="lsvg"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
-  <path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/>
-  <rect x="20" y="44" width="60" height="6" fill="#FB3640"/>
-  <ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/>
-  <path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/>
-  <ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/>
-  <ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/>
-  <path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/>
-  <rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/>
-  <rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/>
-  <rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/>
-  <circle cx="50" cy="30" r="3" fill="#D4A843"/>
-  <circle cx="35" cy="35" r="2" fill="#D4A843"/>
-  <circle cx="65" cy="35" r="2" fill="#D4A843"/>
-</svg></div>
       <span class="ltip">◈ RESTRICTED ACCESS</span>
     </div>
     <div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div>
   </div>
-  <div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a>
+  <div class="n-links">
+    <a class="n-lnk" href="index.html" data-link>Home</a>
     <a class="n-lnk" href="programs.html" data-link>Programs</a>
-    <a class="n-lnk active" href="coaches.html" data-link>Coaches</a>
+    <a class="n-lnk" href="coaches.html" data-link>Coaches</a>
     <a class="n-lnk" href="schedule.html" data-link>Schedule</a>
     <a class="n-lnk" href="gallery.html" data-link>Gallery</a>
+    <a class="n-lnk active" href="blog.html" data-link>Blog</a>
     <a class="n-lnk" href="contact.html" data-link>Contact</a>
-    <a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a></div>
+    <a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a>
+  </div>
   <button class="n-burg" id="burg"><span></span><span></span><span></span></button>
 </nav>
-<div id="mm"><a class="mlnk" href="index.html" data-link>Home</a>
+<div id="mm">
+  <a class="mlnk" href="index.html" data-link>Home</a>
   <a class="mlnk" href="programs.html" data-link>Programs</a>
   <a class="mlnk" href="coaches.html" data-link>Coaches</a>
   <a class="mlnk" href="schedule.html" data-link>Schedule</a>
   <a class="mlnk" href="gallery.html" data-link>Gallery</a>
+  <a class="mlnk active" href="blog.html" data-link>Blog</a>
   <a class="mlnk" href="contact.html" data-link>Contact</a>
-  <div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div></div></circle>
-<a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <span class="wai">💬</span><span class="wal">WhatsApp Us</span>
-</a>
+  <div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div>
+</div>
+<a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wai">💬</span><span class="wal">WhatsApp Us</span></a>
 
 <main>
-  <div class="pgh">
-    <div class="pghi">
-      <div class="pghtag">Coaching Team</div>
-      <h1 class="pghh">Practitioners<br>First. Always.</h1>
-      <p class="pghsub">Every coach at Red Crown is a competitor first. Deep, competition-tested expertise — on the mat every session.</p>
-    </div>
-    <div class="pggnt">MASTERS</div>
+<div class="post-wrap">
+  <a class="post-back" href="blog.html" data-link>Back to Blog</a>
+
+  <!-- ── META ── Change these ── -->
+  <div class="post-meta">
+    <span class="post-cat">CATEGORY</span>
+    <span class="post-date">MONTH YEAR</span>
+    <span class="post-rt">· X min read</span>
   </div>
-  <div class="pgb">
-    <!-- HEAD COACH -->
-    <div class="hc-grid rv">
-      <div class="hc-photo" style="overflow:hidden;">
-  <img src="founder.jpg" alt="Head Coach" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+
+  <!-- ── TITLE ── -->
+  <h1 class="post-h1">Your Full Article Title Goes Here</h1>
+
+  <!-- ── LEDE ── Hook sentence that tells the reader what they'll get -->
+  <p class="post-lede">This is your opening hook — one or two sentences that tell the reader exactly what they'll learn and why it matters. Make it direct and punchy.</p>
+
+  <!-- ── COVER IMAGE ──
+       To add: place your image file in RedCrownMMA folder
+       Then replace the placeholder div with:
+       <img src="your-image.jpg" alt="Descriptive text">
+  -->
+  <div class="post-cover">
+    <svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".8"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".8"/></svg>
+    <span class="post-cover-lbl">Cover Photo — add: &lt;img src="your-image.jpg"&gt;</span>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       START WRITING YOUR ARTICLE BELOW HERE
+       ════════════════════════════════════════ -->
+  <div class="post-body">
+
+    <h2>Your First Section</h2>
+    <p>Write your first paragraph here. Keep paragraphs to 3–5 sentences. One clear point per paragraph. <strong>Bold key terms</strong> when they first appear. Use <em>red highlight</em> sparingly.</p>
+    <p>Second paragraph of this section. Be direct — cut filler phrases like "it's worth noting that" or "as we can see". Just state the thing.</p>
+
+    <!-- Pull quote — for your strongest single sentence -->
+    <div class="post-pullquote">"Your most powerful quote or key insight from the article goes here."</div>
+
+    <h2>Second Section</h2>
+    <p>Continue your article. Use h2 for major sections, h3 for sub-points within a section.</p>
+
+    <h3>A Sub-Point</h3>
+    <p>Detail for this sub-point. Keep each section 150–300 words.</p>
+
+    <!-- Bullet list -->
+    <ul>
+      <li>First key point — one clear idea per bullet</li>
+      <li>Second key point — avoid starting every bullet the same way</li>
+      <li>Third key point — 4–8 bullets max before splitting into two lists</li>
+    </ul>
+
+    <!-- Callout box — for tips, warnings, coach's notes -->
+    <div class="post-callout">
+      <div class="post-callout-tag">◆ Coach's Note</div>
+      <p>Use this box for a key tip or warning that deserves extra attention without interrupting the main flow.</p>
+    </div>
+
+    <h2>Closing Section</h2>
+    <p>Return to your main point from the lede. What should the reader do now? What's the single takeaway?</p>
+
+    <!-- Numbered list -->
+    <ol>
+      <li>Step one — numbered lists work for instructions and ranked items</li>
+      <li>Step two — keep each item actionable</li>
+      <li>Step three — end with the most important</li>
+    </ol>
+
+    <div class="post-divider"></div>
+
+  </div>
+  <!-- ════════════════════════════════════════
+       END ARTICLE
+       ════════════════════════════════════════ -->
+
+  <!-- In-post CTA -->
+  <div style="background:var(--v2);border:1px solid var(--bw);border-top:3px solid var(--blood);padding:44px;text-align:center;margin:40px 0">
+    <div style="font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:12px">◆ Want to learn this on the mat?</div>
+    <p style="font-family:var(--fd);font-size:clamp(28px,5vw,48px);font-weight:700;color:var(--white);margin-bottom:10px;line-height:.9">First class<br><span style="color:var(--blood)">is free.</span></p>
+    <p style="font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);margin-bottom:28px;line-height:1.8">No experience needed. No commitment. Just show up.</p>
+    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+  </div>
+
+  <!-- Author -->
+  <div class="post-author">
+    <div class="post-author-img"><img src="founder.jpg" alt="Head Coach"></div>
+    <div>
+      <div class="post-author-name">COACH NAME HERE</div>
+      <div class="post-author-role">Head Coach · Red Crown MMA Academy</div>
+      <p class="post-author-bio">Brief 1–2 sentence bio — background, credentials, speciality at Red Crown.</p>
+    </div>
+  </div>
 </div>
-      <div class="hc-info">
-        <div class="hc-role">Founder &amp; Head Coach</div>
-        <h2 class="hc-name">Aditya<br>Heera</h2>
-        <div class="rec">
-          <div class="rec-item"><div class="rec-n w">18</div><div class="rec-l">Wins</div></div>
-          <div class="rec-item"><div class="rec-n l">4</div><div class="rec-l">Losses</div></div>
-          <div class="rec-item"><div class="rec-n d">0</div><div class="rec-l">Draws</div></div>
-          <div class="rec-item"><div class="rec-n b">Blue belt</div><div class="rec-l">BJJ Rank</div></div>
-        </div>
-        <p class="hc-bio">Aditya Heera began training in martial arts at the age of 16 and has spent nearly a decade developing his skills in combat sports. With almost 10 decades of training experience and 5 years of coaching, he focuses on building disciplined fighters and helping students develop both physically and mentally through martial arts.</p>
-        <blockquote class="hc-qt">"The mat reveals who you are. Show up with discipline, stay humble, and growth becomes inevitable."</blockquote>
-        <div class="hc-creds">
-          <span class="hc-cred">BJJ Blue Belt</span>
-          <span class="hc-cred">20+ Fights</span>
-          <span class="hc-cred">National Muay Thai gold Medalist</span>
-          <span class="hc-cred">Brazilian Jiu-Jitsu Affiliation</span>
-        </div>
-        <div class="frt">
-          <div class="frt-t">Fight Record</div>
-          <table class="rt">
-            <thead><tr><th>Opponent</th><th>Event</th><th>Result</th><th>Method</th><th>Rd</th><th>Date</th></tr></thead>
-            <tbody>
-              <tr><td>[Opponent]</td><td>[Event]</td><td><span class="rw">WIN</span></td><td>Sub (RNC)</td><td>2</td><td>[MM/YY]</td></tr>
-              <tr><td>[Opponent]</td><td>[Event]</td><td><span class="rw">WIN</span></td><td>TKO Strikes</td><td>1</td><td>[MM/YY]</td></tr>
-              <tr><td>[Opponent]</td><td>[Event]</td><td><span class="rl">LOSS</span></td><td>Decision</td><td>3</td><td>[MM/YY]</td></tr>
-              <tr><td>[Opponent]</td><td>[Event]</td><td><span class="rw">WIN</span></td><td>Sub (Armbar)</td><td>1</td><td>[MM/YY]</td></tr>
-              <tr><td>[Opponent]</td><td>[Event]</td><td><span class="rw">WIN</span></td><td>KO Head Kick</td><td>2</td><td>[MM/YY]</td></tr>
-            </tbody>
-          </table>
-        </div>
+
+<!-- Related posts -->
+<div style="max-width:1280px;margin:0 auto;padding:0 56px 80px">
+  <div style="font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:3px">◆ Continue Reading</div>
+  <div class="related-grid">
+    <a href="blog-post.html" data-link style="text-decoration:none">
+      <div class="bc rv" style="height:100%"><div class="bc-bar"></div>
+        <div class="bc-img" style="aspect-ratio:16/9"><svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg></div>
+        <div class="bc-body"><div class="bc-meta"><span class="bc-cat">Technique</span></div><div class="bc-title">Related Post Title</div><span class="bc-read">Read →</span></div>
       </div>
-    </div>
-    <!-- SUPPORT COACHES -->
-    <div class="rv" style="margin-top:3px;background:var(--v2);border:1px solid var(--bw);padding:44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
-  <div>
-    <div style="font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:10px;">◆ Coaching Staff — Expanding</div>
-    <p style="font-family:var(--fd);font-size:clamp(24px,4vw,42px);font-weight:700;color:var(--white);line-height:1;">More coaches joining soon.</p>
-    <p style="font-family:var(--fb);font-size:15px;font-weight:300;color:var(--mist);margin-top:10px;max-width:500px;line-height:1.8;">Every coach at Red Crown is a practitioner first. We grow our team carefully — quality over quantity, always.</p>
+    </a>
+    <a href="blog-post.html" data-link style="text-decoration:none">
+      <div class="bc rv" style="height:100%;transition-delay:.08s"><div class="bc-bar"></div>
+        <div class="bc-img" style="aspect-ratio:16/9"><svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg></div>
+        <div class="bc-body"><div class="bc-meta"><span class="bc-cat">Mindset</span></div><div class="bc-title">Related Post Title</div><span class="bc-read">Read →</span></div>
+      </div>
+    </a>
+    <a href="blog-post.html" data-link style="text-decoration:none">
+      <div class="bc rv" style="height:100%;transition-delay:.16s"><div class="bc-bar"></div>
+        <div class="bc-img" style="aspect-ratio:16/9"><svg viewBox="0 0 200 120" preserveAspectRatio="none"><line x1="0" y1="0" x2="200" y2="120" stroke="#FB3640" stroke-width=".6"/><line x1="200" y1="0" x2="0" y2="120" stroke="#FB3640" stroke-width=".6"/></svg></div>
+        <div class="bc-body"><div class="bc-meta"><span class="bc-cat">Nutrition</span></div><div class="bc-title">Related Post Title</div><span class="bc-read">Read →</span></div>
+      </div>
+    </a>
   </div>
-  <a class="bo" href="contact.html" data-link>Enquire About Coaching →</a>
 </div>
-        </div>
-      </article>
 </main>
-<footer>
-  <div class="fi">
-    <div class="fb"><div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
-  <path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/>
-  <rect x="20" y="44" width="60" height="6" fill="#FB3640"/>
-  <ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/>
-  <path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/>
-  <ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/>
-  <ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/>
-  <path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/>
-  <rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/>
-  <rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/>
-  <rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/>
-  <circle cx="50" cy="30" r="3" fill="#D4A843"/>
-  <circle cx="35" cy="35" r="2" fill="#D4A843"/>
-  <circle cx="65" cy="35" r="2" fill="#D4A843"/>
-</svg></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div>
-    <div class="flinks">
-      <a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="contact.html" data-link>Contact</a>
-    </div>
-    <div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div>
-  </div>
-</footer>
+
+<footer><div class="fi">
+  <div class="fb"><div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div>
+  <div class="flinks"><a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="blog.html" data-link>Blog</a><a class="flnk" href="contact.html" data-link>Contact</a></div>
+  <div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div>
+</div></footer>
 <script src="js/main.js"></script>
-</body>
-</html>
+</body></html>
