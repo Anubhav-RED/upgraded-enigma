@@ -41,19 +41,238 @@ body.hov #cr .cr-arm { opacity: 0; }
 @keyframes wi  { to { transform: scaleX(1); transform-origin: right; } }
 @keyframes wo  { from { transform: scaleX(1); transform-origin: left; } to { transform: scaleX(0); transform-origin: left; } }
 
-/* ── FIGHTER TEAM TERMINAL ───────────────────── */
-#fts { position: fixed; inset: 0; z-index: 9970; background: var(--void); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
+/* ══════════════════════════════════════════════════════
+   BLOODHOUND — BEAST OF THE HUNT
+   Full-screen ultimate activation overlay
+   Amber #C89828  ·  Sonar rings  ·  Runic HUD
+══════════════════════════════════════════════════════ */
+#fts {
+  position: fixed; inset: 0; z-index: 9970;
+  background: #000;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .18s ease;
+  overflow: hidden;
+  font-family: 'Rajdhani', sans-serif;
+}
 #fts.on { opacity: 1; pointer-events: all; }
-.fts-sl { position: absolute; inset: 0; background: repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.14) 3px,rgba(0,0,0,.14) 4px); }
-.fts-box { position: relative; z-index: 1; width: min(560px,90vw); padding: 52px; }
-.fts-bdg { font-family: var(--fm); font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--blood); border: 1px solid var(--border); padding: 6px 14px; display: inline-block; margin-bottom: 32px; animation: pbdr 1.8s ease-in-out infinite; }
-@keyframes pbdr { 0%,100%{border-color:rgba(251,54,64,.3)} 50%{border-color:var(--blood)} }
-#fts-t { font-family: var(--fm); font-size: 13px; color: var(--blood); line-height: 2.1; min-height: 140px; margin-bottom: 24px; white-space: pre-wrap; }
-.ftc { display: inline-block; width: 9px; height: 14px; background: var(--blood); animation: blnk .9s step-end infinite; }
-@keyframes blnk { 50%{opacity:0} }
-.fts-bw { width: 100%; height: 2px; background: rgba(251,54,64,.12); margin-bottom: 12px; }
-.fts-b  { height: 100%; background: var(--blood); width: 0; transition: width .06s linear; }
-.fts-s  { font-family: var(--fm); font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--fog); }
+
+/* Amber flash layer — flares on activation */
+#bh-flash {
+  position: absolute; inset: 0; z-index: 1;
+  background: radial-gradient(ellipse at center, rgba(200,152,40,.95) 0%, rgba(180,110,0,.6) 40%, transparent 75%);
+  opacity: 0; pointer-events: none;
+  transition: opacity .12s;
+}
+#fts.bh-flare #bh-flash { opacity: 1; }
+
+/* Canvas — sonar rings, sweep, rune sigil */
+#bh-canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 2;
+}
+
+/* Scanlines */
+.fts-sl {
+  position: absolute; inset: 0; z-index: 3;
+  background: repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.18) 3px,rgba(0,0,0,.18) 4px);
+  pointer-events: none;
+}
+
+/* ── Corner HUD brackets ── */
+.bh-c {
+  position: absolute; z-index: 10;
+  width: 56px; height: 56px;
+  opacity: 0;
+  transition: opacity .12s, transform .22s cubic-bezier(.2,1.4,.4,1);
+}
+.bh-c.snap { opacity: 1; transform: translate(0,0) !important; }
+.bh-tl { top: 28px; left: 28px;  transform: translate(-12px,-12px); }
+.bh-tr { top: 28px; right: 28px; transform: translate(12px,-12px); }
+.bh-bl { bottom: 28px; left: 28px;  transform: translate(-12px,12px); }
+.bh-br { bottom: 28px; right: 28px; transform: translate(12px,12px); }
+/* L-shaped amber bracket lines */
+.bh-tl::before,.bh-tl::after,
+.bh-tr::before,.bh-tr::after,
+.bh-bl::before,.bh-bl::after,
+.bh-br::before,.bh-br::after {
+  content: ''; position: absolute; background: #C89828;
+}
+.bh-tl::before,.bh-tr::before,.bh-bl::before,.bh-br::before { width: 2px; height: 100%; }
+.bh-tl::after, .bh-tr::after, .bh-bl::after, .bh-br::after  { width: 100%; height: 2px; }
+.bh-tl::before { top:0; left:0; }   .bh-tl::after  { top:0; left:0; }
+.bh-tr::before { top:0; right:0; }  .bh-tr::after  { top:0; right:0; }
+.bh-bl::before { bottom:0; left:0; } .bh-bl::after { bottom:0; left:0; }
+.bh-br::before { bottom:0; right:0; } .bh-br::after { bottom:0; right:0; }
+/* Dim inner ticks on brackets */
+.bh-tl::before { box-shadow: inset 0 0 0 0; }
+
+/* ── HUD corner readouts ── */
+.bh-hud {
+  position: absolute; z-index: 10;
+  font-family: var(--fm);
+  font-size: clamp(7px,1vw,9px);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(200,152,40,.65);
+  line-height: 1.9;
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none;
+}
+.bh-hud.vis { opacity: 1; }
+.bh-hud-tl { top: 92px;    left: 92px;   text-align: left; }
+.bh-hud-tr { top: 92px;    right: 92px;  text-align: right; }
+.bh-hud-bl { bottom: 92px; left: 92px;   text-align: left; }
+.bh-hud-br { bottom: 92px; right: 92px;  text-align: right; }
+
+/* ── Centre stage ── */
+#bh-stage {
+  position: relative; z-index: 10;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: 0;
+  pointer-events: none;
+}
+
+/* Rune ring SVG */
+#bh-rune-ring {
+  width: clamp(120px,20vw,200px);
+  height: clamp(120px,20vw,200px);
+  opacity: 0;
+  transition: opacity .5s ease;
+  margin-bottom: 24px;
+}
+#bh-rune-ring.vis { opacity: 1; }
+#bh-rune-ring svg {
+  animation: bh-ring-rot 8s linear infinite;
+}
+#bh-rune-ring-inner svg {
+  animation: bh-ring-rot-rev 5s linear infinite;
+}
+@keyframes bh-ring-rot { to { transform: rotate(360deg); } }
+@keyframes bh-ring-rot-rev { to { transform: rotate(-360deg); } }
+
+/* THE HUNT title */
+#bh-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(52px,10vw,120px);
+  font-weight: 700;
+  color: #C89828;
+  letter-spacing: -2px;
+  line-height: .85;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: scale(.9);
+  transition: opacity .2s, transform .3s cubic-bezier(.2,1.2,.4,1);
+  position: relative;
+}
+#bh-title.vis {
+  opacity: 1;
+  transform: scale(1);
+}
+/* Glitch layers */
+#bh-title::before,
+#bh-title::after {
+  content: attr(data-txt);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+#bh-title.glitch::before {
+  color: #ff3a00;
+  clip-path: polygon(0 22%,100% 22%,100% 44%,0 44%);
+  transform: translateX(-4px);
+  opacity: .7;
+  animation: bh-glitch-a .22s steps(2) forwards;
+}
+#bh-title.glitch::after {
+  color: #00cfff;
+  clip-path: polygon(0 58%,100% 58%,100% 78%,0 78%);
+  transform: translateX(4px);
+  opacity: .7;
+  animation: bh-glitch-b .22s steps(2) forwards;
+}
+@keyframes bh-glitch-a {
+  0%   { transform: translateX(-4px) scaleX(.999); }
+  50%  { transform: translateX(5px)  scaleX(1.002); }
+  100% { transform: translateX(0);   opacity: 0; }
+}
+@keyframes bh-glitch-b {
+  0%   { transform: translateX(4px)  scaleX(.999); }
+  50%  { transform: translateX(-3px) scaleX(1.001); }
+  100% { transform: translateX(0);   opacity: 0; }
+}
+
+/* Subtitle */
+#bh-sub {
+  font-family: var(--fm);
+  font-size: clamp(7px,1.2vw,10px);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: rgba(200,152,40,.6);
+  margin-top: 10px;
+  margin-bottom: 28px;
+  opacity: 0;
+  transition: opacity .5s ease .2s;
+}
+#bh-sub.vis { opacity: 1; }
+
+/* Charge bar */
+#bh-bar-wrap {
+  width: clamp(220px,35vw,420px);
+  height: 3px;
+  background: rgba(200,152,40,.12);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity .3s;
+  margin-bottom: 12px;
+}
+#bh-bar-wrap.vis { opacity: 1; }
+#bh-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, rgba(200,152,40,.4), #C89828);
+  transition: width .05s linear;
+  position: relative;
+}
+/* Bright leading edge */
+#bh-bar::after {
+  content: '';
+  position: absolute;
+  right: 0; top: -2px;
+  width: 6px; height: 7px;
+  background: #fff8e0;
+  box-shadow: 0 0 8px 2px #C89828;
+}
+
+/* Status text */
+#bh-status {
+  font-family: var(--fm);
+  font-size: 8px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(200,152,40,.45);
+  opacity: 0;
+  transition: opacity .3s;
+}
+#bh-status.vis { opacity: 1; }
+
+/* Flicker glitch on whole overlay */
+@keyframes bh-flicker {
+  0%,100% { opacity: 1; }
+  8%  { opacity: .85; }
+  9%  { opacity: 1; }
+  42% { opacity: 1; }
+  43% { opacity: .9; }
+  44% { opacity: 1; }
+}
+#fts.bh-flicker-anim { animation: bh-flicker .18s steps(1) forwards; }
+
+/* ── LEGACY — kept so old static HTML references don't break ── */
+.fts-box,.fts-bdg,#fts-t,.ftc,.fts-bw,.fts-b,.fts-s { display: none !important; }
 
 /* ── NAV ─────────────────────────────────────── */
 #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; transition: background .35s, border-color .35s; }

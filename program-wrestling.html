@@ -1,247 +1,244 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Training Programs | Red Crown MMA</title>
-<meta name="description" content="Red Crown MMA Academy — Noida premier MMA. BJJ, Muay Thai, Boxing, Wrestling, Kids. Free trial.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<title>Wrestling Classes in Noida | Grappling & Takedown Training — Red Crown MMA</title>
+<meta name="description" content="Wrestling and grappling classes in Noida at Red Crown MMA Academy. Learn freestyle takedowns, clinch control and mat wrestling. All levels. First class free.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
 <meta name="theme-color" content="#000F08">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.pcards{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:52px}
-.pcard{background:var(--v2);border:1px solid var(--bw);overflow:hidden;cursor:pointer;transition:border-color .3s;position:relative}
-.pcard:hover{border-color:var(--border)}
-.pcard-bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--blood);transform:scaleX(0);transform-origin:left;transition:transform .45s;z-index:2}
-.pcard:hover .pcard-bar{transform:scaleX(1)}
-.pphoto{aspect-ratio:16/7;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
-.pphoto::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(251,54,64,.05),transparent 55%)}
-.pphoto-ov{position:absolute;inset:0;background:rgba(251,54,64,.88);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .35s;z-index:2}
-.pphoto-ov span{font-family:var(--fd);font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--void)}
-.pcard:hover .pphoto-ov{opacity:1}
-.pbody{padding:36px 40px 40px}
-.ptag{font-family:var(--fm);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--blood);margin-bottom:10px}
-.pname{font-family:var(--fd);font-size:clamp(28px,4vw,46px);font-weight:700;color:var(--white);margin-bottom:12px;line-height:.95;transition:color .3s}
-.pcard:hover .pname{color:var(--blood)}
-.pdesc{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.85;margin-bottom:20px}
-.pfeats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
-.pfeat{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mist);border:1px solid rgba(143,170,160,.2);padding:4px 12px}
-.pideal{font-family:var(--fb);font-size:12px;font-weight:300;font-style:italic;color:var(--fog);border-left:2px solid var(--blood);padding-left:14px;margin-bottom:20px}
-.pcard.wide{grid-column:span 2}
-.pcard.wide .pphoto{aspect-ratio:32/7}
-.sc-row{display:grid;grid-template-columns:1fr 1fr}
-@media(max-width:900px){.pcards{grid-template-columns:1fr}.pcard.wide{grid-column:span 1}.pcard.wide .pphoto{aspect-ratio:16/7}.sc-row{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
-<div id="cr" aria-hidden="true">
-  <svg viewBox="0 0 36 36" fill="none">
-    <circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/>
-    <line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/>
-    <line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/>
-    <line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/>
-    <line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/>
-    <circle cx="18" cy="18" r="2" fill="#FB3640"/>
-  </svg>
-</div>
-<div id="cd" aria-hidden="true"></div>
-<div id="grain" aria-hidden="true"></div>
-<div id="scanline" aria-hidden="true"></div>
-<div id="wipe" aria-hidden="true"></div>
-<div id="fts">
-  <div class="fts-sl"></div>
-  <div class="fts-box">
-    <div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div>
-    <div id="fts-t"><span class="ftc"></span></div>
-    <div class="fts-bw"><div class="fts-b" id="fts-b"></div></div>
-    <div class="fts-s" id="fts-s">INITIATING...</div>
-  </div>
-</div>
+:root{--acc:#76FF03;--acc3:rgba(118,255,3,.3);--acc1:rgba(118,255,3,.1);--acc05:rgba(118,255,3,.05);}
+.ph{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--void)}
+.ph-bg{position:absolute;inset:0;pointer-events:none}
+.ph-svg{position:absolute;inset:0;width:100%;height:100%}
+.ph::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(118,255,3,.08) 0%,transparent 65%);pointer-events:none}
+.ph-in{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:140px 56px 80px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
+.ph-back{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;text-decoration:none;transition:color .25s;cursor:none}
+.ph-back:hover{color:var(--acc)}.ph-back::before{content:'←';font-size:14px;color:var(--acc)}
+.ph-tag{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--acc);margin-bottom:16px;opacity:.85}
+.ph-h1{font-family:var(--fd);font-size:clamp(64px,11vw,148px);font-weight:700;line-height:.82;letter-spacing:-3px;color:var(--white);margin-bottom:20px}
+.ph-h1 span{color:var(--acc);display:block}
+.ph-sub{font-family:var(--fb);font-size:clamp(15px,2vw,19px);font-weight:300;color:var(--mist);line-height:1.8;margin-bottom:28px;max-width:520px}
+.pf-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:36px}
+.pf{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--acc);border:1px solid var(--acc3);padding:4px 12px;background:var(--acc05)}
+.ph-wm{position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-family:var(--fd);font-size:clamp(100px,20vw,280px);font-weight:700;color:rgba(118,255,3,.04);line-height:1;pointer-events:none;letter-spacing:-6px;user-select:none}
+.ph-panel{background:rgba(0,15,8,.7);border:1px solid var(--acc3);backdrop-filter:blur(4px);padding:40px}
+.ph-panel-tag{font-family:var(--fm);font-size:8px;letter-spacing:5px;text-transform:uppercase;color:var(--acc);margin-bottom:20px;border-bottom:1px solid var(--acc3);padding-bottom:12px}
+.ph-stat{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--acc1)}
+.ph-stat-l{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog)}
+.ph-stat-r{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--white)}
+/* Body */
+.pb{max-width:1280px;margin:0 auto;padding:80px 56px}
+.sec-tag{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--acc);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sec-tag::before{content:'';width:28px;height:1px;background:var(--acc)}
+.sec-h{font-family:var(--fd);font-size:clamp(36px,5vw,64px);font-weight:700;color:var(--white);line-height:.9;margin-bottom:32px;letter-spacing:-1px}
+/* Prose sections */
+.prose-block{background:var(--v2);border:1px solid var(--bw);border-left:3px solid var(--acc);padding:36px 40px;margin-bottom:3px}
+.prose-block p{font-family:var(--fb);font-size:15px;font-weight:300;color:var(--mist);line-height:1.9;margin-bottom:16px}
+.prose-block p:last-child{margin-bottom:0}
+.prose-block strong{color:var(--white);font-weight:600}
+/* Curriculum */
+.ci{display:grid;grid-template-columns:60px 1fr;gap:0;background:var(--v2);border:1px solid var(--bw);border-left:3px solid var(--acc);margin-bottom:3px;transition:background .3s}
+.ci:hover{background:var(--v3)}
+.ci-num{font-family:var(--fd);font-size:42px;font-weight:700;color:rgba(118,255,3,.2);display:flex;align-items:center;justify-content:center;padding:24px 0;line-height:1}
+.ci-t{font-family:var(--fd);font-size:20px;font-weight:700;color:var(--white);padding:24px 28px 6px;line-height:1}
+.ci-d{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);padding:0 28px 24px;line-height:1.75}
+/* Benefits */
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:3px}
+.ben{background:var(--v2);border:1px solid var(--bw);padding:32px;position:relative;overflow:hidden;transition:border-color .3s}
+.ben:hover{border-color:var(--acc3)}
+.ben::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.ben:hover::before{transform:scaleX(1)}
+.ben-icon{font-family:var(--fd);font-size:40px;font-weight:700;color:rgba(118,255,3,.15);margin-bottom:12px;line-height:1}
+.ben-t{font-family:var(--fd);font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.1}
+.ben-d{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.8}
+/* Why Red Crown */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.why-item{background:var(--v2);border:1px solid var(--bw);padding:32px 36px;display:flex;gap:20px;align-items:flex-start;transition:border-color .3s}
+.why-item:hover{border-color:var(--acc3)}
+.why-dot{width:8px;height:8px;background:var(--acc);border-radius:50%;flex-shrink:0;margin-top:8px}
+.why-t{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1}
+.why-d{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.75}
+/* Who */
+.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.wi{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);background:var(--v2);border:1px solid var(--bw);padding:22px 24px;line-height:1.6;display:flex;align-items:flex-start;gap:10px;transition:border-color .3s}
+.wi:hover{border-color:var(--acc3)}
+.wi::before{content:'';width:6px;height:6px;background:var(--acc);border-radius:50%;flex-shrink:0;margin-top:6px}
+/* FAQ */
+.fi-item{background:var(--v2);border:1px solid var(--bw);margin-bottom:3px;overflow:hidden;transition:border-color .3s}
+.fi-item:hover,.fi-item.open{border-color:var(--acc3)}
+.fi-q{font-family:var(--fd);font-size:18px;font-weight:600;color:var(--white);padding:20px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:none;text-align:left;transition:color .25s}
+.fi-q:hover{color:var(--acc)}.fi-arr{color:var(--acc);transition:transform .3s;flex-shrink:0}.fi-item.open .fi-arr{transform:rotate(180deg)}
+.fi-a{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.85;padding:0 28px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s}
+.fi-item.open .fi-a{max-height:220px;padding:0 28px 22px}
+/* Typical class */
+.class-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.cstep{background:var(--v2);border:1px solid var(--bw);padding:28px 24px;position:relative;transition:border-color .3s}
+.cstep:hover{border-color:var(--acc3)}
+.cstep-n{font-family:var(--fd);font-size:48px;font-weight:700;color:rgba(118,255,3,.12);line-height:1;margin-bottom:8px}
+.cstep-t{font-family:var(--fd);font-size:17px;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1}
+.cstep-d{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.75}
+/* CTA */
+.pcta{background:var(--v2);border:1px solid var(--acc3);padding:72px;text-align:center;position:relative;overflow:hidden;margin-top:80px}
+.pcta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(118,255,3,.06) 0%,transparent 70%)}
+.pdiv{height:1px;background:linear-gradient(90deg,transparent,var(--acc3),transparent);margin:72px 0}
+@media(max-width:1024px){.ph-in{grid-template-columns:1fr;padding:120px 28px 60px}.ph-panel{display:none}.pb{padding:60px 28px}.wg{grid-template-columns:1fr 1fr}.ben-grid{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr}.class-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.ph-h1{font-size:clamp(52px,16vw,90px)}.wg{grid-template-columns:1fr}.ben-grid{grid-template-columns:1fr}.class-steps{grid-template-columns:1fr}}
+</style></head><body><div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div>
+<div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div>
+<div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div>
 <nav id="nav">
   <div class="n-logo">
-    <div class="lw" id="logo-btn" onclick="window.launchFT&&window.launchFT()" role="button" tabindex="0">
-      <div class="or1"></div><div class="or2"></div>
+    <div class="lw" id="logo-btn" onclick="window.launchFT&&window.launchFT()" role="button" tabindex="0"><div class="or1"></div><div class="or2"></div>
       <div class="lsvg"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
       <span class="ltip">◈ RESTRICTED ACCESS</span>
     </div>
     <div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div>
   </div>
-  <div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a>
+  <div class="n-links">
+    <a class="n-lnk" href="index.html" data-link>Home</a>
     <a class="n-lnk active" href="programs.html" data-link>Programs</a>
     <a class="n-lnk" href="coaches.html" data-link>Coaches</a>
     <a class="n-lnk" href="schedule.html" data-link>Schedule</a>
     <a class="n-lnk" href="gallery.html" data-link>Gallery</a>
-    <a class="n-lnk" href="blog.html" data-link>Blog</a><a class="n-lnk" href="contact.html" data-link>Contact</a>
-    <a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a></div>
+    <a class="n-lnk" href="blog.html" data-link>Blog</a>
+    <a class="n-lnk" href="contact.html" data-link>Contact</a>
+    <a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a>
+  </div>
   <button class="n-burg" id="burg"><span></span><span></span><span></span></button>
 </nav>
-<div id="mm"><a class="mlnk" href="index.html" data-link>Home</a>
+<div id="mm">
+  <a class="mlnk" href="index.html" data-link>Home</a>
   <a class="mlnk" href="programs.html" data-link>Programs</a>
   <a class="mlnk" href="coaches.html" data-link>Coaches</a>
   <a class="mlnk" href="schedule.html" data-link>Schedule</a>
   <a class="mlnk" href="gallery.html" data-link>Gallery</a>
-  <a class="mlnk" href="blog.html" data-link>Blog</a><a class="mlnk" href="contact.html" data-link>Contact</a>
-  <div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div></div>
-    
-<a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <span class="wai">💬</span><span class="wal">WhatsApp Us</span>
-</a>
-
+  <a class="mlnk" href="blog.html" data-link>Blog</a>
+  <a class="mlnk" href="contact.html" data-link>Contact</a>
+  <div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div>
+</div>
+<a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wai">💬</span><span class="wal">WhatsApp Us</span></a>
 <main>
-  <div class="pgh">
-    <div class="pghi">
-      <div class="pghtag">Training Programs</div>
-      <h1 class="pghh">Five Disciplines.<br>One Roof.</h1>
-      <p class="pghsub">Elite instruction across every major combat art — from first session to first competition. No shortcuts.</p>
+<section class="ph">
+  <div class="ph-bg"><svg class="ph-svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="100" r="10" fill="none" stroke="#76FF03" stroke-opacity=".055" stroke-width=".8"/><circle cx="100" cy="100" r="28" fill="none" stroke="#76FF03" stroke-opacity=".055" stroke-width=".8"/><circle cx="100" cy="100" r="46" fill="none" stroke="#76FF03" stroke-opacity=".055" stroke-width=".8"/><circle cx="100" cy="100" r="64" fill="none" stroke="#76FF03" stroke-opacity=".055" stroke-width=".8"/><circle cx="100" cy="100" r="82" fill="none" stroke="#76FF03" stroke-opacity=".055" stroke-width=".8"/><circle cx="100" cy="100" r="100" fill="none" stroke="#76FF03" stroke-opacity=".055" stroke-width=".8"/><circle cx="100" cy="100" r="118" fill="none" stroke="#76FF03" stroke-opacity=".055" stroke-width=".8"/><circle cx="100" cy="100" r="136" fill="none" stroke="#76FF03" stroke-opacity=".055" stroke-width=".8"/><circle cx="100" cy="100" r="154" fill="none" stroke="#76FF03" stroke-opacity=".055" stroke-width=".8"/><circle cx="100" cy="100" r="172" fill="none" stroke="#76FF03" stroke-opacity=".055" stroke-width=".8"/><circle cx="100" cy="100" r="190" fill="none" stroke="#76FF03" stroke-opacity=".055" stroke-width=".8"/><line x1="100" y1="100" x2="300" y2="100" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/><line x1="100" y1="100" x2="273" y2="199" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/><line x1="100" y1="100" x2="200" y2="273" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/><line x1="100" y1="100" x2="100" y2="299" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/><line x1="100" y1="100" x2="0" y2="273" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/><line x1="100" y1="100" x2="-73" y2="200" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/><line x1="100" y1="100" x2="-99" y2="100" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/><line x1="100" y1="100" x2="-73" y2="0" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/><line x1="100" y1="100" x2="0" y2="-73" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/><line x1="100" y1="100" x2="99" y2="-99" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/><line x1="100" y1="100" x2="199" y2="-73" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/><line x1="100" y1="100" x2="273" y2="0" stroke="#76FF03" stroke-opacity=".045" stroke-width=".6"/></svg></div>
+  <div class="ph-in">
+    <div>
+      <a class="ph-back" href="programs.html" data-link>All Programs</a>
+      <div class="ph-tag">◆ TAKEDOWNS · CLINCH CONTROL · MAT WRESTLING</div>
+      <h1 class="ph-h1">Wrestling &<span>Grappling.</span></h1>
+      <p class="ph-sub">You decide where the fight takes place. Freestyle takedowns, Greco-Roman clinch, cage wrestling and defensive sprawl — wrestling is the most decisive skill set in modern MMA.</p>
+      <div class="pf-row"><span class="pf">Double Leg</span><span class="pf">Single Leg</span><span class="pf">Greco Clinch</span><span class="pf">Sprawl & Brawl</span><span class="pf">Cage Work</span><span class="pf">Mat Control</span><span class="pf">Scrambles</span><span class="pf">MMA Integration</span></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+        <a class="bo" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
     </div>
-    <div class="pggnt">FORGE</div>
+    <div class="ph-panel rv" style="transition-delay:.2s"><div class="ph-panel-tag">◆ Program Overview</div><div class="ph-stat"><span class="ph-stat-l">Discipline</span><span class="ph-stat-r" style="">Wrestling & Grappling</span></div><div class="ph-stat"><span class="ph-stat-l">Level</span><span class="ph-stat-r" style="">All Levels</span></div><div class="ph-stat"><span class="ph-stat-l">Classes / Week</span><span class="ph-stat-r" style="">6 Days</span></div><div class="ph-stat"><span class="ph-stat-l">First Class</span><span class="ph-stat-r" style="color:var(--acc)">Free</span></div><div class="ph-stat"><span class="ph-stat-l">Location</span><span class="ph-stat-r" style="">Noida, UP</span></div></div>
   </div>
-  <div class="pgb">
-    <div class="pcards">
-      <!-- MMA — FLAGSHIP -->
-      <article class="pcard wide rv" style="transition-delay:0.04s">
-  <div class="pcard-bar"></div>
-  <div class="pphoto phb" style="aspect-ratio:32/7;position:relative">
-    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
-    <p class="phl">MMA Training · Full Contact · Noida</p>
-    <div class="pphoto-ov"><span>Mixed Martial Arts</span></div>
-    <div style="position:absolute;right:40px;top:50%;transform:translateY(-50%);font-family:var(--fd);font-size:clamp(60px,10vw,140px);font-weight:700;color:rgba(251,54,64,.07);line-height:1;pointer-events:none;letter-spacing:-4px">MMA</div>
-  </div>
-  <div class="pbody">
-    <div class="ptag">◈ Flagship Program · BJJ · Muay Thai · Boxing · Wrestling</div>
-    <h2 class="pname"><a href="program-mma.html" data-link style="color:inherit;text-decoration:none">Mixed Martial Arts →</a></h2>
-    <p class="pdesc">The complete combat system. MMA integrates all four disciplines into one cohesive fighting art — training the transitions, positions and fight IQ that no single martial art can teach alone. Red Crown's MMA program runs from complete beginner to competition-ready fighter.</p>
-    <div class="pfeats"><span class="pfeat">Striking Integration</span><span class="pfeat">Takedowns</span><span class="pfeat">Ground & Pound</span><span class="pfeat">Submissions</span><span class="pfeat">Cage Work</span><span class="pfeat">Competition Prep</span><span class="pfeat">All Levels</span></div>
-    <p class="pideal">Red Crown's core program — built for anyone who wants to become a complete martial artist, whether for fitness, self-defence or the cage.</p>
-    <a class="bp" href="program-mma.html" data-link><span>Explore MMA Program →</span></a>
-  </div>
-</article>
-      <article class="pcard  rv" style="transition-delay:0.1s">
-  <div class="pcard-bar"></div>
-  <div class="pphoto phb">
-    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
-    <p class="phl">BJJ Rolling Session · Mat-level angle · Submission attempt</p>
-    <div class="pphoto-ov"><span>Brazilian Jiu-Jitsu</span></div>
-  </div>
-  <div class="pbody">
-    <div class="ptag">Grappling · Ground Control · Submissions</div>
-    <h2 class="pname"><a href="program-bjj.html" data-link style="color:inherit;text-decoration:none">Brazilian Jiu-Jitsu</a></h2>
-    <p class="pdesc">The intellectual backbone of modern MMA. BJJ teaches positional dominance, leverage, and the art of submitting opponents through technique alone — regardless of size or strength.</p>
-    <div class="pfeats"><span class="pfeat">Guard Passing</span><span class="pfeat">Submissions</span><span class="pfeat">Positional Control</span><span class="pfeat">Belt Progression</span><span class="pfeat">Competition</span></div>
-    <p class="pideal">Ideal for: complete beginners, self-defence, BJJ competition, and MMA integration at all levels.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a><a class="bo" href="program-bjj.html" data-link>Explore →</a></div>
-  </div>
-</article>
-      <article class="pcard  rv" style="transition-delay:0.16s">
-  <div class="pcard-bar"></div>
-  <div class="pphoto phb">
-    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
-    <p class="phl">Muay Thai Pad Work · Knee strike · High intensity</p>
-    <div class="pphoto-ov"><span>Muay Thai</span></div>
-  </div>
-  <div class="pbody">
-    <div class="ptag">Eight Limbs · Clinch · Power</div>
-    <h2 class="pname"><a href="program-muaythai.html" data-link style="color:inherit;text-decoration:none">Muay Thai</a></h2>
-    <p class="pdesc">The art of eight limbs — punches, elbows, knees, kicks and devastating clinch control. The world's most complete stand-up striking system and cornerstone of professional MMA.</p>
-    <div class="pfeats"><span class="pfeat">Punching</span><span class="pfeat">Elbows</span><span class="pfeat">Knees</span><span class="pfeat">Kicks</span><span class="pfeat">Clinch</span><span class="pfeat">Pad Work</span></div>
-    <p class="pideal">Ideal for: all levels — from fitness-focused beginners to serious competitors preparing for sanctioned bouts.</p>
-    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
-  </div>
-</article>
-      <article class="pcard  rv" style="transition-delay:0.22s">
-  <div class="pcard-bar"></div>
-  <div class="pphoto phb">
-    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
-    <p class="phl">Boxing Bag Work · Impact shot · Dramatic rim lighting</p>
-    <div class="pphoto-ov"><span>Boxing</span></div>
-  </div>
-  <div class="pbody">
-    <div class="ptag">Precision · Footwork · Defence</div>
-    <h2 class="pname"><a href="program-boxing.html" data-link style="color:inherit;text-decoration:none">Boxing</a></h2>
-    <p class="pdesc">The sweet science. Refined combination punching, elite footwork, and defensive head movement. Boxing sharpens every striking discipline and builds the precision that wins fights.</p>
-    <div class="pfeats"><span class="pfeat">Combinations</span><span class="pfeat">Footwork</span><span class="pfeat">Head Movement</span><span class="pfeat">Sparring</span><span class="pfeat">Bag Work</span></div>
-    <p class="pideal">Ideal for: fitness, self-defence, competition boxing, and as the foundation for the MMA striking program.</p>
-    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
-  </div>
-</article>
-      <article class="pcard  rv" style="transition-delay:0.28s">
-  <div class="pcard-bar"></div>
-  <div class="pphoto phb">
-    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
-    <p class="phl">Wrestling Takedown · Low angle · Explosive action</p>
-    <div class="pphoto-ov"><span>Wrestling & Grappling</span></div>
-  </div>
-  <div class="pbody">
-    <div class="ptag">Takedowns · Clinch · Mat Control</div>
-    <h2 class="pname"><a href="program-wrestling.html" data-link style="color:inherit;text-decoration:none">Wrestling & Grappling</a></h2>
-    <p class="pdesc">Control who stands and who hits the ground. Freestyle takedowns, Greco clinch, and mat pressure — wrestling is the single most decisive skillset in modern MMA.</p>
-    <div class="pfeats"><span class="pfeat">Freestyle</span><span class="pfeat">Greco-Roman</span><span class="pfeat">Takedowns</span><span class="pfeat">Cage Work</span><span class="pfeat">Mat Control</span></div>
-    <p class="pideal">Ideal for: serious MMA athletes and anyone wanting to control where the fight takes place.</p>
-    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
-  </div>
-</article>
-      <article class="pcard wide rv" style="transition-delay:0.34s">
-  <div class="pcard-bar"></div>
-  <div class="pphoto phb">
-    <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg>
-    <p class="phl">Kids Program · Safe structured environment · Fun class</p>
-    <div class="pphoto-ov"><span>Kids & Juniors</span></div>
-  </div>
-  <div class="pbody">
-    <div class="ptag">Ages 6–14 · BJJ · Muay Thai · MMA Fundamentals</div>
-    <h2 class="pname"><a href="program-kids.html" data-link style="color:inherit;text-decoration:none">Kids & Juniors</a></h2>
-    <p class="pdesc">Safe, structured, and character-building. Red Crown's kids program develops discipline, coordination, confidence and respect — all in a controlled, coach-supervised environment.</p>
-    <div class="pfeats"><span class="pfeat">Ages 6–14</span><span class="pfeat">BJJ Basics</span><span class="pfeat">Muay Thai Basics</span><span class="pfeat">Anti-Bullying</span><span class="pfeat">Belt Progression</span><span class="pfeat">Zero contact until ready</span></div>
-    <p class="pideal">Zero contact sparring until age-appropriate readiness is confirmed by coaches and parents together.</p>
-    <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
-  </div>
-</article>
-    </div>
-    <!-- S&C -->
-    <div class="rv" style="transition-delay:.4s;margin-top:3px">
-      <article class="pcard">
-        <div class="pcard-bar"></div>
-        <div class="sc-row">
-          <div class="pphoto phb" style="min-height:280px"><svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">S&amp;C Session · Combat Athlete</p><div class="pphoto-ov"><span>S&amp;C Training</span></div></div>
-          <div class="pbody">
-            <div class="ptag">Combat Athlete Development</div>
-            <h2 class="pname"><a href="program-sc.html" data-link style="color:inherit;text-decoration:none">Strength &amp;<br>Conditioning</a></h2>
-            <p class="pdesc">Purpose-built for combat sports. Periodised programming that develops explosive power, maximal strength, endurance, and injury resilience — designed specifically for MMA training and competition.</p>
-            <div class="pfeats"><span class="pfeat">Periodised Programming</span><span class="pfeat">Explosive Power</span><span class="pfeat">Combat Conditioning</span><span class="pfeat">Injury Prevention</span></div>
-            <a class="bo" href="contact.html" data-link>Enquire →</a>
-          </div>
-        </div>
-      </article>
+  <div class="ph-wm">WR</div>
+</section>
+
+<div class="pb">
+
+  <!-- 1. INTRO -->
+    <div class="sec-tag" style="transition-delay:0.00s">◆ Welcome to Red Crown MMA</div>
+  <h2 class="sec-h">Training in Noida<br>That Actually Works.</h2>
+  <div class="prose-block rv"><p>Red Crown MMA Academy offers structured wrestling and grappling training in Noida for students at every level — from people who have never attempted a takedown to competitive wrestlers looking to sharpen MMA-specific skills. Wrestling is a pillar of our entire training program because the data from professional MMA makes its importance unmistakable: the fighter who controls where the fight takes place wins more often than not.</p><p>Our <strong>wrestling classes in Noida</strong> are designed to build practical takedown ability, defensive skill against takedowns, and the physical confidence that comes from knowing you can put someone on the mat or keep yourself standing when you choose. These are not surface-level drilling sessions — they are serious, coach-supervised grappling rounds with a structured curriculum.</p></div>
+  <div class="pdiv"></div>
+
+  <!-- 2. WHAT IS -->
+    <div class="sec-tag" style="transition-delay:0.00s">◆ The Discipline</div>
+  <h2 class="sec-h">What Is<br>Wrestling?</h2>
+  <div class="prose-block rv"><p>Wrestling is the oldest combat sport in recorded history, practised across virtually every culture on earth. In its modern competitive forms — freestyle and Greco-Roman — it focuses on takedowns, trips, throws and mat control, with the objective of pinning the opponent or accumulating points through successful attacks.</p><p>In the context of MMA, wrestling is categorically the most important grappling skill. Statistical analysis of professional MMA consistently shows that the wrestler — the fighter who can choose to take the fight to the ground or keep it standing — holds the decisive tactical advantage. The sprawl-and-brawl style, the cage-pressure takedown, the lat-step entry off a jab — all of these are wrestling expressions applied in the cage.</p><p>At Red Crown MMA in Noida, we teach freestyle and Greco-Roman wrestling entries alongside the cage-specific wrestling techniques that apply directly in MMA competition. Students who are not interested in fighting also train wrestling for its physical benefits — wrestling conditioning is among the most demanding and rewarding in all of sport.</p></div>
+  <div class="pdiv"></div>
+
+  <!-- 3. CURRICULUM -->
+    <div class="sec-tag" style="transition-delay:0.00s">◆ Curriculum</div>
+  <h2 class="sec-h">What You'll Learn</h2>
+  
+  <div class="ci rv" style="transition-delay:0.00s"><div class="ci-num">01</div><div><div class="ci-t">Double Leg Takedown</div><div class="ci-d">The most common takedown in MMA. Setup from a jab or level change, the penetration step, driving through the hips, clearing the hips to the mat and transitioning to top control.</div></div></div>
+<div class="ci rv" style="transition-delay:0.07s"><div class="ci-num">02</div><div><div class="ci-t">Single Leg Takedown</div><div class="ci-d">Outside and inside single leg entries, run the pipe finish, trip finish and the high-crotch transition. Wrestling on one leg under resistance — a fundamental scramble skill.</div></div></div>
+<div class="ci rv" style="transition-delay:0.14s"><div class="ci-num">03</div><div><div class="ci-t">Greco-Roman Clinch</div><div class="ci-d">Body lock, over-under, two-on-one and collar tie. Greco is the foundation for the clinch wrestling that dominates MMA — particularly against the cage.</div></div></div>
+<div class="ci rv" style="transition-delay:0.21s"><div class="ci-num">04</div><div><div class="ci-t">Sprawl Defence</div><div class="ci-d">Reading the entry, setting the sprawl, cross-body pressure and returning to standing. Takedown defence is a wrestling skill, not just a reaction skill.</div></div></div>
+<div class="ci rv" style="transition-delay:0.28s"><div class="ci-num">05</div><div><div class="ci-t">Cage Wrestling</div><div class="ci-d">Offensive and defensive use of the cage wall — pinning, positioning, digging underhooks, landing short knees in the clinch and creating exit angles.</div></div></div>
+<div class="ci rv" style="transition-delay:0.35s"><div class="ci-num">06</div><div><div class="ci-t">Scrambles & Leg Entanglements</div><div class="ci-d">The chaotic positions that follow a failed takedown or guard escape. Reading scramble positions, protecting your back, securing top position in transition.</div></div></div>
+<div class="ci rv" style="transition-delay:0.42s"><div class="ci-num">07</div><div><div class="ci-t">Guard Passing for Wrestlers</div><div class="ci-d">Pressure-based passing from wrestling-familiar positions — stack, knee slice and leg drag entries that wrestlers can access naturally from their top control instincts.</div></div></div>
+<div class="ci rv" style="transition-delay:0.49s"><div class="ci-num">08</div><div><div class="ci-t">MMA-Specific Takedowns</div><div class="ci-d">Shooting in against a live striker. Level-change timing behind the jab, entries under punch counters, pulling guard strategically and the decision model for when to shoot.</div></div></div>
+
+  <div class="pdiv"></div>
+
+  <!-- 4. WHO -->
+    <div class="sec-tag" style="transition-delay:0.00s">◆ Who It's For</div>
+  <h2 class="sec-h">Right For<br>You If...</h2>
+  
+  <div class="wg"><div class="wi">MMA fighters who want to control where the fight takes place</div><div class="wi">BJJ practitioners adding a takedown game</div><div class="wi">Stand-up strikers who need takedown defence</div><div class="wi">Athletes preparing for MMA or submission wrestling competition</div><div class="wi">Complete beginners with no wrestling background</div><div class="wi">Judoka or sambo practitioners building freestyle skills</div><div class="wi">Anyone who wants the most fight-decisive skill in MMA</div><div class="wi">Students interested in submission wrestling tournaments</div></div>
+  <div class="pdiv"></div>
+
+  <!-- 5. BENEFITS -->
+    <div class="sec-tag" style="transition-delay:0.00s">◆ Why Train</div>
+  <h2 class="sec-h">Benefits of<br>Wrestling Training</h2>
+  
+  <div class="ben-grid"><div class="ben rv"><div class="ben-icon">◆</div><div class="ben-t">Tactical Control</div><p class="ben-d">Wrestling gives you the decision — stand up or go to the ground. The fighter who controls environment controls the pace, the damage and the outcome.</p></div><div class="ben rv"><div class="ben-icon">◆</div><div class="ben-t">Explosive Power</div><p class="ben-d">Shooting for takedowns demands explosive hip power, fast-twitch muscle activation and reactive strength. Wrestling training builds athletic power that transfers to every other sport.</p></div><div class="ben rv"><div class="ben-icon">◆</div><div class="ben-t">MMA Fight Outcomes</div><p class="ben-d">Analysis of professional MMA shows wrestlers win a disproportionate percentage of fights. Adding wrestling to striking or grappling skills creates a complete fighter.</p></div><div class="ben rv"><div class="ben-icon">◆</div><div class="ben-t">Functional Fitness</div><p class="ben-d">Wrestling conditioning is some of the most demanding in sport. Mat work, live drilling and takedown rounds build cardiovascular endurance, strength and mental toughness together.</p></div><div class="ben rv"><div class="ben-icon">◆</div><div class="ben-t">Scramble Awareness</div><p class="ben-d">Wrestling training specifically develops scramble intelligence — the ability to read and react to transitional positions that most martial arts do not address directly.</p></div><div class="ben rv"><div class="ben-icon">◆</div><div class="ben-t">Competition Options</div><p class="ben-d">Freestyle wrestling, Greco-Roman, submission wrestling and MMA — wrestling skills open multiple competition pathways. Red Crown prepares students for all of them.</p></div></div>
+  <div class="pdiv"></div>
+
+  <!-- 6. WHY RED CROWN -->
+    <div class="sec-tag" style="transition-delay:0.00s">◆ Why Red Crown</div>
+  <h2 class="sec-h">The Best Wrestling<br>Gym in Noida</h2>
+  
+  <div class="why-grid"><div class="why-item rv"><div class="why-dot"></div><div><div class="why-t">MMA-Specific Wrestling Instruction</div><p class="why-d">We teach wrestling through the lens of MMA application. Every technique is taught with the cage context, the striker context and the scramble context in mind.</p></div></div><div class="why-item rv"><div class="why-dot"></div><div><div class="why-t">Live Drilling From Session One</div><p class="why-d">Wrestling is a feel sport — you develop it through live resistance, not choreography. We get students into live takedown drilling quickly and safely.</p></div></div><div class="why-item rv"><div class="why-dot"></div><div><div class="why-t">Cross-Training With BJJ</div><p class="why-d">Wrestling and BJJ are natural complements. Students at Red Crown can cross-train between the programs to build complete grappling ability — takedowns to ground game.</p></div></div><div class="why-item rv"><div class="why-dot"></div><div><div class="why-t">No Experience Required</div><p class="why-d">We have taught wrestling to complete beginners and helped them develop real takedown ability. You do not need a background in the sport to start — just willingness to get on the mat.</p></div></div><div class="why-item rv"><div class="why-dot"></div><div><div class="why-t">Best Grappling Gym in Noida</div><p class="why-d">For anyone searching for a <strong>grappling gym in Noida</strong> that addresses wrestling seriously — not as an afterthought — Red Crown MMA is the right address.</p></div></div><div class="why-item rv"><div class="why-dot"></div><div><div class="why-t">Integrated Into MMA Program</div><p class="why-d">Wrestling forms one of the four pillars of our MMA program. Students training for the cage benefit from wrestling integrated into the full MMA curriculum rather than in isolation.</p></div></div></div>
+  <div class="pdiv"></div>
+
+  <!-- 7. TYPICAL CLASS -->
+    <div class="sec-tag" style="transition-delay:0.00s">◆ What to Expect</div>
+  <h2 class="sec-h">Inside a Typical Class</h2>
+  
+  <div class="class-steps"><div class="cstep rv" style="transition-delay:0.00s"><div class="cstep-n">01</div><div class="cstep-t">Warm-Up & Specific Movement</div><p class="cstep-d">Level changes, penetration steps, sprawl reactions and cage movement — wrestling-specific preparation that builds the movement patterns used in every technique.</p></div><div class="cstep rv" style="transition-delay:0.08s"><div class="cstep-n">02</div><div class="cstep-t">Technique Instruction</div><p class="cstep-d">Coach-led drilling of specific takedown entries, setups, finishes and defensive reactions. Partner drilling with progressive resistance.</p></div><div class="cstep rv" style="transition-delay:0.16s"><div class="cstep-n">03</div><div class="cstep-t">Positional Live Rounds</div><p class="cstep-d">Live drilling from specific positions — starting on the feet, starting in the clinch, or starting from a scramble position. Building live feel for specific situations.</p></div><div class="cstep rv" style="transition-delay:0.24s"><div class="cstep-n">04</div><div class="cstep-t">Open Wrestling Rounds</div><p class="cstep-d">Live wrestling from neutral. Full-intensity takedown attempts, defence and mat work. This is where wrestling ability actually develops.</p></div></div>
+  <br>
+  <div class="prose-block rv"><p>Wrestling sessions at Red Crown are physically demanding. Expect to be sweating hard within the first 15 minutes and to be genuinely tired by the end. Wrestling conditioning is built by wrestling — the drilling and live rounds are the training.</p><p>Beginners are partnered with experienced students who understand their role in developing newer wrestlers. You will be controlled, not overwhelmed. The intensity increases as your technique and physical readiness develop — the coach manages this progression.</p></div>
+  <div class="pdiv"></div>
+
+  <!-- 8. FAQ -->
+    <div class="sec-tag" style="transition-delay:0.00s">◆ Common Questions</div>
+  <h2 class="sec-h">FAQ</h2>
+  
+  <div class="fi-item rv" style="transition-delay:0.00s"><button class="fi-q" onclick="this.parentNode.classList.toggle('open')">Do I need wrestling experience to start?<span class="fi-arr">↓</span></button><div class="fi-a">No. We teach wrestling from fundamentals and have helped complete beginners develop real takedown ability. The only requirement is being willing to get on the mat and learn.</div></div>
+<div class="fi-item rv" style="transition-delay:0.07s"><button class="fi-q" onclick="this.parentNode.classList.toggle('open')">How does wrestling help my MMA?<span class="fi-arr">↓</span></button><div class="fi-a">Wrestling is statistically the most fight-decisive skill in MMA. It determines where the fight takes place — on the feet or the ground — and the fighter who controls that decision controls the fight.</div></div>
+<div class="fi-item rv" style="transition-delay:0.14s"><button class="fi-q" onclick="this.parentNode.classList.toggle('open')">Do I need a gi for wrestling sessions?<span class="fi-arr">↓</span></button><div class="fi-a">No. Wrestling and grappling is done in shorts and a rash guard. No gi required. For students who also train BJJ, the gi and no-gi sessions are separate.</div></div>
+<div class="fi-item rv" style="transition-delay:0.21s"><button class="fi-q" onclick="this.parentNode.classList.toggle('open')">Is wrestling hard on the body?<span class="fi-arr">↓</span></button><div class="fi-a">Wrestling is physically demanding — the conditioning is high. We build into it progressively. Core strength, neck conditioning and hip mobility are all developed as part of the program, not prerequisites.</div></div>
+<div class="fi-item rv" style="transition-delay:0.28s"><button class="fi-q" onclick="this.parentNode.classList.toggle('open')">Can I train wrestling without doing MMA?<span class="fi-arr">↓</span></button><div class="fi-a">Absolutely. Wrestling is a standalone sport and an excellent fitness and competition discipline in its own right. Many students at Red Crown train wrestling without any interest in MMA.</div></div>
+
+
+  <!-- CTA -->
+  <div class="pcta">
+    <div style="position:relative;z-index:1">
+      <div style="font-family:var(--fm);font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--acc);margin-bottom:16px">◆ No Experience Needed · First Class Free</div>
+      <p style="font-family:var(--fd);font-size:clamp(38px,6vw,72px);font-weight:700;color:var(--white);line-height:.88;letter-spacing:-2px;margin-bottom:14px">Try Wrestling<br><span style="color:var(--acc)">for free.</span></p>
+      <p style="font-family:var(--fb);font-size:16px;font-weight:300;color:var(--mist);max-width:480px;margin:0 auto 36px;line-height:1.85">Show up. Your coach handles everything from the moment you walk in. No commitment, no gear required — just arrive and begin.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+        <a class="bo" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
     </div>
   </div>
-</main>
-<footer>
-  <div class="fi">
-    <div class="fb"><div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div>
-    <div class="flinks">
-      <a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="blog.html" data-link>Blog</a><a class="flnk" href="contact.html" data-link>Contact</a>
-    </div>
-    <div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div>
+
+</div>
+</main><footer><div class="fi">
+  <div class="fb">
+    <div class="fls"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div>
+    <div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div>
   </div>
-</footer>
-<script>
-// Make entire program cards clickable
-document.querySelectorAll('.pcard').forEach(card => {
-  const link = card.querySelector('.pname a, .bo');
-  if(!link) return;
-  const href = link.getAttribute('href');
-  if(!href || href === 'contact.html') return;
-  card.style.cursor = 'pointer';
-  card.addEventListener('click', e => {
-    if(e.target.tagName === 'A') return; // let actual links handle themselves
-    const wipe = document.getElementById('wipe');
-    if(wipe){ wipe.className='in'; setTimeout(()=>location.href=href,440); }
-    else location.href = href;
-  });
-});
-</script>
-<script src="js/main.js"></script>
-</body>
-</html>
+  <div class="flinks">
+    <a class="flnk" href="index.html" data-link>Home</a>
+    <a class="flnk" href="programs.html" data-link>Programs</a>
+    <a class="flnk" href="coaches.html" data-link>Coaches</a>
+    <a class="flnk" href="schedule.html" data-link>Schedule</a>
+    <a class="flnk" href="gallery.html" data-link>Gallery</a>
+    <a class="flnk" href="blog.html" data-link>Blog</a>
+    <a class="flnk" href="contact.html" data-link>Contact</a>
+  </div>
+  <div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div>
+</div></footer>
+<script src="js/main.js"></script></body></html>

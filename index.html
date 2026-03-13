@@ -1,132 +1,344 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Gallery | Red Crown MMA</title><meta name="description" content="Red Crown MMA Academy"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
-<meta name="theme-color" content="#000F08"><link rel="stylesheet" href="css/style.css"><style>
-#lb{position:fixed;inset:0;z-index:5000;background:rgba(0,15,8,.97);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
-#lb.open{opacity:1;pointer-events:all}
-.lbbox{position:relative;width:min(860px,90vw)}
-#lbimg{aspect-ratio:16/10;background:var(--v3);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden}
-#lbimg svg{position:absolute;inset:0;width:100%;height:100%;opacity:.05}
-.lbphl{font-family:var(--fm);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);text-align:center;padding:0 20px;position:relative;z-index:1}
-#lbcap{font-family:var(--fm);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--fog);margin-top:12px}
-.lbctrl{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
-.lbbtn{font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--mist);border:1px solid rgba(236,244,240,.12);padding:9px 20px;background:none;cursor:none;transition:border-color .2s,color .2s}
-.lbbtn:hover{border-color:var(--blood);color:var(--blood)}
-#lbcnt{font-family:var(--fm);font-size:9px;letter-spacing:3px;color:var(--fog)}
-#lbcls{position:absolute;top:-42px;right:0;font-size:22px;color:var(--mist);cursor:none;background:none;border:none;transition:color .2s}
-#lbcls:hover{color:var(--blood)}
-.gg{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:3px;margin-top:52px}
-.gc{position:relative;overflow:hidden;cursor:none;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px}
-.gc.tall{grid-row:span 2}.gc.wide{grid-column:span 2}
-.gc-ov{position:absolute;inset:0;background:rgba(251,54,64,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;transition:opacity .35s;z-index:3}
-.gc:hover .gc-ov{opacity:1}
-.gc-plus{font-size:26px;color:var(--void)}.gc-ttl{font-family:var(--fd);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--void)}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Enter the Hunt | Red Crown MMA Academy</title>
+<meta name="description" content="Red Crown MMA Academy — Noida's premier MMA training facility. BJJ, Muay Thai, Boxing, Wrestling, Kids. Free trial class.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* HERO */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--void)}
+.h-hex{position:absolute;inset:0;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 2L54 18V50L28 66L2 50V18Z' fill='none' stroke='%23FB3640' stroke-width='1'/%3E%3Cpath d='M28 66L54 82V114L28 130L2 114V82Z' fill='none' stroke='%23FB3640' stroke-width='1'/%3E%3C/svg%3E");background-size:56px 100px}
+.h-slash{position:absolute;inset:0;background:linear-gradient(125deg,var(--void) 50%,rgba(251,54,64,.05) 100%)}
+.h-slash::after{content:'';position:absolute;top:0;bottom:0;left:54%;width:2px;background:var(--blood);opacity:.2;transform:skewX(-8deg);box-shadow:0 0 40px rgba(251,54,64,.5)}
+.h-layout{position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:80px 56px 0;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center}
+.h-eyebrow{font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--fog);display:flex;align-items:center;gap:12px;margin-bottom:24px;animation:ha .8s ease .1s both}
+.h-eyebrow::before{content:'';width:28px;height:1px;background:var(--blood)}
+@keyframes ha{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:none}}
+.h-h1{font-family:var(--fd);font-size:clamp(80px,14vw,190px);font-weight:700;line-height:.82;letter-spacing:-3px;animation:ha2 .9s cubic-bezier(.16,1,.3,1) .2s both}
+@keyframes ha2{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.h-h1 .r{color:var(--blood);display:block}.h-h1 .ol{-webkit-text-stroke:2px var(--white);color:transparent;display:block}
+.h-tag{font-family:var(--fb);font-size:clamp(15px,2vw,20px);font-weight:300;font-style:italic;color:var(--mist);margin:22px 0 36px;letter-spacing:1px;animation:ha .9s ease .4s both}
+.h-btns{display:flex;gap:14px;flex-wrap:wrap;animation:ha .9s ease .55s both}
+.h-disc{display:flex;gap:0;margin-top:52px;border-top:1px solid var(--bw);animation:ha .9s ease .7s both}
+.h-d{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog);padding:14px 20px 14px 0;border-right:1px solid var(--bw);margin-right:20px;transition:color .25s}
+.h-d:last-child{border-right:none}.h-d:hover{color:var(--blood)}
+/* Hero right — logo display */
+.h-right{display:flex;flex-direction:column;align-items:center;animation:logo-appear 1.4s cubic-bezier(.16,1,.3,1) .1s both}
+@keyframes logo-appear{0%{opacity:0;transform:scale(.6);filter:blur(24px) brightness(.1)}55%{opacity:.9;transform:scale(1.08);filter:blur(1px) brightness(1.5)}75%{opacity:1;transform:scale(.96)}100%{opacity:1;transform:scale(1)}}
+.h-logo-wrap{position:relative;width:clamp(140px,18vw,240px);height:clamp(140px,18vw,240px);display:flex;align-items:center;justify-content:center;cursor:none}
+.h-logo-wrap:hover .h-logo{filter:drop-shadow(0 0 28px rgba(251,54,64,.95)) drop-shadow(0 0 64px rgba(251,54,64,.28));transform:scale(1.06)}
+.h-logo{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 16px rgba(251,54,64,.5));transition:filter .3s,transform .3s;animation:breathe 4s ease-in-out 2s infinite,flckr 20s ease 8s infinite}
+.h-ra{position:absolute;inset:-18px;border-radius:50%;border:1.5px solid rgba(251,54,64,.18);animation:spin 18s linear infinite;pointer-events:none}
+.h-ra::before,.h-ra::after{content:'';position:absolute;width:6px;height:6px;background:var(--blood);border-radius:50%;top:calc(50% - 3px)}
+.h-ra::before{left:-3px}.h-ra::after{right:-3px}
+.h-rb{position:absolute;inset:-32px;border-radius:50%;border:1px solid rgba(251,54,64,.09);border-right-color:rgba(251,54,64,.45);animation:spin 11s linear infinite reverse;pointer-events:none}
+.h-rc{position:absolute;inset:-52px;border-radius:50%;border:1px dashed rgba(251,54,64,.06);animation:spin 28s linear infinite;pointer-events:none}
+.h-hint{position:absolute;bottom:-52px;left:50%;transform:translateX(-50%);font-family:var(--fm);font-size:8px;letter-spacing:3px;color:var(--blood);border:1px solid var(--border);padding:5px 12px;white-space:nowrap;opacity:0;transition:opacity .35s;animation:pbdr 2s ease-in-out infinite}
+.h-logo-wrap:hover .h-hint{opacity:1}
+.h-mma{font-family:var(--fm);font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--fog);margin-top:52px}
+/* Scroll cue */
+.h-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:ha .8s ease 1.4s both;cursor:none}
+.h-sbar{width:1px;height:52px;background:rgba(251,54,64,.18);overflow:hidden;position:relative}
+.h-sbar::after{content:'';position:absolute;inset:0;background:var(--blood);animation:sdrop 2s ease-in-out infinite}
+@keyframes sdrop{0%{transform:translateY(-100%)}100%{transform:translateY(200%)}}
+.h-stxt{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--fog)}
+/* Stats */
+.stats{background:var(--v2);padding:64px 0;border-bottom:1px solid var(--bw)}
+.stats-in{max-width:1280px;margin:0 auto;padding:0 56px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.stat{background:var(--v3);padding:36px 32px;position:relative;overflow:hidden;border-left:1px solid var(--bw);transition:background .3s}
+.stat:first-child{border-left:none}.stat:hover{background:var(--v4)}
+.stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--blood);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.stat.in::before{transform:scaleX(1)}
+.snum{font-family:var(--fd);font-size:clamp(50px,6vw,78px);font-weight:700;color:var(--blood);line-height:1;margin-bottom:8px}
+.slb{font-family:var(--fm);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mist)}
+.sbg{position:absolute;right:-10px;bottom:-10px;font-family:var(--fd);font-size:120px;font-weight:700;color:rgba(251,54,64,.04);line-height:1;pointer-events:none}
+/* Program preview */
+.pp{padding:100px 0;background:var(--void)}
+.pp-in{max-width:1280px;margin:0 auto;padding:0 56px}
+.pg{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:52px}
+.pc{background:var(--v2);border:1px solid var(--bw);padding:32px 22px;position:relative;overflow:hidden;cursor:none;display:flex;flex-direction:column;transition:background .3s,border-color .3s}
+.pc:hover{background:var(--v3);border-color:var(--border)}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--blood);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.pc:hover::before{transform:scaleX(1)}
+.pc-icon{font-size:26px;margin-bottom:16px;opacity:.75}
+.pc-name{font-family:var(--fd);font-size:clamp(18px,2.2vw,26px);font-weight:700;color:var(--white);margin-bottom:6px;line-height:1;transition:color .3s}
+.pc:hover .pc-name{color:var(--blood)}
+.pc-sub{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog);margin-bottom:14px}
+.pc-desc{font-family:var(--fb);font-size:12px;font-weight:300;color:var(--fog);line-height:1.8;flex:1;max-height:0;overflow:hidden;opacity:0;transition:max-height .4s,opacity .3s}
+.pc:hover .pc-desc{max-height:80px;opacity:1}
+.pc-arr{margin-top:auto;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:2px;color:var(--blood);padding-top:14px;transition:letter-spacing .25s}
+.pc:hover .pc-arr{letter-spacing:3px}
+/* Testimonials */
+.tst{padding:100px 0;background:var(--v2)}
+.tst-in{max-width:1280px;margin:0 auto;padding:0 56px}
 .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:52px}
-.tc2{background:var(--v2);border:1px solid var(--bw);overflow:hidden;transition:border-color .3s;cursor:none}
-.tc2:hover{border-color:var(--border)}
-.tc2-photos{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.tc2-ph{aspect-ratio:3/4;background:var(--v3);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.tc2-ph::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(251,54,64,.04),transparent 55%)}
-.tc2-badge{position:absolute;top:8px;left:8px;z-index:2;font-family:var(--fm);font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:3px 8px}
-.tc2-badge.b4{background:rgba(143,170,160,.2);color:var(--mist)}.tc2-badge.af{background:var(--blood);color:var(--void)}
-.tc2-body{padding:20px 22px 26px}
-.tc2-nm{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--white);margin-bottom:3px}
-.tc2-mt{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--blood);margin-bottom:8px}
-.tc2-q{font-family:var(--fb);font-size:12px;font-weight:300;font-style:italic;color:var(--fog);line-height:1.8}
-.tc2-stars{color:var(--gold);font-size:12px;letter-spacing:2px;margin-top:6px}
-@media(max-width:900px){.gg{grid-template-columns:1fr 1fr;grid-auto-rows:200px}.gc.wide{grid-column:span 1}.gc.tall{grid-row:span 1}.tg{grid-template-columns:1fr 1fr}}
-@media(max-width:580px){.gg{grid-template-columns:1fr}.tg{grid-template-columns:1fr}}
-</style></head><body><div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div><div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div><div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div><nav id="nav"><div class="n-logo"><div class="lw" id="logo-btn" onclick="window.launchFT&&window.launchFT()" role="button" tabindex="0"><div class="or1"></div><div class="or2"></div><div class="lsvg"><img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/><rect x="20" y="44" width="60" height="6" fill="#FB3640"/><ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/><path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/><ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/><ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/><path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/><rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/><circle cx="50" cy="30" r="3" fill="#D4A843"/><circle cx="35" cy="35" r="2" fill="#D4A843"/><circle cx="65" cy="35" r="2" fill="#D4A843"/></svg></div><span class="ltip">◈ RESTRICTED ACCESS</span></div><div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div></div><div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a><a class="n-lnk" href="programs.html" data-link>Programs</a><a class="n-lnk" href="coaches.html" data-link>Coaches</a><a class="n-lnk" href="schedule.html" data-link>Schedule</a><a class="n-lnk active" href="gallery.html" data-link>Gallery</a><a class="n-lnk" href="contact.html" data-link>Contact</a><a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a></div><button class="n-burg" id="burg"><span></span><span></span><span></span></button></nav><div id="mm"><a class="mlnk" href="index.html" data-link>Home</a><a class="mlnk" href="programs.html" data-link>Programs</a><a class="mlnk" href="coaches.html" data-link>Coaches</a><a class="mlnk" href="schedule.html" data-link>Schedule</a><a class="mlnk" href="gallery.html" data-link>Gallery</a><a class="mlnk" href="contact.html" data-link>Contact</a><div class="mmdiv"></div><div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div></div><a id="wa" href="https://wa.me/919910604536?text=Hi%2C%20I%20want%20to%20book%20a%20free%20trial%20class%20at%20Red%20Crown%20MMA" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="wai">💬</span><span class="wal">WhatsApp Us</span></a>
-<div id="lb">
-  <div class="lbbox">
-    <button id="lbcls" aria-label="Close">✕</button>
-    <div id="lbimg">
-      <svg viewBox="0 0 100 62" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="62" stroke="#FB3640" stroke-width=".5"/><line x1="100" y1="0" x2="0" y2="62" stroke="#FB3640" stroke-width=".5"/></svg>
-      <p class="lbphl"></p>
-    </div>
-    <div id="lbcap"></div>
-    <div class="lbctrl">
-      <button class="lbbtn" id="lbprev">← PREV</button>
-      <span id="lbcnt"></span>
-      <button class="lbbtn" id="lbnext">NEXT →</button>
-    </div>
-  </div>
-</div>
-<main>
-  <div class="pgh">
-    <div class="pghi">
-      <div class="pghtag">Gallery &amp; Transformations</div>
-      <h1 class="pghh">Inside the<br>Academy.</h1>
-      <p class="pghsub">Real training. Real athletes. Real results. Click any image to view full screen.</p>
-    </div>
-    <div class="pggnt">GALLERY</div>
-  </div>
-  <div class="pgb">
-    <div class="slbl rv">Photo Gallery</div>
-    <div class="rv" style="margin-top:52px;border:1px solid var(--bw);padding:64px;text-align:center;position:relative;overflow:hidden;background:var(--v2)">
-  <!-- subtle X pattern behind -->
-  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.03" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
-    <line x1="0" y1="0" x2="100" y2="100" stroke="#FB3640" stroke-width=".5"/>
-    <line x1="100" y1="0" x2="0" y2="100" stroke="#FB3640" stroke-width=".5"/>
+.tc{background:var(--v3);padding:40px;border:1px solid var(--bw);position:relative;overflow:hidden;transition:border-color .3s;cursor:none}
+.tc:hover{border-color:var(--border)}
+.tc::before{content:'"';position:absolute;top:20px;right:20px;font-family:Georgia,serif;font-size:80px;color:rgba(251,54,64,.07);line-height:1}
+.tc-stars{color:var(--gold);font-size:13px;letter-spacing:3px;margin-bottom:14px}
+.tc-bdg{display:inline-block;font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--void);background:var(--blood);padding:4px 10px;margin-bottom:14px}
+.tc-q{font-family:var(--fb);font-size:14px;font-weight:300;font-style:italic;color:var(--mist);line-height:1.85;margin-bottom:22px}
+.tc-nm{font-family:var(--fd);font-size:16px;font-weight:700;letter-spacing:1px;color:var(--white);margin-bottom:3px}
+.tc-mt{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--fog)}
+/* CTA */
+.cta{background:var(--blood);padding:88px 0;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 88px,rgba(0,0,0,.07) 88px,rgba(0,0,0,.07) 89px)}
+.cta-in{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 56px}
+.cta-h{font-family:var(--fd);font-size:clamp(44px,8vw,96px);font-weight:700;letter-spacing:-2px;line-height:.88;color:var(--void);margin-bottom:14px}
+.cta-sub{font-family:var(--fb);font-size:17px;font-weight:300;color:rgba(0,15,8,.7);margin-bottom:40px}
+.cta-btn{font-family:var(--fd);font-size:14px;font-weight:700;letter-spacing:4px;color:var(--blood);background:var(--void);padding:16px 44px;display:inline-block;cursor:none;position:relative;overflow:hidden;transition:color .3s}
+.cta-btn::before{content:'';position:absolute;inset:0;background:var(--white);transform:translateX(-101%);transition:transform .35s}
+.cta-btn:hover{color:var(--void)}.cta-btn:hover::before{transform:translateX(0)}
+.cta-btn span{position:relative;z-index:1}
+@media(max-width:1024px){.h-layout{grid-template-columns:1fr}.h-right{display:none}.stats-in{grid-template-columns:1fr 1fr}.pg{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.h-layout{padding:80px 18px 0}.stats-in{padding:0 18px}.pg{grid-template-columns:1fr 1fr}.tg{grid-template-columns:1fr}.pp-in,.tst-in,.cta-in{padding-left:18px;padding-right:18px}}
+
+</style>
+</head>
+<body>
+<div id="cr" aria-hidden="true">
+  <svg viewBox="0 0 36 36" fill="none">
+    <circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/>
+    <line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/>
+    <line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/>
+    <line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/>
+    <line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/>
+    <circle cx="18" cy="18" r="2" fill="#FB3640"/>
   </svg>
-  <div style="position:relative;z-index:1">
-    <div style="font-family:var(--fm);font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--blood);margin-bottom:18px;animation:pbdr 2s ease-in-out infinite;display:inline-block;border:1px solid var(--border);padding:5px 16px">◆ Coming Soon</div>
-    <p style="font-family:var(--fd);font-size:clamp(38px,7vw,80px);font-weight:700;line-height:.9;letter-spacing:-1px;color:var(--white);margin-bottom:14px">Gallery<br><span style="color:var(--blood)">Under Construction.</span></p>
-    <p style="font-family:var(--fb);font-size:16px;font-weight:300;color:var(--mist);max-width:440px;margin:0 auto 36px;line-height:1.85">Real training. Real athletes. Photos and videos coming very soon — follow us on Instagram for the latest.</p>
-    <a href="https://instagram.com/redcrownmma" target="_blank" rel="noopener" class="bp"><span>Follow on Instagram →</span></a>
+</div>
+<div id="cd" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
+<div id="scanline" aria-hidden="true"></div>
+<div id="wipe" aria-hidden="true"></div>
+<div id="fts">
+  <div class="fts-sl"></div>
+  <div class="fts-box">
+    <div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div>
+    <div id="fts-t"><span class="ftc"></span></div>
+    <div class="fts-bw"><div class="fts-b" id="fts-b"></div></div>
+    <div class="fts-s" id="fts-s">INITIATING...</div>
   </div>
 </div>
-      <div class="gc phb rv phb" style="transition-delay:0.1s" data-lb="Muay Thai Pads" data-lb-sub="Close-action knee strike · High intensity" role="button" tabindex="0">
-  <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">Muay Thai Pad Work</p>
-  <div class="gc-ov"><div class="gc-plus">⊕</div><div class="gc-ttl">Muay Thai Pads</div></div>
-</div>
-      <div class="gc wide phb rv phb" style="transition-delay:0.15s" data-lb="MMA Sparring" data-lb-sub="Wide angle · Both athletes · Full gear" role="button" tabindex="0">
-  <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">MMA Cage Sparring</p>
-  <div class="gc-ov"><div class="gc-plus">⊕</div><div class="gc-ttl">MMA Sparring</div></div>
-</div>
-      <div class="gc phb rv phb" style="transition-delay:0.2s" data-lb="Boxing Bag Work" data-lb-sub="Impact shot · Dramatic rim lighting" role="button" tabindex="0">
-  <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">Boxing Heavy Bag</p>
-  <div class="gc-ov"><div class="gc-plus">⊕</div><div class="gc-ttl">Boxing Bag Work</div></div>
-</div>
-      <div class="gc phb rv phb" style="transition-delay:0.25s" data-lb="Wrestling Drill" data-lb-sub="Low angle · Explosive action" role="button" tabindex="0">
-  <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">Wrestling Takedown</p>
-  <div class="gc-ov"><div class="gc-plus">⊕</div><div class="gc-ttl">Wrestling Drill</div></div>
-</div>
-      <div class="gc tall phb rv phb" style="transition-delay:0.3s" data-lb="S&C Session" data-lb-sub="Athlete conditioning · Dynamic" role="button" tabindex="0">
-  <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">S&C Training</p>
-  <div class="gc-ov"><div class="gc-plus">⊕</div><div class="gc-ttl">S&C Session</div></div>
-</div>
-      <div class="gc phb rv phb" style="transition-delay:0.35s" data-lb="Kids Program" data-lb-sub="Safe structured environment" role="button" tabindex="0">
-  <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">Kids Class</p>
-  <div class="gc-ov"><div class="gc-plus">⊕</div><div class="gc-ttl">Kids Program</div></div>
-</div>
-      <div class="gc wide phb rv phb" style="transition-delay:0.4s" data-lb="Group Session" data-lb-sub="Full class · Warm-up or drill" role="button" tabindex="0">
-  <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">Group Training</p>
-  <div class="gc-ov"><div class="gc-plus">⊕</div><div class="gc-ttl">Group Session</div></div>
-</div>
-      <div class="gc phb rv phb" style="transition-delay:0.45s" data-lb="Coaching Detail" data-lb-sub="Technical drill · Close instruction" role="button" tabindex="0">
-  <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">Coach Teaching</p>
-  <div class="gc-ov"><div class="gc-plus">⊕</div><div class="gc-ttl">Coaching Detail</div></div>
-</div>
-      <div class="gc phb rv phb" style="transition-delay:0.5s" data-lb="Competition Day" data-lb-sub="Fight night · Pre-fight intensity" role="button" tabindex="0">
-  <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">Competition Day</p>
-  <div class="gc-ov"><div class="gc-plus">⊕</div><div class="gc-ttl">Competition Day</div></div>
-</div>
-      <div class="gc phb rv phb" style="transition-delay:0.55s" data-lb="The Cage" data-lb-sub="Octagon · Dramatic overhead light" role="button" tabindex="0">
-  <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">The Cage</p>
-  <div class="gc-ov"><div class="gc-plus">⊕</div><div class="gc-ttl">The Cage</div></div>
-</div>
-      <div class="gc phb rv phb" style="transition-delay:0.6s" data-lb="Night Class" data-lb-sub="Evening session · Atmospheric" role="button" tabindex="0">
-  <svg class="phx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="60" stroke="#FB3640" stroke-width=".6"/><line x1="100" y1="0" x2="0" y2="60" stroke="#FB3640" stroke-width=".6"/></svg><p class="phl">Night Class</p>
-  <div class="gc-ov"><div class="gc-plus">⊕</div><div class="gc-ttl">Night Class</div></div>
-</div>
+<nav id="nav">
+  <div class="n-logo">
+    <div class="lw" id="logo-btn" onclick="window.launchFT&&window.launchFT()" role="button" tabindex="0" aria-label="Fighter team access">
+      <div class="or1"></div><div class="or2"></div>
+      <div class="lsvg"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/>
+  <rect x="20" y="44" width="60" height="6" fill="#FB3640"/>
+  <ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/>
+  <path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/>
+  <ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/>
+  <ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/>
+  <path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/>
+  <rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <circle cx="50" cy="30" r="3" fill="#D4A843"/>
+  <circle cx="35" cy="35" r="2" fill="#D4A843"/>
+  <circle cx="65" cy="35" r="2" fill="#D4A843"/>
+</svg></div>
+      <span class="ltip">◈ RESTRICTED ACCESS</span>
     </div>
-    <!-- TRANSFORMATIONS -->
-<div class="rv" style="margin-top:28px;border:1px solid var(--bw);padding:48px;background:var(--v2);text-align:center">
-  <div style="font-family:var(--fm);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blood);margin-bottom:12px">◆ Coming Soon</div>
-  <p style="font-family:var(--fd);font-size:clamp(26px,4vw,44px);font-weight:700;color:var(--white);margin-bottom:10px">Member transformations dropping soon.</p>
-  <p style="font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.8">Check back in a few weeks — results are already happening on the mat.</p>
+    <div class="n-txt">
+      <div class="n-nm">Red <em>Crown</em></div>
+      <div class="n-sb">MMA Academy · Noida</div>
+    </div>
+  </div>
+  <div class="n-links">
+    <a class="n-lnk active" href="index.html" data-link>Home</a>
+    <a class="n-lnk" href="programs.html" data-link>Programs</a>
+    <a class="n-lnk" href="coaches.html" data-link>Coaches</a>
+    <a class="n-lnk" href="schedule.html" data-link>Schedule</a>
+    <a class="n-lnk" href="gallery.html" data-link>Gallery</a>
+    <a class="n-lnk" href="blog.html" data-link>Blog</a><a class="n-lnk" href="contact.html" data-link>Contact</a>
+    
+    <a class="n-cta" href="contact.html" data-link><span>Free Trial</span></a>
+  </div>
+  <button class="n-burg" id="burg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div id="mm">
+  <a class="mlnk" href="index.html" data-link>Home</a>
+  <a class="mlnk" href="programs.html" data-link>Programs</a>
+  <a class="mlnk" href="coaches.html" data-link>Coaches</a>
+  <a class="mlnk" href="schedule.html" data-link>Schedule</a>
+  <a class="mlnk" href="gallery.html" data-link>Gallery</a>
+  <a class="mlnk" href="blog.html" data-link>Blog</a><a class="mlnk" href="contact.html" data-link>Contact</a>
+  
+  <div class="mmdiv"></div>
+  <div class="mmcw"><a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a></div>
 </div>
+<a id="wa" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <span class="wai">💬</span><span class="wal">WhatsApp Us</span>
+</a>
+
+
+<main>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="h-hex"></div>
+    <div class="h-slash"></div>
+    <div class="h-layout">
+      <div class="h-left">
+        <div class="h-eyebrow">Noida · Uttar Pradesh · India</div>
+        <h1 class="h-h1"><span class="r">Enter</span><span class="ol">the Hunt</span></h1>
+        <p class="h-tag">"Where Champions Are Forged — One Session at a Time."</p>
+        <div class="h-btns">
+          <a class="bp" href="contact.html" data-link><span>Book Free Trial →</span></a>
+          <a class="bo" href="programs.html" data-link>View Programs</a>
+        </div>
+        <div class="h-disc">
+          <div class="h-d">BJJ</div><div class="h-d">Muay Thai</div><div class="h-d">Boxing</div>
+          <div class="h-d">Wrestling</div><div class="h-d">MMA</div><div class="h-d">Kids</div>
+        </div>
+      </div>
+      <div class="h-right">
+        <div class="h-logo-wrap" id="hero-logo-btn" onclick="window.launchFT&&window.launchFT()" role="button" tabindex="0" aria-label="Fighter team restricted access">
+          <div class="h-ra"></div><div class="h-rb"></div><div class="h-rc"></div>
+          <div class="h-logo"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/>
+  <rect x="20" y="44" width="60" height="6" fill="#FB3640"/>
+  <ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/>
+  <path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/>
+  <ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/>
+  <ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/>
+  <path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/>
+  <rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <circle cx="50" cy="30" r="3" fill="#D4A843"/>
+  <circle cx="35" cy="35" r="2" fill="#D4A843"/>
+  <circle cx="65" cy="35" r="2" fill="#D4A843"/>
+</svg></div>
+          <span class="h-hint">◈ FIGHTER TEAM ACCESS</span>
+        </div>
+        <div class="h-mma">MMA Academy — Noida</div>
       </div>
     </div>
+    <div class="h-scroll"><div class="h-sbar"></div><span class="h-stxt">Scroll</span></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="mqw">
+    <div class="mqt">
+      <span class="mqi">Brazilian Jiu-Jitsu</span><span class="mqi">Muay Thai</span><span class="mqi">Boxing</span><span class="mqi">Wrestling</span><span class="mqi">MMA</span><span class="mqi">Strength &amp; Conditioning</span><span class="mqi">Kids Classes</span><span class="mqi">Free First Session</span><span class="mqi">Enter the Hunt</span>
+      <span class="mqi">Brazilian Jiu-Jitsu</span><span class="mqi">Muay Thai</span><span class="mqi">Boxing</span><span class="mqi">Wrestling</span><span class="mqi">MMA</span><span class="mqi">Strength &amp; Conditioning</span><span class="mqi">Kids Classes</span><span class="mqi">Free First Session</span><span class="mqi">Enter the Hunt</span>
+    </div>
   </div>
-</main><footer><div class="fi"><div class="fb"><div class="fls"><<img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/><rect x="20" y="44" width="60" height="6" fill="#FB3640"/><ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/><path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/><ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/><ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/><path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/><rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/><circle cx="50" cy="30" r="3" fill="#D4A843"/><circle cx="35" cy="35" r="2" fill="#D4A843"/><circle cx="65" cy="35" r="2" fill="#D4A843"/></svg></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div><div class="flinks"><a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="contact.html" data-link>Contact</a></div><div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, UP · redcrownmma.in</div></div></footer><script src="js/main.js"></script></body></html>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-in">
+      <div class="stat rv"><div class="sbg">5</div><div class="snum"><span data-count="5">0</span></div><div class="slb">Combat Disciplines</div></div>
+      <div class="stat rv" style="transition-delay:.1s"><div class="sbg">3</div><div class="snum"><span data-count="3">0</span></div><div class="slb">Program Levels</div></div>
+      <div class="stat rv" style="transition-delay:.2s"><div class="sbg">∞</div><div class="snum" style="font-size:clamp(32px,5vw,56px);color:var(--white)">Free</div><div class="slb">First Session Always</div></div>
+      <div class="stat rv" style="transition-delay:.3s"><div class="sbg">1</div><div class="snum"><span data-count="1">0</span></div><div class="slb">Standard — Always Elite</div></div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS PREVIEW -->
+  <section class="pp">
+    <div class="pp-in">
+      <div class="slbl rv">Our Disciplines</div>
+      <h2 class="stit rv" style="transition-delay:.08s">Five Arts.<br><span class="r">One Standard.</span></h2>
+      <div class="pg">
+        <a class="pc rv" href="programs.html" data-link style="transition-delay:.1s">
+          <div class="pc-icon">🥋</div><h3 class="pc-name">BJJ</h3><div class="pc-sub">Ground · Submissions</div>
+          <p class="pc-desc">The art of leverage. Technique beats strength — every time.</p>
+          <div class="pc-arr">Explore →</div>
+        </a>
+        <a class="pc rv" href="programs.html" data-link style="transition-delay:.16s">
+          <div class="pc-icon">🥊</div><h3 class="pc-name">Muay Thai</h3><div class="pc-sub">Eight Limbs · Clinch</div>
+          <p class="pc-desc">The world's most complete striking system.</p>
+          <div class="pc-arr">Explore →</div>
+        </a>
+        <a class="pc rv" href="programs.html" data-link style="transition-delay:.22s">
+          <div class="pc-icon">🥊</div><h3 class="pc-name">Boxing</h3><div class="pc-sub">Precision · Footwork</div>
+          <p class="pc-desc">The sweet science. Elite technique and defence.</p>
+          <div class="pc-arr">Explore →</div>
+        </a>
+        <a class="pc rv" href="programs.html" data-link style="transition-delay:.28s">
+          <div class="pc-icon">🤼</div><h3 class="pc-name">Wrestling</h3><div class="pc-sub">Takedowns · Control</div>
+          <p class="pc-desc">Control where the fight takes place.</p>
+          <div class="pc-arr">Explore →</div>
+        </a>
+        <a class="pc rv" href="programs.html" data-link style="transition-delay:.34s">
+          <div class="pc-icon">⚡</div><h3 class="pc-name">Kids MMA</h3><div class="pc-sub">Ages 6–14 · Character</div>
+          <p class="pc-desc">Discipline, confidence, and coordination.</p>
+          <div class="pc-arr">Explore →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="tst">
+    <div class="tst-in">
+      <div class="slbl rv">Member Stories</div>
+      <h2 class="stit rv" style="transition-delay:.08s">Real People.<br><span class="r">Real Results.</span></h2>
+      <div class="tg">
+        <div class="tc rv" style="transition-delay:.1s">
+          <div class="tc-stars">★★★★★</div><div class="tc-bdg">BJJ · 14 Months</div>
+          <p class="tc-q">I came in with zero experience and zero confidence. Red Crown gave me both — and then some. The coaching is genuinely world-class.</p>
+          <div class="tc-nm">Arjun Mehta</div><div class="tc-mt">Adult Beginner → Intermediate</div>
+        </div>
+        <div class="tc rv" style="transition-delay:.18s">
+          <div class="tc-stars">★★★★★</div><div class="tc-bdg">Muay Thai · 8 Months</div>
+          <p class="tc-q">The discipline I built on the mat transferred directly into my work and personal life. Sharper, calmer, and far more dangerous.</p>
+          <div class="tc-nm">Priya Singh</div><div class="tc-mt">Adult Beginner · Fighter</div>
+        </div>
+        <div class="tc rv" style="transition-delay:.26s">
+          <div class="tc-stars">★★★★★</div><div class="tc-bdg">Kids Program · 2 Years</div>
+          <p class="tc-q">My son was being bullied. After two years at Red Crown he carries himself like a completely different person — confident and respected.</p>
+          <div class="tc-nm">Rahul Sharma</div><div class="tc-mt">Parent · Kids MMA Program</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-in">
+      <h2 class="cta-h">Your first<br>session is free.</h2>
+      <p class="cta-sub">No experience required. No commitment. Just show up — your coach handles the rest.</p>
+      <a class="cta-btn" href="contact.html" data-link><span>Book Free Trial →</span></a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="fi">
+    <div class="fb">
+      <div class="fls"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/>
+  <rect x="20" y="44" width="60" height="6" fill="#FB3640"/>
+  <ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/>
+  <path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/>
+  <ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/>
+  <ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/>
+  <path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/>
+  <rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/>
+  <circle cx="50" cy="30" r="3" fill="#D4A843"/>
+  <circle cx="35" cy="35" r="2" fill="#D4A843"/>
+  <circle cx="65" cy="35" r="2" fill="#D4A843"/>
+</svg></div>
+      <div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div>
+    </div>
+    <div class="flinks">
+      <a class="flnk" href="index.html" data-link>Home</a>
+      <a class="flnk" href="programs.html" data-link>Programs</a>
+      <a class="flnk" href="coaches.html" data-link>Coaches</a>
+      <a class="flnk" href="schedule.html" data-link>Schedule</a>
+      <a class="flnk" href="gallery.html" data-link>Gallery</a>
+      <a class="flnk" href="blog.html" data-link>Blog</a><a class="flnk" href="contact.html" data-link>Contact</a>
+    </div>
+    <div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, Uttar Pradesh · redcrownmma.in</div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
