@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Schedule & Pricing | Red Crown MMA</title><meta name="description" content="Red Crown MMA Academy — Noida premier MMA. BJJ, Muay Thai, Boxing, Wrestling, Kids."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Class Schedule, Pricing &amp; Referral Program | Red Crown MMA Academy Noida</title><meta name="description" content="Red Crown MMA Academy Noida — class timetable, membership pricing, and referral rewards. Refer a friend to our BJJ, Muay Thai, Boxing or MMA classes and earn up to 2 months free."><meta name="keywords" content="Red Crown MMA schedule, MMA classes Noida timetable, BJJ Noida pricing, Muay Thai Noida membership, MMA gym referral program Noida, martial arts membership Noida"><link rel="canonical" href="https://redcrownmma.in/schedule.html"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png">
 <meta name="theme-color" content="#000F08"><link rel="stylesheet" href="css/style.css"><style>
@@ -21,9 +21,46 @@
 .tier-list li::before{content:'';min-width:10px;height:1px;background:var(--blood);margin-top:9px;flex-shrink:0}
 .tier-btn{width:100%;padding:13px;cursor:none;font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--void);background:var(--blood);border:none;transition:background .3s}
 .tier-btn:hover{background:var(--white)}
+
+.ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:48px}
+.ref-card{background:var(--v2);border:1px solid var(--bw);padding:38px 34px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden;transition:border-color .3s}
+.ref-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--blood);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.ref-card:hover::before,.ref-card.ref-feat::before{transform:scaleX(1)}
+.ref-card.ref-feat{background:rgba(251,54,64,.03);border-color:rgba(251,54,64,.22)}
+.ref-card.ref-feat::before{background:var(--gold)}
+.ref-badge{font-family:var(--fm);font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--blood);display:inline-block}
+.ref-badge-gold{color:var(--gold)}
+.ref-icon{font-size:22px;color:var(--blood);opacity:.5}
+.ref-title{font-family:var(--fd);font-size:clamp(38px,5vw,64px);font-weight:700;line-height:.9;letter-spacing:-1px;color:var(--white)}
+.ref-sub{font-family:var(--fb);font-size:14px;font-weight:300;color:var(--mist);line-height:1.8}
+.ref-sub strong{color:var(--white);font-weight:500}
+.ref-bonus{border:1px solid rgba(251,54,64,.2);background:rgba(251,54,64,.04);padding:14px 18px;display:flex;flex-direction:column;gap:4px}
+.ref-bonus-label{font-family:var(--fm);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--fog)}
+.ref-bonus-val{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--blood)}
+.ref-rules{display:flex;flex-direction:column;gap:8px;flex:1}
+.ref-rules li{font-family:var(--fb);font-size:12px;font-weight:300;color:var(--fog);line-height:1.5;list-style:none;padding-left:0}
+.ref-cta{display:inline-flex;align-items:center;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--void);background:var(--blood);padding:13px 26px;cursor:none;position:relative;overflow:hidden;transition:letter-spacing .25s;align-self:flex-start}
+.ref-cta::before{content:'';position:absolute;inset:0;background:var(--white);transform:translateX(-101%);transition:transform .32s}
+.ref-cta:hover{letter-spacing:4px}.ref-cta:hover::before{transform:translateX(0)}
+.ref-cta span{position:relative;z-index:1}
+.ref-cta-gold{color:var(--void);background:var(--gold)}
+.ref-cta-gold::before{background:var(--white)}
+.ref-steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:start;gap:0;margin-top:48px}
+.ref-step{padding:28px 24px 0;text-align:center}
+.ref-step-div{width:1px;background:var(--bw);height:80px;margin-top:40px}
+.ref-step-num{font-family:var(--fd);font-size:52px;font-weight:700;color:rgba(251,54,64,.12);line-height:1;margin-bottom:8px}
+.ref-step-title{font-family:var(--fd);font-size:16px;font-weight:700;letter-spacing:1px;color:var(--white);margin-bottom:10px}
+.ref-step-body{font-family:var(--fb);font-size:12px;font-weight:300;color:var(--fog);line-height:1.75}
+.ref-faq{margin-top:52px;border-top:1px solid var(--bw);padding-top:36px;display:flex;flex-direction:column;gap:0}
+.ref-faq-title{font-family:var(--fm);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--fog);margin-bottom:20px}
+.ref-faq-item{border-bottom:1px solid var(--bw);padding:18px 0}
+.ref-faq-q{font-family:var(--fd);font-size:15px;font-weight:600;color:var(--white);margin-bottom:8px;letter-spacing:.5px}
+.ref-faq-a{font-family:var(--fb);font-size:13px;font-weight:300;color:var(--mist);line-height:1.75}
+@media(max-width:900px){.ref-grid{grid-template-columns:1fr}.ref-steps{grid-template-columns:1fr 1fr;gap:2px}.ref-step-div{display:none}}
+@media(max-width:640px){.ref-steps{grid-template-columns:1fr}}
 @media(max-width:900px){.tier-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:580px){.tier-grid{grid-template-columns:1fr}}
-</style></head><body><div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div><div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div><div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div><nav id="nav"><div class="n-logo"><div class="lw" id="logo-btn" role="button" tabindex="0"><div class="or1"></div><div class="or2"></div><div class="lsvg"><<img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/><rect x="20" y="44" width="60" height="6" fill="#FB3640"/><ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/><path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/><ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/><ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/><path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/><rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/><circle cx="50" cy="30" r="3" fill="#D4A843"/><circle cx="35" cy="35" r="2" fill="#D4A843"/><circle cx="65" cy="35" r="2" fill="#D4A843"/></svg></div><span class="ltip">◈ RESTRICTED ACCESS</span></div><div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div></div><div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a>
+</style></head><body><div id="cr" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><circle class="cr-ring" cx="18" cy="18" r="16" stroke="#FB3640" stroke-opacity=".5" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="4" x2="18" y2="9" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="18" y1="27" x2="18" y2="32" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="4" y1="18" x2="9" y2="18" stroke="#FB3640" stroke-width="1.2"/><line class="cr-arm" x1="27" y1="18" x2="32" y2="18" stroke="#FB3640" stroke-width="1.2"/><circle cx="18" cy="18" r="2" fill="#FB3640"/></svg></div><div id="cd" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div><div id="scanline" aria-hidden="true"></div><div id="wipe" aria-hidden="true"></div><div id="fts"><div class="fts-sl"></div><div class="fts-box"><div class="fts-bdg">◈ CLASSIFIED — FIGHTER TEAM DOSSIER</div><div id="fts-t"><span class="ftc"></span></div><div class="fts-bw"><div class="fts-b" id="fts-b"></div></div><div class="fts-s" id="fts-s">INITIATING...</div></div></div><nav id="nav"><div class="n-logo"><div class="lw" id="logo-btn" onclick="window.launchFT&&window.launchFT(event)" role="button" tabindex="0"><div class="or1"></div><div class="or2"></div><div class="lsvg"><<img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><path d="M20 44 L20 30 L30 38 L50 22 L70 38 L80 30 L80 44Z" fill="#FB3640"/><rect x="20" y="44" width="60" height="6" fill="#FB3640"/><ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/><path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/><ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/><ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/><path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/><rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/><circle cx="50" cy="30" r="3" fill="#D4A843"/><circle cx="35" cy="35" r="2" fill="#D4A843"/><circle cx="65" cy="35" r="2" fill="#D4A843"/></svg></div><span class="ltip">◈ RESTRICTED ACCESS</span></div><div class="n-txt"><div class="n-nm">Red <em>Crown</em></div><div class="n-sb">MMA Academy · Noida</div></div></div><div class="n-links"><a class="n-lnk" href="index.html" data-link>Home</a>
     <a class="n-lnk" href="programs.html" data-link>Programs</a>
     <a class="n-lnk" href="coaches.html" data-link>Coaches</a>
     <a class="n-lnk active" href="schedule.html" data-link>Schedule</a>
@@ -116,4 +153,131 @@
       </div>
     </div>
   </div>
+
+    <!-- ── REFERRAL PROGRAMME ───────────────────────────────── -->
+    <div style="margin-top:80px;padding-top:60px;border-top:1px solid var(--bw)">
+
+      <!-- Schema.org structured data for the offer -->
+      <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Red Crown MMA Academy","url":"https://redcrownmma.in","address":{"@type":"PostalAddress","addressLocality":"Noida","addressRegion":"Uttar Pradesh","addressCountry":"IN"},"offers":[{"@type":"Offer","name":"Refer a Friend — 1 Month Free","description":"Refer a friend who joins on a 6-month or longer membership and receive 1 free month. No cap — earn a free month for every qualifying referral.","category":"Referral Program"},{"@type":"Offer","name":"Annual Member Referral — 2 Months Free","description":"Annual members receive 2 free months for every successful referral. No cap — unlimited free months for unlimited referrals.","category":"Referral Program"}]}
+      </script>
+
+      <div class="slbl rv">Referral Programme</div>
+      <h2 class="stit rv" style="font-size:clamp(36px,5vw,62px);transition-delay:.08s">Earn Free <span class="r">Training.</span></h2>
+      <p class="rv" style="font-family:var(--fb);font-size:16px;font-weight:300;color:var(--mist);max-width:560px;line-height:1.85;margin-top:12px;transition-delay:.12s">
+        The best fighters don't train alone. Bring someone into the hunt — and we'll reward you for it. No caps, no limits. Your reward scales with your commitment level.
+      </p>
+
+      <!-- Two reward cards -->
+      <div class="ref-grid rv" style="transition-delay:.18s">
+
+        <!-- Card 1: Standard -->
+        <article class="ref-card" itemscope itemtype="https://schema.org/Offer">
+          <div class="ref-badge">Standard Reward</div>
+          <div class="ref-icon">◈</div>
+          <h3 class="ref-title" itemprop="name">
+            <span class="r">1 Month</span> Free
+          </h3>
+          <p class="ref-sub" itemprop="description">
+            Refer a friend who joins Red Crown MMA on a <strong>6-month or longer membership</strong> and we'll add a full free month to your account — no conditions, no catches.
+          </p>
+          <ul class="ref-rules">
+            <li>◆ Referral must join on 6-month, half-yearly, or annual plan</li>
+            <li>◆ Free month credited after their second month payment</li>
+            <li>◆ Valid for all active members regardless of plan</li>
+            <li>◆ No cap — earn a free month for every qualifying referral</li>
+          </ul>
+          <a href="contact.html" class="ref-cta" data-link><span>Refer Someone →</span></a>
+        </article>
+
+        <!-- Card 2: Annual upgrade -->
+        <article class="ref-card ref-feat" itemscope itemtype="https://schema.org/Offer">
+          <div class="ref-badge ref-badge-gold">Annual Member Bonus</div>
+          <div class="ref-icon" style="color:var(--gold)">◈◈</div>
+          <h3 class="ref-title" itemprop="name">
+            <span style="color:var(--gold)">2 Months</span> Free
+          </h3>
+          <p class="ref-sub" itemprop="description">
+            On a <strong>yearly membership?</strong> Your referral reward doubles. Every friend you bring in who joins for 6 months or more earns you 2 free months — not 1.
+          </p>
+          <ul class="ref-rules">
+            <li>◆ Exclusive to active annual members</li>
+            <li>◆ Free months credited after referral's second payment</li>
+            <li>◆ Stackable — refer as many people as you want</li>
+            <li>◆ No cap — unlimited free months</li>
+          </ul>
+          <a href="contact.html" class="ref-cta ref-cta-gold" data-link><span>Refer Someone →</span></a>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- ── HOW IT WORKS ───────────────────────────────────────── -->
+    <div style="margin-top:72px;padding-top:56px;border-top:1px solid var(--bw)">
+      <div class="slbl rv">Simple Process</div>
+      <h2 class="stit rv" style="font-size:clamp(32px,4.5vw,56px);transition-delay:.08s">How It <span class="r">Works.</span></h2>
+
+      <div class="ref-steps rv" style="transition-delay:.14s">
+
+        <div class="ref-step">
+          <div class="ref-step-num">01</div>
+          <h4 class="ref-step-title">Tell Your Friend</h4>
+          <p class="ref-step-body">Let them know about Red Crown MMA — Noida's dedicated combat sports academy for BJJ, Muay Thai, Boxing, Wrestling, and MMA. Book them a free trial session so they can experience it first.</p>
+        </div>
+
+        <div class="ref-step-div"></div>
+
+        <div class="ref-step">
+          <div class="ref-step-num">02</div>
+          <h4 class="ref-step-title">They Join on 6+ Months</h4>
+          <p class="ref-step-body">Your friend signs up on a 6-month, half-yearly, or annual membership. Make sure they mention your name at sign-up — that's all that's needed.</p>
+        </div>
+
+        <div class="ref-step-div"></div>
+
+        <div class="ref-step">
+          <div class="ref-step-num">03</div>
+          <h4 class="ref-step-title">Your Reward is Credited</h4>
+          <p class="ref-step-body">After their second month's payment clears, 1 free month (or 2 if you're on annual) is automatically added to your membership. No forms. No chasing. Just train.</p>
+        </div>
+
+        <div class="ref-step-div"></div>
+
+        <div class="ref-step">
+          <div class="ref-step-num">04</div>
+          <h4 class="ref-step-title">Repeat (Up to 3×)</h4>
+          <p class="ref-step-body">There's no cap. Refer 5 people, get 5 free months. On annual and refer 5 people? That's 10 free months. Build the tribe, eliminate your training cost entirely.</p>
+        </div>
+
+      </div>
+
+      <!-- FAQ for SEO rich snippets -->
+      <div class="ref-faq rv" style="transition-delay:.2s" itemscope itemtype="https://schema.org/FAQPage">
+
+        <div class="ref-faq-title">Common Questions</div>
+
+        <div class="ref-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <div class="ref-faq-q" itemprop="name">Does my friend need to sign a long-term contract?</div>
+          <div class="ref-faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <span itemprop="text">No contracts — Red Crown MMA memberships are prepaid terms, not lock-in contracts. Your friend simply commits to 6 months upfront to qualify.</span>
+          </div>
+        </div>
+
+        <div class="ref-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <div class="ref-faq-q" itemprop="name">Is there a limit to how many people I can refer?</div>
+          <div class="ref-faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <span itemprop="text">No limit at all. Every qualifying referral earns you a free month. If you're on an annual plan, every qualifying referral earns you 2 free months. Refer enough people and your training is effectively free.</span>
+          </div>
+        </div>
+
+        <div class="ref-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <div class="ref-faq-q" itemprop="name">Can I refer family members?</div>
+          <div class="ref-faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <span itemprop="text">Yes — family referrals are valid as long as the referred person is a new member who has not previously trained at Red Crown MMA Academy.</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
 </main><footer><div class="fi"><div class="fb"><div class="fls"><<img src="logoNT.png" alt="Red Crown MMA" style="width:100%;height:100%;object-fit:contain;"></div><rect x="20" y="44" width="60" height="6" fill="#FB3640"/><ellipse cx="50" cy="67" rx="26" ry="23" fill="none" stroke="#FB3640" stroke-width="2.5"/><path d="M36 67 Q36 76 44 78 L56 78 Q64 76 64 67 L64 61 Q64 51 50 51 Q36 51 36 61Z" fill="#FB3640"/><ellipse cx="42" cy="65" rx="5" ry="5.5" fill="#000F08"/><ellipse cx="58" cy="65" rx="5" ry="5.5" fill="#000F08"/><path d="M47 71 L50 68 L53 71 L51 73 L49 73Z" fill="#000F08"/><rect x="40" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="47.5" y="78" width="5" height="5" rx="1" fill="#000F08"/><rect x="55" y="78" width="5" height="5" rx="1" fill="#000F08"/><circle cx="50" cy="30" r="3" fill="#D4A843"/><circle cx="35" cy="35" r="2" fill="#D4A843"/><circle cx="65" cy="35" r="2" fill="#D4A843"/></svg></div><div><div class="fn">Red <em>Crown</em></div><div class="fsb">MMA Academy · Noida · Enter the Hunt</div></div></div><div class="flinks"><a class="flnk" href="index.html" data-link>Home</a><a class="flnk" href="programs.html" data-link>Programs</a><a class="flnk" href="coaches.html" data-link>Coaches</a><a class="flnk" href="schedule.html" data-link>Schedule</a><a class="flnk" href="gallery.html" data-link>Gallery</a><a class="flnk" href="contact.html" data-link>Contact</a></div><div class="fcp">© 2025 Red Crown MMA Academy<br>Noida, UP · redcrownmma.in</div></div></footer><script src="js/main.js"></script></body></html>
