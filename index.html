@@ -449,8 +449,8 @@
       </div>
       <div class="glass-card pricing-card pricing-featured reveal delay-1">
         <div class="glass-card-glow glow-large"></div>
+        <p class="pricing-duration" style="margin-top:2.2rem;">3 Months</p>
         <div class="pricing-popular-badge">MOST VALUE</div>
-        <p class="pricing-duration">3 Months</p>
         <div class="pricing-amount">₹<span>12,000</span></div>
         <p class="pricing-per">₹4,000 / month · Save ₹1,500</p>
         <ul class="pricing-perks">
@@ -493,9 +493,22 @@
 <section class="faq-section" id="faq">
   <div class="container">
     <p class="section-label reveal">FREQUENTLY ASKED</p>
-    <h2 class="section-title reveal">Got questions?<br><span class="accent">We've got answers.</span></h2>
-    <p class="section-sub reveal">Everything you need to know before stepping on the mat.</p>
-    <div class="faq-list reveal">
+
+    <!-- Section-level toggle button -->
+    <div class="faq-section-header reveal">
+      <div class="faq-section-left">
+        <h2 class="section-title" style="margin-bottom:0;">Got questions?<br><span class="accent">We've got answers.</span></h2>
+        <p class="section-sub" style="margin-bottom:0;">Everything you need to know before stepping on the mat.</p>
+      </div>
+      <button class="faq-toggle-btn" id="faq-toggle-btn" aria-expanded="false" aria-controls="faq-body">
+        <span class="faq-toggle-label">View FAQs</span>
+        <span class="faq-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <!-- Collapsible body -->
+    <div class="faq-body" id="faq-body" aria-hidden="true">
+    <div class="faq-list">
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
@@ -618,7 +631,8 @@
       </div>
 
     </div>
-    <div class="section-cta reveal" style="margin-top:40px;">
+    </div><!-- /faq-body -->
+    <div class="section-cta faq-cta-wrap" style="margin-top:40px;">
       <a href="#waitlist" class="btn-primary">Still have questions? Talk to us →</a>
     </div>
   </div>
@@ -846,6 +860,105 @@
     padding-bottom: 18px;
   }
 }
+
+/* ── FAQ section-level toggle ───────────────────────────── */
+.faq-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+.faq-section-left {
+  flex: 1;
+  min-width: 220px;
+}
+.faq-toggle-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  background: none;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  border-radius: 40px;
+  padding: 10px 22px 10px 26px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+.faq-toggle-btn:hover {
+  border-color: var(--knight-red, #cc1f2d);
+  color: var(--knight-red, #cc1f2d);
+}
+.faq-toggle-btn[aria-expanded="true"] {
+  border-color: var(--knight-red, #cc1f2d);
+  background: rgba(204,31,45,0.08);
+  color: var(--knight-red, #cc1f2d);
+}
+.faq-toggle-icon {
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+.faq-toggle-icon::before,
+.faq-toggle-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  background: currentColor;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+}
+.faq-toggle-icon::before { width: 10px; height: 1.5px; }
+.faq-toggle-icon::after  { width: 1.5px; height: 10px; transition: transform 0.3s ease, opacity 0.3s ease; }
+.faq-toggle-btn[aria-expanded="true"] .faq-toggle-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+/* collapsible faq body */
+.faq-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+  overflow: hidden;
+}
+.faq-body.open {
+  grid-template-rows: 1fr;
+}
+.faq-body > .faq-list {
+  overflow: hidden;
+  margin-top: 0;
+}
+.faq-body.open > .faq-list {
+  margin-top: 40px;
+}
+.faq-cta-wrap {
+  display: none;
+}
+.faq-cta-wrap.visible {
+  display: block;
+}
+/* pricing badge fix */
+.pricing-popular-badge {
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+@media (max-width: 600px) {
+  .faq-section-header { flex-direction: column; gap: 16px; }
+  .faq-toggle-btn { width: 100%; justify-content: center; }
+}
+
 </style>
 
 <script src="js/main.js"></script>
@@ -939,6 +1052,31 @@
         ans.classList.add('open');
       }
     });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('faq-toggle-btn');
+  var body = document.getElementById('faq-body');
+  var cta  = document.querySelector('.faq-cta-wrap');
+  if(!btn || !body) return;
+  btn.addEventListener('click', function(){
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    if(open){
+      btn.setAttribute('aria-expanded','false');
+      body.setAttribute('aria-hidden','true');
+      body.classList.remove('open');
+      btn.querySelector('.faq-toggle-label').textContent = 'View FAQs';
+      if(cta) cta.classList.remove('visible');
+    } else {
+      btn.setAttribute('aria-expanded','true');
+      body.setAttribute('aria-hidden','false');
+      body.classList.add('open');
+      btn.querySelector('.faq-toggle-label').textContent = 'Hide FAQs';
+      if(cta) cta.classList.add('visible');
+    }
   });
 })();
 </script>
