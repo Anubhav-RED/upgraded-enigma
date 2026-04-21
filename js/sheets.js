@@ -18,10 +18,11 @@
 
     fetch(SHEET_URL, {
       method: 'POST',
+      mode: 'no-cors',
       body: formData
     })
-      .then(function (res) {
-        console.log('[Redcrown] Sheet response:', res);
+      .then(function () {
+        console.log('[Redcrown] Sheet submitted successfully');
         onSuccess();
       })
       .catch(function (err) {
