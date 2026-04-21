@@ -1,7 +1,7 @@
 (function () {
 
   // ✅ Your NEW Web App URL
-  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbw7_LKnwvYhrU7Ou4a8Fh3-YsM14wD4PZgtphQZhjMn9LoN3S0zc3AwOD_ucKJ3_bbGjg/exec';
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxtMk5-4s9MrrlbY4QGG87On1vd1micEnwrImiDP-BwTBJewNg0lLlupL4XSr3HXL43nA/exec';
 
   function submitToSheet(data, onSuccess, onError) {
     if (!SHEET_URL) {
@@ -88,6 +88,7 @@
       var email = document.getElementById('c-email');
       var program = document.getElementById('c-program');
       var slot = document.getElementById('c-slot');
+      var message = document.getElementById('c-message');
       var btn = cForm.querySelector('.form-submit');
       var successEl = document.getElementById('contact-success');
 
@@ -106,6 +107,7 @@
         email: email ? email.value.trim() : '',
         program: program ? program.value : '',
         slot: slot ? slot.value : '',
+        message: message ? message.value.trim() : '',
         source: 'Contact Form'
       };
 
