@@ -29,7 +29,7 @@
           <div class="contact-icon">📞</div>
           <div>
             <h4>PHONE / WHATSAPP</h4>
-            <a href="tel:9910604536">+91 99106 04536</a>
+            <a href="tel:+919910604536">+91 99106 04536</a>
           </div>
         </div>
         <div class="contact-item">
@@ -124,13 +124,76 @@
   </div>
 </div>
 
-<footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand"><img src="../assets/logo.png" alt="Redcrown MMA"><p class="tagline">ENTER THE HUNT</p><p class="footer-desc">Elite MMA training in Noida Sector 18.</p></div><div class="footer-links"><h4>Navigate</h4><ul><li><a href="programs.html">Programs</a></li><li><a href="schedule.html">Schedule</a></li><li><a href="coaches.html">Coaches</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-contact"><h4>Contact</h4><p><a href="tel:9910604536">+91 99106 04536</a></p><p><a href="mailto:manager@redcrownmma.com">manager@redcrownmma.com</a></p><p><a href="https://instagram.com/redcrownmma" target="_blank">@redcrownmma</a></p></div></div><div class="footer-bottom"><p>© 2025 Redcrown MMA. All rights reserved.</p><div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a></div></div></div></footer>
+<footer class="site-footer"><div class="container"><div class="footer-top"><div class="footer-brand"><img src="../assets/logo.png" alt="Redcrown MMA"><p class="tagline">ENTER THE HUNT</p><p class="footer-desc">Elite MMA training in Noida Sector 18.</p></div><div class="footer-links"><h4>Navigate</h4><ul><li><a href="programs.html">Programs</a></li><li><a href="schedule.html">Schedule</a></li><li><a href="coaches.html">Coaches</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-contact"><h4>Contact</h4><p><a href="tel:+919910604536">+91 99106 04536</a></p><p><a href="mailto:manager@redcrownmma.com">manager@redcrownmma.com</a></p><p><a href="https://instagram.com/redcrownmma" target="_blank">@redcrownmma</a></p></div></div><div class="footer-bottom"><p>© 2026 Redcrown MMA. All rights reserved.</p><div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a></div></div></div></footer>
 </div>
 <script src="../js/main.js"></script>
-<script src="../js/sheets.js"></script>
 <script>
-const cf = document.getElementById('contact-form');
-if(cf){cf.addEventListener('submit',function(e){e.preventDefault();const n=document.getElementById('c-name');const p=document.getElementById('c-phone');if(!n.value.trim()||!p.value.trim()){n.style.borderColor='#fb3640';p.style.borderColor='#fb3640';return;}const btn=cf.querySelector('.form-submit');btn.textContent='Sending...';btn.disabled=true;setTimeout(()=>{cf.querySelectorAll('input,select,textarea').forEach(el=>el.value='');btn.textContent='Send Message →';btn.disabled=false;document.getElementById('contact-success').classList.remove('hidden');},1200);});}
+(function(){
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbws41Zx61zc8c_1iDQvWSCSMQkhR0fQu12AZjxcyiMfzfzJnpA7j7Ks54AEuCDxZu4IHA/exec';
+
+  var cf = document.getElementById('contact-form');
+  if(!cf) return;
+
+  cf.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var n       = document.getElementById('c-name');
+    var p       = document.getElementById('c-phone');
+    var email   = document.getElementById('c-email');
+    var program = document.getElementById('c-program');
+    var slot    = document.getElementById('c-slot');
+    var msg     = document.getElementById('c-msg');
+    var success = document.getElementById('contact-success');
+    var btn     = cf.querySelector('.form-submit');
+
+    // Reset error states
+    [n, p].forEach(function(el){ el.style.borderColor = ''; });
+    success.classList.add('hidden');
+
+    // Validate required fields
+    var valid = true;
+    if(!n.value.trim()){ n.style.borderColor='#fb3640'; valid=false; }
+    if(!p.value.trim()){ p.style.borderColor='#fb3640'; valid=false; }
+
+    // Indian phone validation
+    var rawPhone = p.value.replace(/[\s\-\(\)]/g,'');
+    if(valid && !/^(\+91|0)?[6-9]\d{9}$/.test(rawPhone)){
+      p.style.borderColor='#fb3640';
+      p.placeholder='Enter a valid 10-digit Indian mobile number';
+      valid=false;
+    }
+    if(!valid) return;
+
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    var params = new URLSearchParams({
+      source:    'contact',
+      name:      n.value.trim(),
+      phone:     rawPhone,
+      email:     email ? email.value.trim() : '',
+      program:   program ? program.value : '',
+      slot:      slot ? slot.value : '',
+      message:   msg ? msg.value.trim() : '',
+      timestamp: new Date().toISOString()
+    });
+
+    fetch(GAS_URL + '?' + params.toString(), {
+      method: 'GET',
+      mode:   'no-cors'
+    })
+    .then(function(){
+      success.classList.remove('hidden');
+      btn.textContent = 'Message Sent ✓';
+      cf.querySelectorAll('input,select,textarea').forEach(function(el){ el.value=''; });
+    })
+    .catch(function(){
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Something went wrong. Please call us directly: +91 99106 04536');
+    });
+  });
+})();
 </script>
 <div id="fighter-page" class="hidden"><canvas id="fighter-sonar"></canvas><div class="fighter-content"><button class="fighter-back" id="fighter-back">← Back</button><p class="fighter-eyebrow">YOU FOUND IT</p><h1 class="fighter-title">THE <span>HUNTER'S</span><br>SANCTUM</h1><p class="fighter-sub">Elite track coming soon.</p><div class="fighter-runes">⚔ 𓂀 ⚔</div><a href="../index.html" class="btn-primary">Enter The Hunt →</a></div></div>
 <div class="floating-buttons" id="floating-btns">
