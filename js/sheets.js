@@ -1,7 +1,7 @@
 (function () {
 
   // ✅ Your NEW Web App URL
-  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxtMk5-4s9MrrlbY4QGG87On1vd1micEnwrImiDP-BwTBJewNg0lLlupL4XSr3HXL43nA/exec';
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbws41Zx61zc8c_1iDQvWSCSMQkhR0fQu12AZjxcyiMfzfzJnpA7j7Ks54AEuCDxZu4IHA/exec';
 
   function submitToSheet(data, onSuccess, onError) {
     if (!SHEET_URL) {
