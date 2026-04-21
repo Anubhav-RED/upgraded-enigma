@@ -1,7 +1,7 @@
 (function () {
 
   // ✅ Your NEW Web App URL
-  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbx9zq04cAelwcrAwB74LBpZ7Jnoox__1I02UCk8aElaoBX_reXKA3S2pe-zke3sbauCwQ/exec';
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbw7_LKnwvYhrU7Ou4a8Fh3-YsM14wD4PZgtphQZhjMn9LoN3S0zc3AwOD_ucKJ3_bbGjg/exec';
 
   function submitToSheet(data, onSuccess, onError) {
     if (!SHEET_URL) {
@@ -10,16 +10,13 @@
       return;
     }
 
-    var formData = new FormData();
+    var params = Object.keys(data).map(function (key) {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+    }).join('&');
 
-    Object.keys(data).forEach(function (key) {
-      formData.append(key, data[key]);
-    });
-
-    fetch(SHEET_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: formData
+    fetch(SHEET_URL + '?' + params, {
+      method: 'GET',
+      mode: 'no-cors'
     })
       .then(function () {
         console.log('[Redcrown] Sheet submitted successfully');
