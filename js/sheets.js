@@ -1,76 +1,28 @@
-/* ============================================
-   REDCROWN MMA — SHEETS.JS
-   Waitlist & Contact → Google Sheets via
-   Apps Script Web App
-   ============================================
-   
-   HOW TO CONNECT YOUR GOOGLE SHEET:
-   1. Open your Google Sheet:
-      https://docs.google.com/spreadsheets/d/1yhUDwka-LXWGg_jw6xAP2LbqiEfT6c7Ujk2IR0HzySQ/edit?gid=0#gid=0
-   2. Click Extensions → Apps Script
-   3. Paste the Apps Script code below into the editor
-   4. Click Deploy → New Deployment → Web App
-      - Execute as: Me
-      - Who has access: Anyone
-   5. Copy the Web App URL and paste it as SHEET_URL below
-   
-   ── APPS SCRIPT CODE TO PASTE ──────────────
-   
-   function doPost(e) {
-     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-     var data = JSON.parse(e.postData.contents);
-     
-     // Add header row if sheet is empty
-     if (sheet.getLastRow() === 0) {
-       sheet.appendRow(['Timestamp', 'Name', 'Phone', 'Email', 'Program', 'Slot', 'Source']);
-     }
-     
-     sheet.appendRow([
-       new Date().toLocaleString('en-IN', {timeZone: 'Asia/Kolkata'}),
-       data.name || '',
-       data.phone || '',
-       data.email || '',
-       data.program || '',
-       data.slot || '',
-       data.source || 'Waitlist'
-     ]);
-     
-     return ContentService
-       .createTextOutput(JSON.stringify({status: 'success'}))
-       .setMimeType(ContentService.MimeType.JSON);
-   }
-   
-   function doGet(e) {
-     return ContentService.createTextOutput('Redcrown MMA Sheet OK');
-   }
-   
-   ─────────────────────────────────────────── */
-
 (function () {
 
-  // ← PASTE YOUR APPS SCRIPT WEB APP URL HERE after deploying
+  // ✅ Your Apps Script Web App URL
   var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwcXcImes-UPcPgTO4iZNp_8zDHueqdJ3dWKvuRoFKIWMBtOGjNm_dDWJ2nnAAYR3NLng/exec';
 
   function submitToSheet(data, onSuccess, onError) {
-    if (!SHEET_URL || SHEET_URL === 'https://script.google.com/macros/s/AKfycbwcXcImes-UPcPgTO4iZNp_8zDHueqdJ3dWKvuRoFKIWMBtOGjNm_dDWJ2nnAAYR3NLng/exec') {
+    if (!SHEET_URL) {
       console.warn('[Redcrown] Google Sheet not connected.');
       onSuccess();
       return;
     }
 
-    var params = new URLSearchParams();
-    params.append('name', data.name || '');
-    params.append('phone', data.phone || '');
-    params.append('email', data.email || '');
-    params.append('program', data.program || '');
-    params.append('slot', data.slot || '');
-    params.append('source', data.source || 'Waitlist');
-
-    fetch('https://docs.google.com/spreadsheets/d/1yhUDwka-LXWGg_jw6xAP2LbqiEfT6c7Ujk2IR0HzySQ/edit?gid=0#gid=0', {
+    fetch(SHEET_URL, {
       method: 'POST',
-      body: params
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
     })
-      .then(function () { onSuccess(); })
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function () {
+        onSuccess();
+      })
       .catch(function (err) {
         console.error('[Redcrown] Sheet error:', err);
         onError();
@@ -93,7 +45,7 @@
       var errorEl = document.getElementById('form-error');
 
       // Reset states
-      [name, phone].forEach(function (el) { el.style.borderColor = ''; });
+      [name, phone].forEach(function (el) { if (el) el.style.borderColor = ''; });
       if (successEl) successEl.classList.add('hidden');
       if (errorEl) errorEl.classList.add('hidden');
 
@@ -117,13 +69,11 @@
 
       submitToSheet(payload,
         function () {
-          // Success
           if (btn) { btn.textContent = 'Enter The Hunt →'; btn.disabled = false; }
           wlForm.querySelectorAll('input, select').forEach(function (el) { el.value = ''; });
           if (successEl) successEl.classList.remove('hidden');
         },
         function () {
-          // Error
           if (btn) { btn.textContent = 'Enter The Hunt →'; btn.disabled = false; }
           if (errorEl) errorEl.classList.remove('hidden');
         }
@@ -142,7 +92,6 @@
       var email = document.getElementById('c-email');
       var program = document.getElementById('c-program');
       var slot = document.getElementById('c-slot');
-      var msg = document.getElementById('c-msg');
       var btn = cForm.querySelector('.form-submit');
       var successEl = document.getElementById('contact-success');
 
