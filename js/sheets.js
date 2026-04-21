@@ -6,7 +6,7 @@
    
    HOW TO CONNECT YOUR GOOGLE SHEET:
    1. Open your Google Sheet:
-      https://docs.google.com/spreadsheets/d/1ltnIqRDXo-Ub4TEj1Kh3BpwBB4lhGxw4dM4RkZl3NJU/
+      https://docs.google.com/spreadsheets/d/1yhUDwka-LXWGg_jw6xAP2LbqiEfT6c7Ujk2IR0HzySQ/edit?gid=0#gid=0
    2. Click Extensions → Apps Script
    3. Paste the Apps Script code below into the editor
    4. Click Deploy → New Deployment → Web App
@@ -49,10 +49,10 @@
 (function () {
 
   // ← PASTE YOUR APPS SCRIPT WEB APP URL HERE after deploying
-  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxdN3SLqB_FHJtcYZ_CzOjQtvtN7Nr1GYtvrCQWQLV3bny2hZMbvdgBuKZCsasYrKNq/exec';
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwcXcImes-UPcPgTO4iZNp_8zDHueqdJ3dWKvuRoFKIWMBtOGjNm_dDWJ2nnAAYR3NLng/exec';
 
   function submitToSheet(data, onSuccess, onError) {
-    if (!SHEET_URL || SHEET_URL === 'https://script.google.com/macros/s/AKfycbxdN3SLqB_FHJtcYZ_CzOjQtvtN7Nr1GYtvrCQWQLV3bny2hZMbvdgBuKZCsasYrKNq/exec') {
+    if (!SHEET_URL || SHEET_URL === 'https://script.google.com/macros/s/AKfycbwcXcImes-UPcPgTO4iZNp_8zDHueqdJ3dWKvuRoFKIWMBtOGjNm_dDWJ2nnAAYR3NLng/exec') {
       console.warn('[Redcrown] Google Sheet not connected.');
       onSuccess();
       return;
@@ -66,7 +66,7 @@
     params.append('slot', data.slot || '');
     params.append('source', data.source || 'Waitlist');
 
-    fetch('https://docs.google.com/spreadsheets/d/1ltnIqRDXo-Ub4TEj1Kh3BpwBB4lhGxw4dM4RkZl3NJU', {
+    fetch('https://docs.google.com/spreadsheets/d/1yhUDwka-LXWGg_jw6xAP2LbqiEfT6c7Ujk2IR0HzySQ/edit?gid=0#gid=0', {
       method: 'POST',
       body: params
     })
