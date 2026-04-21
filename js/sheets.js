@@ -1,26 +1,27 @@
 (function () {
 
-  // ✅ Your Apps Script Web App URL
-  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwcXcImes-UPcPgTO4iZNp_8zDHueqdJ3dWKvuRoFKIWMBtOGjNm_dDWJ2nnAAYR3NLng/exec';
+  // ✅ Your NEW Web App URL
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbx9zq04cAelwcrAwB74LBpZ7Jnoox__1I02UCk8aElaoBX_reXKA3S2pe-zke3sbauCwQ/exec';
 
   function submitToSheet(data, onSuccess, onError) {
     if (!SHEET_URL) {
-      console.warn('[Redcrown] Google Sheet not connected.');
-      onSuccess();
+      console.warn('[Redcrown] Missing SHEET_URL');
+      onError();
       return;
     }
 
+    var formData = new FormData();
+
+    Object.keys(data).forEach(function (key) {
+      formData.append(key, data[key]);
+    });
+
     fetch(SHEET_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
+      body: formData
     })
       .then(function (res) {
-        return res.json();
-      })
-      .then(function () {
+        console.log('[Redcrown] Sheet response:', res);
         onSuccess();
       })
       .catch(function (err) {
@@ -44,23 +45,20 @@
       var successEl = document.getElementById('form-success');
       var errorEl = document.getElementById('form-error');
 
-      // Reset states
       [name, phone].forEach(function (el) { if (el) el.style.borderColor = ''; });
       if (successEl) successEl.classList.add('hidden');
       if (errorEl) errorEl.classList.add('hidden');
 
-      // Validate
       var valid = true;
-      if (!name || !name.value.trim()) { if (name) name.style.borderColor = '#fb3640'; valid = false; }
-      if (!phone || !phone.value.trim()) { if (phone) phone.style.borderColor = '#fb3640'; valid = false; }
+      if (!name || !name.value.trim()) { name.style.borderColor = '#fb3640'; valid = false; }
+      if (!phone || !phone.value.trim()) { phone.style.borderColor = '#fb3640'; valid = false; }
       if (!valid) return;
 
-      // Loading state
       if (btn) { btn.textContent = 'Sending...'; btn.disabled = true; }
 
       var payload = {
-        name: name ? name.value.trim() : '',
-        phone: phone ? phone.value.trim() : '',
+        name: name.value.trim(),
+        phone: phone.value.trim(),
         email: email ? email.value.trim() : '',
         program: program ? program.value : '',
         slot: slot ? slot.value : '',
@@ -98,15 +96,15 @@
       [name, phone].forEach(function (el) { if (el) el.style.borderColor = ''; });
 
       var valid = true;
-      if (!name || !name.value.trim()) { if (name) name.style.borderColor = '#fb3640'; valid = false; }
-      if (!phone || !phone.value.trim()) { if (phone) phone.style.borderColor = '#fb3640'; valid = false; }
+      if (!name || !name.value.trim()) { name.style.borderColor = '#fb3640'; valid = false; }
+      if (!phone || !phone.value.trim()) { phone.style.borderColor = '#fb3640'; valid = false; }
       if (!valid) return;
 
       if (btn) { btn.textContent = 'Sending...'; btn.disabled = true; }
 
       var payload = {
-        name: name ? name.value.trim() : '',
-        phone: phone ? phone.value.trim() : '',
+        name: name.value.trim(),
+        phone: phone.value.trim(),
         email: email ? email.value.trim() : '',
         program: program ? program.value : '',
         slot: slot ? slot.value : '',
@@ -121,7 +119,7 @@
         },
         function () {
           if (btn) { btn.textContent = 'Send Message →'; btn.disabled = false; }
-          alert('Something went wrong. Please call us directly: +91 99106 04536');
+          alert('Something went wrong. Please call us directly.');
         }
       );
     });
